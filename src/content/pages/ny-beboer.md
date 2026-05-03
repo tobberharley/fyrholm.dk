@@ -7,16 +7,23 @@ Velkommen til Ejerforeningen Fyrholm! Vi har samlet det vigtigste, du skal vide 
 
 ## Det praktiske
 
-1. **Registrér dig** hos administrator når du overtager lejligheden.
+1. **Registrér dig** hos administrator (Administration Danmark, [adm@admdk.dk](mailto:adm@admdk.dk), [7020 5957](tel:+4570205957)) når du overtager lejligheden.
 2. **Læs husordenen** — find den under [Dokumenter](/fyrholm.dk/dokumenter#husorden).
 3. **Affald** — vi sorterer i flere fraktioner. Se [Affaldssortering](/fyrholm.dk/viden/affaldssortering).
-4. **Parkering** — kræver beboerlicens. Se [Parkering](/fyrholm.dk/viden/parkering).
+4. **Parkering** — vi har egen p-kælder med el-bil ladestandere; gadeparkering kræver beboerlicens. Se [Parkering](/fyrholm.dk/viden/parkering).
 5. **Internet og TV** — vi har en fælles fiberløsning. Se [TV, internet og telefoni](/fyrholm.dk/viden/tv-internet-telefoni).
+6. **Nøgler** — ekstra nøgler bestilles hos Låsebussen ApS på [3252 5000](tel:+4532525000) med lejlighedens sikkerhedskorts kode.
+
+## Akut hjælp
+
+Ved akutte skader, fejl på elevator/dørtelefon eller blokeret affaldsskakt: kontakt vicevært **Jan Meincke** på [4036 6335](tel:+4540366335) (telefontid hverdage kl. 07–11; akutte skader døgnet rundt).
 
 ## Mød naboerne
 
-Vi afholder flere arrangementer i løbet af året — bl.a. forårsrengøring og sommerfest. Følg med under [Det sker](/fyrholm.dk/kalender).
+Fyrholm har et aktivt beboerliv organiseret i flere laug — **Hyggelaug**, **Havelaug**, **Kajaklaug** og **Værkstedslaug**. Læs mere under [Om os](/fyrholm.dk/om-os#laug-og-fællesskab).
+
+Deltag også i vores [Facebookgruppe](https://www.facebook.com/groups/760829583961473/), og hold øje med [Det sker](/fyrholm.dk/kalender) for arrangementer som forårsrengøring og sommerfest.
 
 ## Spørgsmål?
 
-Skriv til bestyrelsen via [Kontakt](/fyrholm.dk/kontakt) — vi hjælper gerne.
+Skriv til bestyrelsen på [fyrbs@administrationdanmark.dk](mailto:fyrbs@administrationdanmark.dk) — eller se alle kontakter under [Kontakt](/fyrholm.dk/kontakt).

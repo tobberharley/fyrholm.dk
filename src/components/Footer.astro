@@ -33,6 +33,11 @@ const year = new Date().getFullYear();
         {site.email && <a href={`mailto:${site.email}`}>{site.email}</a>}
         {site.phone && <><br /><a href={`tel:${site.phone.replace(/\s/g, '')}`}>{site.phone}</a></>}
       </address>
+      {(site as any).contacts?.facebook && (
+        <p style="margin-top: var(--space-3);">
+          <a href={(site as any).contacts.facebook} target="_blank" rel="noopener">Facebookgruppe →</a>
+        </p>
+      )}
     </div>
   </div>
   <div class="container copyright">

@@ -3,19 +3,26 @@ title: Parkering
 category: Beboerinfo
 date: 2026-02-15
 order: 2
-summary: Information om parkering for beboere og gæster.
+summary: Information om parkering for beboere og gæster, herunder vores egen parkeringskælder med el-bil ladestandere.
 ---
 
-Parkering i området er reguleret af Københavns Kommune og kræver gyldig beboerlicens.
+Fyrholm ejer sin egen **underjordiske parkeringskælder**. Som beboer kan du leje en plads, og kælderen er udstyret med **el-bil ladestandere**.
 
-### Beboerlicens
+### Lej en plads i p-kælderen
 
-Du ansøger om beboerlicens via [kk.dk/parkering](https://www.kk.dk/parkering).
+P-pladser udlejes via Administration Danmark — se [Kontakt](/fyrholm.dk/kontakt). Der kan være venteliste.
 
-### Gæsteparkering
+### Parkering på vejene udenfor
 
-Gæster kan købe en gæstelicens via samme portal.
+Parkering i selve området er reguleret af Københavns Kommune og kræver gyldig beboerlicens.
+
+- **Beboerlicens**: ansøg via [kk.dk/parkering](https://www.kk.dk/parkering).
+- **Gæsteparkering**: gæster kan købe gæstelicens via samme portal.
 
 ### Cykelparkering
 
-Cykler stilles i cykelstativerne i gården eller i cykelkælderen. Cykler der står andre steder kan blive fjernet i forbindelse med oprydning.
+Cykler stilles i cykelstativerne i gården eller i cykelkælderen. Cykler, der står andre steder, kan blive fjernet i forbindelse med oprydning.
+
+### Både og kajakker
+
+Fyrholm har egne bådpladser og en bådrampe direkte ind til gården, så mindre både, joller og kajakker kan trækkes på land. Kajakker administreres af **Kajaklauget** — se [Om os](/fyrholm.dk/om-os#laug-og-fællesskab).

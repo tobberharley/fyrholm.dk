@@ -2,15 +2,38 @@
   "name": "Ejerforeningen Fyrholm",
   "shortName": "Fyrholm",
   "tagline": "Velkommen til Ejerforeningen Fyrholm",
-  "description": "Hjemmeside for Ejerforeningen Fyrholm — 195 ejerlejligheder på Sluseholmen i København SV. Nyheder, beboerinfo, dokumenter og kontakt.",
+  "description": "Hjemmeside for Ejerforeningen Fyrholm — 196 ejerlejligheder på Sluseholmen i København SV. Nyheder, beboerinfo, dokumenter og kontakt.",
   "address": {
     "street": "Ben Websters Vej 102–146, Ernie Wilkins Vej 19–29, Oscar Pettifords Vej 11–31",
     "postalCode": "2450",
     "city": "København SV"
   },
   "cvr": "30790057",
-  "email": "kontakt@fyrholm.dk",
+  "email": "fyrbs@administrationdanmark.dk",
   "phone": "",
+  "contacts": {
+    "board": {
+      "label": "Bestyrelsen",
+      "email": "fyrbs@administrationdanmark.dk"
+    },
+    "administrator": {
+      "label": "Administration Danmark",
+      "email": "adm@admdk.dk",
+      "phone": "7020 5957",
+      "website": "https://www.administrationdanmark.dk/"
+    },
+    "caretaker": {
+      "label": "Vicevært — Jan Meincke",
+      "phone": "4036 6335",
+      "hours": "Telefontid hverdage kl. 07–11"
+    },
+    "locksmith": {
+      "label": "Låsebussen ApS (nøgler og låse)",
+      "phone": "3252 5000",
+      "address": "Smedekærvej 6, 2770 Kastrup"
+    },
+    "facebook": "https://www.facebook.com/groups/760829583961473/"
+  },
   "heroImage": "/images/ejendom.png",
   "heroImageAlt": "Luftfoto af Fyrholm-karréen på Sluseholmen i København SV",
   "coordinates": {
@@ -20,7 +43,7 @@
   },
   "hero": {
     "heading": "Velkommen til E/F Fyrholm",
-    "body": "195 ejerlejligheder på Sluseholmen i København SV. Mød naboerne, find praktisk beboerinfo, og hold dig opdateret med seneste nyheder fra bestyrelsen.",
+    "body": "196 ejerlejligheder på en anlagt ø på Sluseholmen i København SV — omgivet af kanaler og havneløb. Mød naboerne, find praktisk beboerinfo, og hold dig opdateret med seneste nyheder fra bestyrelsen.",
     "ctaText": "Læs mere",
     "ctaLink": "/om-os"
   },

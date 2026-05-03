@@ -37,7 +37,7 @@ De traditionelle trafikanter parkerer under jorden. Opgangen er bevidst placeret
 | | |
 |---|---|
 | **Opført** | 2006 |
-| **Type** | Bolig — 195 ejerlejligheder |
+| **Type** | Bolig — 196 ejerlejligheder mellem 60 og 145 m² |
 | **Sted** | Sluseholmen, København SV (Sydhavn) |
 | **Bygherre** | Nordicom Bolig · Sluseholm Karré ApS |
 | **Arkitekter** | C.F. Møller Architects · Format Arkitekter · Vilhelm Lauritzen Arkitekter · KHR Architecture · Gröning Arkitekter |
