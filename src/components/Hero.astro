@@ -1,6 +1,9 @@
 ---
 import site from '../data/site.json';
 import { link } from '../lib/url';
+
+const heroImage = (site as any).heroImage as string | undefined;
+const heroImageAlt = (site as any).heroImageAlt as string | undefined;
 ---
 
 <section class="hero">
@@ -19,11 +22,17 @@ import { link } from '../lib/url';
         <button type="submit" class="btn">Søg</button>
       </form>
     </div>
-    <div class="hero-art" aria-hidden="true">
-      <div class="hero-art-inner">
-        <span>{site.shortName}</span>
+    {heroImage ? (
+      <div class="hero-art hero-art-image">
+        <img src={link(heroImage)} alt={heroImageAlt ?? ''} loading="eager" />
       </div>
-    </div>
+    ) : (
+      <div class="hero-art" aria-hidden="true">
+        <div class="hero-art-inner">
+          <span>{site.shortName}</span>
+        </div>
+      </div>
+    )}
   </div>
 </section>
 
@@ -94,6 +103,14 @@ import { link } from '../lib/url';
       linear-gradient(135deg, var(--color-accent) 0%, #5a6e60 100%);
     box-shadow: var(--shadow-lg);
     position: relative;
+  }
+
+  .hero-art-image { background: var(--color-bg-soft); }
+  .hero-art-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
   }
 
   .hero-art-inner {

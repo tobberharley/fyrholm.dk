@@ -1,9 +1,26 @@
 ---
 title: Om Ejerforeningen Fyrholm
-description: Om Ejerforeningen Fyrholm — hvem vi er, hvor vi bor og hvordan foreningen drives.
+description: Om Ejerforeningen Fyrholm — 195 ejerlejligheder på Sluseholmen i København SV.
 ---
 
-Ejerforeningen Fyrholm består af lejligheder beliggende på Sluseholmen i København SV. Vi er en forening med fokus på et godt naboskab, ordnede økonomiske forhold og vedligeholdelse af vores fælles ejendom.
+Ejerforeningen Fyrholm består af **195 ejerlejligheder** beliggende på Sluseholmen i København SV. Vi er en forening med fokus på et godt naboskab, ordnede økonomiske forhold og vedligeholdelse af vores fælles ejendom.
+
+## Adresser
+
+Ejendommen omfatter følgende adresser:
+
+- **Ben Websters Vej** 102–146 (lige numre)
+- **Ernie Wilkins Vej** 19–29 (ulige numre)
+- **Oscar Pettifords Vej** 11–31 (ulige numre)
+
+Alle adresser er i postnummer 2450 København SV.
+
+Se ejendommens stamdata på [BBR-kortet](https://kort.bbr.dk/?bfe=9686758&p=723537.8475,6172357.481,14).
+
+## Foreningens stamdata
+
+- **Navn**: Ejerforeningen Fyrholm
+- **CVR-nummer**: 30790057
 
 ## Bestyrelsen
 

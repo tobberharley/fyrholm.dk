@@ -2,6 +2,7 @@
 import Base from '../layouts/Base.astro';
 import { getEntry, render } from 'astro:content';
 import site from '../data/site.json';
+import LocationMap from '../components/LocationMap.astro';
 
 const entry = await getEntry('pages', 'kontakt');
 if (!entry) throw new Error('Missing src/content/pages/kontakt.md');
@@ -21,8 +22,13 @@ const { Content } = await render(entry);
           {site.address.street}<br />
           {site.address.postalCode} {site.address.city}
         </p>
+        {site.cvr && <p>CVR: {site.cvr}</p>}
         {site.email && <p>E-mail: <a href={`mailto:${site.email}`}>{site.email}</a></p>}
         {site.phone && <p>Telefon: <a href={`tel:${site.phone.replace(/\s/g, '')}`}>{site.phone}</a></p>}
+      </div>
+
+      <div style="margin-top: var(--space-7);">
+        <LocationMap height="380px" />
       </div>
     </div>
   </article>

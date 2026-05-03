@@ -26,8 +26,10 @@ const year = new Date().getFullYear();
     <div>
       <h4>Kontakt</h4>
       <address>
+        <strong>{site.name}</strong><br />
         {site.address.street}<br />
         {site.address.postalCode} {site.address.city}<br />
+        {site.cvr && <>CVR: {site.cvr}<br /></>}
         {site.email && <a href={`mailto:${site.email}`}>{site.email}</a>}
         {site.phone && <><br /><a href={`tel:${site.phone.replace(/\s/g, '')}`}>{site.phone}</a></>}
       </address>

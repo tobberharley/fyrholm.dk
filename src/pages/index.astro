@@ -4,6 +4,7 @@ import Hero from '../components/Hero.astro';
 import NewsCard from '../components/NewsCard.astro';
 import InfoCard from '../components/InfoCard.astro';
 import EventList from '../components/EventList.astro';
+import LocationMap from '../components/LocationMap.astro';
 import { getCollection } from 'astro:content';
 import { link } from '../lib/url';
 
@@ -84,6 +85,19 @@ const info = (await getCollection('info'))
         <p>Vi har samlet alt det, du som beboer eller tilflytter har brug for, for at blive en del af fællesskabet.</p>
       </div>
       <a href={link('/ny-beboer')} class="btn">Start her</a>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <span class="eyebrow">Find vej</span>
+          <h2>Sådan ligger vi</h2>
+        </div>
+        <a href={link('/kontakt')} class="btn btn-secondary">Kontakt os</a>
+      </div>
+      <LocationMap />
     </div>
   </section>
 

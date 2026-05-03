@@ -1,0 +1,68 @@
+---
+import site from '../data/site.json';
+
+interface Props {
+  height?: string;
+  zoom?: number;
+  title?: string;
+}
+
+const { height = '420px', zoom = 16, title = 'Kort over Fyrholm' } = Astro.props;
+const coords = (site as any).coordinates as { lat: number; lng: number; label?: string } | undefined;
+const label = coords?.label ?? site.name;
+
+// Google Maps embed without API key (uses public maps URL)
+const q = coords ? `${coords.lat},${coords.lng}` : encodeURIComponent(`${site.address.street}, ${site.address.postalCode} ${site.address.city}`);
+const src = `https://www.google.com/maps?q=${q}&z=${zoom}&output=embed`;
+const linkHref = coords
+  ? `https://www.google.com/maps/search/?api=1&query=${coords.lat},${coords.lng}`
+  : `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${site.address.street}, ${site.address.postalCode} ${site.address.city}`)}`;
+---
+
+<figure class="map-figure">
+  <div class="map-frame" style={`height:${height}`}>
+    <iframe
+      src={src}
+      title={title}
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+      allowfullscreen
+    ></iframe>
+  </div>
+  <figcaption>
+    <span>{label}</span>
+    <a href={linkHref} target="_blank" rel="noopener">Åbn i Google Maps →</a>
+  </figcaption>
+</figure>
+
+<style>
+  .map-figure {
+    margin: 0;
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+  }
+  .map-frame { position: relative; width: 100%; }
+  .map-frame iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
+  }
+  figcaption {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--space-3);
+    padding: var(--space-3) var(--space-4);
+    font-size: 0.95rem;
+    color: var(--color-text-muted);
+    border-top: 1px solid var(--color-border);
+    background: var(--color-bg-soft);
+  }
+  figcaption a { white-space: nowrap; }
+</style>
