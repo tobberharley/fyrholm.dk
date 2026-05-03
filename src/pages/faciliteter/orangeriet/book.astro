@@ -1,0 +1,31 @@
+---
+import Base from '../../../layouts/Base.astro';
+import CalEmbed from '../../../components/CalEmbed.astro';
+import { link } from '../../../lib/url';
+import { getEntry } from 'astro:content';
+
+const entry = await getEntry('facilities', 'orangeriet');
+---
+
+<Base title="Book Orangeriet" description="Book en tid i Fyrholms orangeri — fælles drivhus og samlingsrum.">
+  <article class="section">
+    <div class="container">
+      <p><a href={link('/faciliteter/orangeriet')}>← Tilbage til Orangeriet</a></p>
+      <span class="eyebrow">Booking</span>
+      <h1>Book Orangeriet</h1>
+      <p class="lead">Vælg en ledig tid i kalenderen herunder. Du modtager en bekræftelse pr. e-mail.</p>
+
+      <div style="margin-top: var(--space-6);">
+        <CalEmbed />
+      </div>
+
+      <p style="margin-top: var(--space-5); color: var(--color-text-muted);">
+        Husk at læse husreglerne på <a href={link('/faciliteter/orangeriet')}>Orangeriets side</a> inden du booker.
+      </p>
+    </div>
+  </article>
+</Base>
+
+<style>
+  .lead { color: var(--color-text-muted); font-size: 1.15rem; max-width: 60ch; }
+</style>

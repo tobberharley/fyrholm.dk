@@ -23,6 +23,11 @@ const { Content } = await render(entry);
         <h1>{entry.data.title}</h1>
       </div>
       <p class="lead">{entry.data.summary}</p>
+      {entry.id === 'orangeriet' && (
+        <p style="margin: var(--space-5) 0;">
+          <a href={link('/faciliteter/orangeriet/book')} class="btn">Book Orangeriet →</a>
+        </p>
+      )}
       <div class="prose"><Content /></div>
     </div>
   </article>
