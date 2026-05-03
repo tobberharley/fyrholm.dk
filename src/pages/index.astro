@@ -5,6 +5,7 @@ import NewsCard from '../components/NewsCard.astro';
 import InfoCard from '../components/InfoCard.astro';
 import EventList from '../components/EventList.astro';
 import LocationMap from '../components/LocationMap.astro';
+import FacilityCard from '../components/FacilityCard.astro';
 import { getCollection } from 'astro:content';
 import { link } from '../lib/url';
 
@@ -21,6 +22,10 @@ const events = (await getCollection('events'))
 const info = (await getCollection('info'))
   .sort((a, b) => a.data.order - b.data.order || b.data.date.getTime() - a.data.date.getTime())
   .slice(0, 4);
+
+const facilities = (await getCollection('facilities'))
+  .sort((a, b) => a.data.order - b.data.order)
+  .slice(0, 6);
 ---
 
 <Base>
@@ -55,6 +60,21 @@ const info = (await getCollection('info'))
         <a href={link('/kalender')} class="btn btn-secondary">Se kalenderen</a>
       </div>
       <EventList events={events} />
+    </div>
+  </section>
+
+  <section class="section section-soft">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <span class="eyebrow">Faciliteter og laug</span>
+          <h2>Mere end fire vægge</h2>
+        </div>
+        <a href={link('/faciliteter')} class="btn btn-secondary">Se alle faciliteter</a>
+      </div>
+      <div class="grid grid-3">
+        {facilities.map((entry) => <FacilityCard entry={entry} />)}
+      </div>
     </div>
   </section>
 

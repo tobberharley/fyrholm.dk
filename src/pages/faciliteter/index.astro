@@ -1,0 +1,25 @@
+---
+import Base from '../../layouts/Base.astro';
+import FacilityCard from '../../components/FacilityCard.astro';
+import { getCollection } from 'astro:content';
+
+const facilities = (await getCollection('facilities'))
+  .sort((a, b) => a.data.order - b.data.order);
+---
+
+<Base title="Faciliteter og laug" description="Fyrholms faciliteter — laug, p-kælder, bådpladser, værksted og fælles gårdrum.">
+  <section class="section">
+    <div class="container">
+      <span class="eyebrow">Faciliteter og laug</span>
+      <h1>Fyrholm har mere end fire vægge</h1>
+      <p class="lead">Et aktivt beboerliv, fælles faciliteter og naboer der kender hinanden. Find ud af hvad du kan være med i.</p>
+      <div class="grid grid-3" style="margin-top: var(--space-7);">
+        {facilities.map((entry) => <FacilityCard entry={entry} />)}
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .lead { color: var(--color-text-muted); max-width: 60ch; font-size: 1.1rem; }
+</style>

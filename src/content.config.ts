@@ -64,4 +64,16 @@ const pages = defineCollection({
   }),
 });
 
-export const collections = { news, events, info, documents, pages };
+const facilities = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/facilities' }),
+  schema: z.object({
+    title: z.string(),
+    icon: z.string().default('✦'),
+    summary: z.string(),
+    order: z.number().default(0),
+    link: z.string().optional(), // optional external link (e.g. Facebook group)
+    membersOnly: z.boolean().default(false),
+  }),
+});
+
+export const collections = { news, events, info, documents, pages, facilities };

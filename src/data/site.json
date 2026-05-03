@@ -48,6 +48,7 @@
     "ctaLink": "/om-os"
   },
   "quickLinks": [
+    { "label": "Faciliteter", "href": "/faciliteter" },
     { "label": "Kontakt os", "href": "/kontakt" },
     { "label": "Om os", "href": "/om-os" },
     { "label": "Nyheder", "href": "/nyheder" }
