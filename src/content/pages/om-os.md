@@ -7,6 +7,12 @@ Ejerforeningen Fyrholm består af **196 ejerlejligheder** mellem 60 og 145 m² p
 
 Læs mere om bygningen og baggrunden under [Historie](/fyrholm.dk/historie), eller se hvad du kan være med i under [Faciliteter og laug](/fyrholm.dk/faciliteter).
 
+## Om bygningen
+
+Fyrholm-karréen stod færdig i **oktober 2006** og var én af de første bebyggede øer på Sluseholmen. Helhedsplanen er tegnet af den hollandske arkitekt **Sjoerd Soeters**, og karréen er resultatet af et samarbejde mellem flere danske tegnestuer — herunder **Gröning Arkitekter**, der også stod bag det rolige, hollandsk-inspirerede gårdrum. Hver facade er bevidst forskellig, så karréen fremstår som en klassisk varieret havneby.
+
+Se billeder og hele historien på [Fyrholms historie](/fyrholm.dk/historie).
+
 ## Adresser
 
 Ejendommen omfatter følgende adresser — alle i postnummer 2450 København SV:

@@ -4,6 +4,11 @@ description: Historien om Fyrholm-karréen — én af de første bebyggede øer 
 updated: 2026-05-03
 ---
 
+<figure>
+  <img src="/fyrholm.dk/images/historie/fyrholm-gaardrum.jpg" alt="Fyrholms gårdrum med græsplæne, hollandsk-inspireret anlag" loading="lazy" />
+  <figcaption>Gårdrummet i Fyrholm — inspireret af Begijnhof i Amsterdam. <span style="opacity:.7">Foto: Gröning Arkitekter</span></figcaption>
+</figure>
+
 ## En bebygget ø i Sluseholmen
 
 Området omkring Sydhavnens sluse havde længe ligget næsten tomt, efter at den tunge erhvervstrafik i havneløbet blev afviklet. Livet i Sluseholmen startede derfor forfra med beboerne, da de flyttede ind på **Fyrholm**, som i **oktober 2006** var én af de første bebyggede øer på Sluseholmen.
@@ -21,6 +26,11 @@ Københavns Kommune og arkitekterne bag Fyrholm-karréen har arbejdet bevidst me
 ## Fred importeret fra Holland
 
 I tråd med Sjoerd Soeters' dogme er **alle facaderne på Fyrholm forskellige**. Arkitekt **Claus Gröning** ønskede til gengæld en kontrast indvendigt — et sted, der kunne tilføre ro.
+
+<figure>
+  <img src="/fyrholm.dk/images/historie/fyrholm-facader.jpg" alt="Fyrholm set fra havneløbet med varierede facader" loading="lazy" />
+  <figcaption>Sjoerd Soeters' dogme: hver karré består af en række forskellige facader, så bydelen fremstår varieret som en klassisk havneby. <span style="opacity:.7">Foto: Gröning Arkitekter</span></figcaption>
+</figure>
 
 Idéen kom på et besøg i **Begijnhof i Amsterdam**, et anlæg fra 1400-tallet omsluttet af gamle, traditionelle hollandske huse. Stedet hørte til en katolsk kvindeorden, der levede et puritansk liv omkring et tilbagetrukket haveanlæg med en kirke i midten.
 
@@ -48,4 +58,4 @@ De traditionelle trafikanter parkerer under jorden. Opgangen er bevidst placeret
 
 ---
 
-*Kilde og uddybende læsning: [Dansk Arkitektur Center — Fyrholm: En bebygget ø i Sluseholmen](https://dac.dk/magazine/steder/fyrholm-en-bebygget-o-i-sluseholmen-93).*
+*Kilder og uddybende læsning: [Gröning Arkitekter — Fyrholm på Sluseholmen](https://groning-arkitekter.dk/sluseholmen%20-%20fyrholm.html) · [Dansk Arkitektur Center — Fyrholm: En bebygget ø i Sluseholmen](https://dac.dk/magazine/steder/fyrholm-en-bebygget-o-i-sluseholmen-93).*

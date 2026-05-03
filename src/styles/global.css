@@ -231,6 +231,24 @@ p { margin: 0 0 var(--space-4); }
   margin: var(--space-5) 0;
 }
 
+.prose figure {
+  margin: var(--space-6) 0;
+}
+
+.prose figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0;
+}
+
+.prose figcaption {
+  margin-top: var(--space-2);
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  text-align: center;
+}
+
 .prose h2 { margin-top: var(--space-7); }
 .prose h3 { margin-top: var(--space-6); }
 
