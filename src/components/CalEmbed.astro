@@ -2,23 +2,20 @@
 import site from '../data/site.json';
 
 interface Props {
-  calLink?: string; // e.g. "fyrholm/orangeri"
+  calLink?: string; // e.g. "fyrholm/orangeriet"
   height?: string;
-  origin?: string; // e.g. "https://cal.eu" or "https://app.cal.com"
 }
 
-const cal = (site as any).calcom as { username?: string; eventSlug?: string; origin?: string } | undefined;
+const cal = (site as any).calcom as { username?: string; eventSlug?: string } | undefined;
 const calLink = Astro.props.calLink ?? (cal?.username && cal?.eventSlug ? `${cal.username}/${cal.eventSlug}` : undefined);
 const height = Astro.props.height ?? '720px';
-const origin = Astro.props.origin ?? cal?.origin ?? 'https://cal.com';
-const embedSrc = `${origin}/embed/embed.js`;
 ---
 
 {calLink ? (
   <div class="cal-embed-wrap">
     <div id="cal-inline" style={`min-width:320px;width:100%;height:${height};overflow:scroll`} aria-label="Booking-kalender"></div>
 
-    <script is:inline define:vars={{ calLink, embedSrc, origin }}>
+    <script is:inline define:vars={{ calLink }}>
       (function (C, A, L) {
         let p = function (a, ar) { a.q.push(ar); };
         let d = C.document;
@@ -44,17 +41,17 @@ const embedSrc = `${origin}/embed/embed.js`;
           }
           p(cal, ar);
         };
-      })(window, embedSrc, "init");
+      })(window, "https://app.cal.com/embed/embed.js", "init");
 
-      Cal("init", "orangeri", { origin: origin });
+      Cal("init", "orangeriet", { origin: "https://app.cal.com" });
 
-      Cal.ns.orangeri("inline", {
+      Cal.ns.orangeriet("inline", {
         elementOrSelector: "#cal-inline",
         config: { layout: "month_view", theme: "light" },
         calLink: calLink,
       });
 
-      Cal.ns.orangeri("ui", {
+      Cal.ns.orangeriet("ui", {
         hideEventTypeDetails: false,
         layout: "month_view",
       });

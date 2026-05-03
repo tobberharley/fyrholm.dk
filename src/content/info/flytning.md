@@ -1,23 +1,45 @@
 ---
 title: Indflytning og udflytning
 category: Beboerinfo
-date: 2026-02-01
+date: 2026-05-03
 order: 4
-summary: Praktisk information til dig der flytter ind eller ud.
+summary: Praktisk information når du flytter ind, sælger eller flytter ud — herunder besked til administrator og overdragelse af P-plads.
 ---
 
-Velkommen til Fyrholm! Her er lidt praktisk info til dig der flytter ind eller ud.
+Velkommen til Fyrholm — eller på gensyn, hvis du flytter ud. Her er det praktiske, du skal huske.
 
-### Ved indflytning
+## Ved indflytning
 
-- Kontakt administrator for at registrere dig som ejer
-- Få udleveret nøgler til hoveddør, postkasse og kælderrum
-- Aflæs el- og vandmålere ved overtagelsen
+- Kontakt administrator (Administration Danmark, [adm@admdk.dk](mailto:adm@admdk.dk), [7020 5957](tel:+4570205957)) for at blive registreret som ejer.
+- Få udleveret nøgler til hoveddør, postkasse og kælderrum.
+- Aflæs el- og vandmålere ved overtagelsen.
+- Læs [Husorden](/fyrholm.dk/dokumenter#husorden) og [Ordensregler for cykler](/fyrholm.dk/viden/cykler).
+
+## Har du solgt din lejlighed?
+
+Hvis du har solgt din lejlighed på Fyrholm, er det vigtigt, at **administrator får besked om det**. Det er ejendomsmægleren eller den advokat, der berigtiger handlen, der skal meddele dette til administrator — så vi kan registrere ejerskiftet i vores system.
+
+### Hvis du har lejet en P-plads i P-kælderen
+
+Hvis du har solgt din lejlighed og samtidig lejer en P-plads i p-kælderen, kan du **tilbyde køberen at indgå ny lejeaftale på samme P-plads — uden hensyntagen til ventelisten**.
+
+Dette gælder dog **kun, hvis lejeaftalen på P-pladsen ikke allerede er opsagt**.
+
+Ønsker køber ikke at overtage leje af P-pladsen, skal **Administration Danmark straks informeres** herom.
 
 ### Ved udflytning
 
-- Aflever alle nøgler til administrator
-- Aflæs el- og vandmålere
-- Tøm dit kælderrum
+- Aflever alle nøgler til administrator.
+- Aflæs el- og vandmålere.
+- Tøm dit kælderrum.
+
+## Udlejning af lejligheden
+
+Ifølge vedtægterne skal udlejning meddeles til administrator. Brug blanketten på Administration Danmarks intranet/hjemmeside.
+
+## Er du i tvivl om noget?
+
+Skriv til Administration Danmark på [adm@admdk.dk](mailto:adm@admdk.dk) eller ring [7020 5957](tel:+4570205957). Du kan også kontakte [bestyrelsen](/fyrholm.dk/kontakt).
 
 Se også [Husorden](/fyrholm.dk/dokumenter#husorden) og [Vedtægter](/fyrholm.dk/dokumenter#vedtaegter).
+

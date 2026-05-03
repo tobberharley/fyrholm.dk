@@ -16,6 +16,7 @@ const href = isExternal ? entry.data.link! : link(`/faciliteter/${entry.id}`);
   <div class="facility-body">
     <h3>
       {entry.data.title}
+      {entry.data.badge && <span class="badge" title={entry.data.badge}>{entry.data.badge}</span>}
       {entry.data.membersOnly && <span class="badge" title="Kræver medlemskab">Medlemskab</span>}
     </h3>
     <p>{entry.data.summary}</p>

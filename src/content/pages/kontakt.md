@@ -21,16 +21,26 @@ Administrator håndterer økonomi, fællesudgifter, juridiske forhold, ind- og u
 - Telefon: [7020 5957](tel:+4570205957)
 - Web (intranet for beboere): [administrationdanmark.dk](https://www.administrationdanmark.dk/)
 
-## Vicevært
+## Vicevært og varmemester
 
-**Jan Meincke** — telefon [4036 6335](tel:+4540366335). Telefontid hverdage kl. 07–11.
+Vores vicevært og varmemester er **Meincke's Total Service** ved **Jan Meincke** — telefon [4036 6335](tel:+4540366335). Telefontid hverdage kl. 07–11.
 
-Kontakt viceværten ved fx:
+Ved behov for **akut hjælp uden for kontortid** kan samme telefon bruges.
 
-- Akutte skader (også uden for åbningstid)
-- Fejl på elevator
-- Fejl på dørtelefon
-- Blokeret affaldsskakt
+### Bestil/rekvirér hos viceværten
+
+- Stop på ventilationssystemet
+- Stop på elevatorerne
+- Stop på skraldesuget
+- Problemer med varmeforsyningen
+- Problemer med forsyningen af koldt eller varmt vand
+- Problemer med dørlukkere og dørlåse
+- Elpærer der skal skiftes i trapper, opgange og altangange
+- Fejl på fællesinstallationerne i kælderen og i installationsskakten
+
+### Akutte problemer
+
+Fx vandskade, hvor du ikke selv kan lukke for vandet eller begrænse skaden, kloakoversvømmelse, eller hvis der ingen strøm er i hele opgangen eller kælderen. Se også [Akutte skader](/fyrholm.dk/viden/akutte-skader) for hvad du selv skal gøre først.
 
 ## Nøgler og låse
 

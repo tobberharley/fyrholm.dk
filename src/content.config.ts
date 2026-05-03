@@ -73,6 +73,7 @@ const facilities = defineCollection({
     order: z.number().default(0),
     link: z.string().optional(), // optional external link (e.g. Facebook group)
     membersOnly: z.boolean().default(false),
+    badge: z.string().optional(),
   }),
 });
 

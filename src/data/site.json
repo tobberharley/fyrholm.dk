@@ -23,9 +23,9 @@
       "website": "https://www.administrationdanmark.dk/"
     },
     "caretaker": {
-      "label": "Vicevært — Jan Meincke",
+      "label": "Meincke's Total Service — Jan Meincke",
       "phone": "4036 6335",
-      "hours": "Telefontid hverdage kl. 07–11"
+      "hours": "Telefontid hverdage kl. 07–11 — akutte skader døgnet rundt"
     },
     "locksmith": {
       "label": "Låsebussen ApS (nøgler og låse)",
@@ -36,8 +36,7 @@
   },
   "calcom": {
     "username": "fyrholm",
-    "eventSlug": "orangeri",
-    "origin": "https://cal.eu"
+    "eventSlug": "orangeri"
   },
   "heroImage": "/images/ejendom.png",
   "heroImageAlt": "Luftfoto af Fyrholm-karréen på Sluseholmen i København SV",
