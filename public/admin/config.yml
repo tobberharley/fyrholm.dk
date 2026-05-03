@@ -1,16 +1,15 @@
-# Decap CMS configuration for Ejerforeningen Fyrholm
+# yaml-language-server: $schema=https://unpkg.com/@sveltia/cms/schema/sveltia-cms.json
 #
-# Login flow: GitHub PKCE OAuth (no OAuth proxy or external server needed).
-# The OAuth handshake happens entirely in the browser using the GitHub
-# OAuth App's Client ID. Editors log in with their own GitHub account
-# and must be added as collaborators on the repository.
+# Sveltia CMS configuration for Ejerforeningen Fyrholm.
+# Login: click "Sign in with Token" on the login screen, follow the
+# GitHub link to generate a Personal Access Token with the pre-selected
+# scopes, paste it back. Token stays in your browser.
+# Editors must have write access to the repository.
 
 backend:
   name: github
   repo: tobberharley/fyrholm.dk
   branch: main
-  auth_type: pkce
-  app_id: Ov23lipwJMdkn0GnTkbA   # GitHub OAuth App Client ID (PKCE)
 
 # Uncomment for local editing with `npm run cms` (decap-server) + `npm run dev`
 # local_backend: true
