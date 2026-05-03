@@ -16,10 +16,36 @@ P-pladser udlejes via Administration Danmark. Der kan være venteliste.
 
 ### Parkering på vejene udenfor
 
-Parkering i selve området er reguleret af Københavns Kommune og kræver gyldig beboerlicens.
+Vejene på Sluseholmen Nord er **private fællesveje** ejet af Grundejerforeningen Sluseholmen Nord (ikke Københavns Kommune). Vejen *Sluseholmen* selv ejes af Vejlauget.
 
-- **Beboerlicens**: ansøg via [kk.dk/parkering](https://www.kk.dk/parkering).
-- **Gæsteparkering**: gæster kan købe gæstelicens via samme portal.
+#### På Dexter Gordons Vej, Ben Websters Vej og Richard Boones Vej
+
+- **Beboerlicens: 241 kr./md.** — du kan købe op til **2 licenser pr. husstand**.
+- **Gæster**: 12 kr./time via apps som EasyPark, Apcoa m.fl.
+
+#### På vejen Sluseholmen
+
+- **Ingen beboerlicens** — alle parkerer på timetakst.
+- **Gæster og beboere**: 12 kr./time via apps som EasyPark, Apcoa m.fl.
+
+#### Parkering i andre p-kældre på holmene
+
+Kontakt de enkelte boligforeninger direkte.
+
+#### Køb beboerlicens
+
+Hvis du bor i Grundejerforeningen Sluseholmen Nord (Sluseholmen 18–44, Thad Jones Vej, Richard Boones Vej, Dexter Gordons Vej, Ben Websters Vej, Ernie Wilkins Vej, Kenny Drews Vej, Oscar Pettifords Vej), kan du købe beboerlicens via Apcoa:
+
+👉 **[Køb beboerlicens på parkering.apcoa.dk](https://parkering.apcoa.dk/products?productId=cdd9c6a542a0486caf4230b0fba6e763)**
+
+1. Det rigtige produkt er forudvalgt — opret dig som bruger.
+2. Validér din bopæl med **MitID**.
+3. Tilføj køretøj, e-mail og betalingskort.
+4. Licensen er aktiv inden for 24 timer. Nummerplade kan ændres efterfølgende via link fra Apcoa.
+
+> Beboerlicensen gælder kun i de **opmærkede båse**.
+
+Se grundejerforeningens fulde [parkerings-FAQ](https://gfsluseholmen.dk/) for regler om afspærring, henvendelser m.m.
 
 ### Cykelparkering
 
