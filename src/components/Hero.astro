@@ -1,0 +1,121 @@
+---
+import site from '../data/site.json';
+---
+
+<section class="hero">
+  <div class="hero-inner container">
+    <div class="hero-text">
+      <span class="eyebrow">Velkommen</span>
+      <h1>{site.hero.heading}</h1>
+      <p class="lead">{site.hero.body}</p>
+      <div class="hero-actions">
+        <a href={site.hero.ctaLink} class="btn">{site.hero.ctaText}</a>
+        <a href="/nyheder" class="btn btn-secondary">Seneste nyheder</a>
+      </div>
+      <form class="hero-search" role="search" action="/sog" method="get">
+        <label for="hero-q" class="sr-only">Søg</label>
+        <input id="hero-q" type="search" name="q" placeholder="Søg på siden…" autocomplete="off" />
+        <button type="submit" class="btn">Søg</button>
+      </form>
+    </div>
+    <div class="hero-art" aria-hidden="true">
+      <div class="hero-art-inner">
+        <span>{site.shortName}</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    background:
+      radial-gradient(ellipse at top right, var(--color-accent-soft), transparent 60%),
+      var(--color-bg-soft);
+    padding: var(--space-9) 0 var(--space-8);
+  }
+
+  .hero-inner {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: var(--space-7);
+    align-items: center;
+  }
+
+  @media (max-width: 820px) {
+    .hero-inner { grid-template-columns: 1fr; }
+    .hero-art { order: -1; }
+  }
+
+  .lead {
+    font-size: 1.15rem;
+    color: var(--color-text-muted);
+    max-width: 56ch;
+  }
+
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+    margin-bottom: var(--space-6);
+  }
+
+  .hero-search {
+    display: flex;
+    gap: var(--space-2);
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 999px;
+    padding: var(--space-2);
+    max-width: 480px;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .hero-search input {
+    flex: 1;
+    border: 0;
+    background: transparent;
+    padding: 0 var(--space-4);
+    font: inherit;
+    color: inherit;
+  }
+
+  .hero-search input:focus { outline: none; }
+
+  .hero-search .btn {
+    padding: 0.6rem 1.25rem;
+  }
+
+  .hero-art {
+    aspect-ratio: 4 / 3;
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    background:
+      linear-gradient(135deg, var(--color-accent) 0%, #5a6e60 100%);
+    box-shadow: var(--shadow-lg);
+    position: relative;
+  }
+
+  .hero-art-inner {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255, 255, 255, 0.85);
+    font-family: var(--font-serif);
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    letter-spacing: 0.04em;
+    background:
+      radial-gradient(circle at 30% 30%, rgba(255,255,255,0.25), transparent 50%),
+      radial-gradient(circle at 70% 70%, rgba(255,255,255,0.15), transparent 50%);
+  }
+
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+</style>

@@ -1,0 +1,24 @@
+---
+import Base from '../../layouts/Base.astro';
+import NewsCard from '../../components/NewsCard.astro';
+import { getCollection } from 'astro:content';
+
+const news = (await getCollection('news', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+---
+
+<Base title="Nyheder" description="Seneste nyheder fra Ejerforeningen Fyrholm.">
+  <section class="section">
+    <div class="container">
+      <span class="eyebrow">Nyheder</span>
+      <h1>Seneste nyt fra foreningen</h1>
+      {news.length === 0 ? (
+        <p>Der er endnu ingen nyheder publiceret.</p>
+      ) : (
+        <div class="grid grid-3" style="margin-top: var(--space-6);">
+          {news.map((entry) => <NewsCard entry={entry} />)}
+        </div>
+      )}
+    </div>
+  </section>
+</Base>

@@ -1,0 +1,23 @@
+{
+  "name": "fyrholm",
+  "type": "module",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build && pagefind --site dist",
+    "preview": "astro preview",
+    "astro": "astro",
+    "cms": "decap-server"
+  },
+  "dependencies": {
+    "@astrojs/rss": "^4.0.7",
+    "@astrojs/sitemap": "^3.2.1",
+    "astro": "^5.0.0"
+  },
+  "devDependencies": {
+    "decap-server": "^3.1.0",
+    "pagefind": "^1.1.1"
+  }
+}

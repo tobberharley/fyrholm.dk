@@ -1,0 +1,113 @@
+---
+import Base from '../layouts/Base.astro';
+import Hero from '../components/Hero.astro';
+import NewsCard from '../components/NewsCard.astro';
+import InfoCard from '../components/InfoCard.astro';
+import EventList from '../components/EventList.astro';
+import { getCollection } from 'astro:content';
+
+const news = (await getCollection('news', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+  .slice(0, 3);
+
+const now = new Date();
+const events = (await getCollection('events'))
+  .filter((e) => (e.data.endDate ?? e.data.date) >= now)
+  .sort((a, b) => a.data.date.getTime() - b.data.date.getTime())
+  .slice(0, 4);
+
+const info = (await getCollection('info'))
+  .sort((a, b) => a.data.order - b.data.order || b.data.date.getTime() - a.data.date.getTime())
+  .slice(0, 4);
+---
+
+<Base>
+  <Hero />
+
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <span class="eyebrow">Seneste nyheder</span>
+          <h2>Nyt fra foreningen</h2>
+        </div>
+        <a href="/nyheder" class="btn btn-secondary">Se alle nyheder</a>
+      </div>
+      {news.length === 0 ? (
+        <p>Der er endnu ingen nyheder. Kig forbi igen snart!</p>
+      ) : (
+        <div class="grid grid-3">
+          {news.map((entry) => <NewsCard entry={entry} />)}
+        </div>
+      )}
+    </div>
+  </section>
+
+  <section class="section section-soft">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <span class="eyebrow">Det sker</span>
+          <h2>Kom og mød dine naboer</h2>
+        </div>
+        <a href="/kalender" class="btn btn-secondary">Se kalenderen</a>
+      </div>
+      <EventList events={events} />
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <span class="eyebrow">Mest læste</span>
+          <h2>Godt at vide</h2>
+        </div>
+        <a href="/viden" class="btn btn-secondary">Se al beboerinfo</a>
+      </div>
+      {info.length === 0 ? (
+        <p>Beboerinfo er på vej.</p>
+      ) : (
+        <div class="grid grid-4">
+          {info.map((entry) => <InfoCard entry={entry} />)}
+        </div>
+      )}
+    </div>
+  </section>
+
+  <section class="section section-muted">
+    <div class="container cta-row">
+      <div>
+        <span class="eyebrow">Ny beboer</span>
+        <h2>Velkommen til Fyrholm</h2>
+        <p>Vi har samlet alt det, du som beboer eller tilflytter har brug for, for at blive en del af fællesskabet.</p>
+      </div>
+      <a href="/ny-beboer" class="btn">Start her</a>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container cta-row">
+      <div>
+        <span class="eyebrow">Kontakt os</span>
+        <h2>Har du spørgsmål?</h2>
+        <p>Skriv til os, eller find kontaktinfo til bestyrelse og administration.</p>
+      </div>
+      <a href="/kontakt" class="btn">Kontakt os</a>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .cta-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--space-5);
+  }
+
+  .cta-row > div { max-width: 60ch; }
+  .cta-row h2 { margin: var(--space-2) 0 var(--space-3); }
+  .cta-row p { color: var(--color-text-muted); margin: 0; }
+</style>

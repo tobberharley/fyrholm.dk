@@ -1,0 +1,156 @@
+# Decap CMS configuration for Ejerforeningen Fyrholm
+#
+# Login flow: GitHub Device Flow (no OAuth proxy required).
+# Editors log in with their own GitHub account and must be added as
+# collaborators on the repository (or members of a team with write access).
+
+backend:
+  name: github
+  repo: tobberharley/fyrholm.dk   # change to <github-owner>/<repo>
+  branch: main
+  auth_type: implicit              # GitHub Device Flow
+  app_id: Ov23lipwJMdkn0GnTkbA     # OAuth App Client ID (Device Flow enabled)
+
+# Uncomment for local editing with `npm run cms` (decap-server) + `npm run dev`
+# local_backend: true
+
+publish_mode: simple
+media_folder: public/uploads
+public_folder: /uploads
+locale: da
+site_url: https://fyrholm.dk
+display_url: https://fyrholm.dk
+logo_url: https://fyrholm.dk/favicon.svg
+
+collections:
+  - name: news
+    label: Nyheder
+    label_singular: Nyhed
+    folder: src/content/news
+    create: true
+    slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
+    extension: md
+    format: frontmatter
+    fields:
+      - { name: title, label: Titel, widget: string }
+      - { name: date, label: Dato, widget: datetime, format: 'YYYY-MM-DDTHH:mm', date_format: 'YYYY-MM-DD', time_format: 'HH:mm' }
+      - { name: summary, label: Resumé, widget: text, required: false }
+      - { name: image, label: Billede, widget: image, required: false, media_folder: '/public/uploads/news', public_folder: '/uploads/news' }
+      - { name: imageAlt, label: 'Alt-tekst på billede', widget: string, required: false }
+      - { name: draft, label: Kladde, widget: boolean, default: false }
+      - { name: body, label: Indhold, widget: markdown }
+
+  - name: events
+    label: Begivenheder
+    label_singular: Begivenhed
+    folder: src/content/events
+    create: true
+    slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
+    extension: md
+    format: frontmatter
+    fields:
+      - { name: title, label: Titel, widget: string }
+      - { name: date, label: Start, widget: datetime, format: 'YYYY-MM-DDTHH:mm', date_format: 'YYYY-MM-DD', time_format: 'HH:mm' }
+      - { name: endDate, label: Slut, widget: datetime, required: false, format: 'YYYY-MM-DDTHH:mm', date_format: 'YYYY-MM-DD', time_format: 'HH:mm' }
+      - { name: location, label: Sted, widget: string, required: false }
+      - { name: summary, label: Beskrivelse, widget: text, required: false }
+      - { name: body, label: Detaljer, widget: markdown, required: false }
+
+  - name: info
+    label: Beboerinfo (Godt at vide)
+    label_singular: Artikel
+    folder: src/content/info
+    create: true
+    slug: '{{slug}}'
+    extension: md
+    format: frontmatter
+    fields:
+      - { name: title, label: Titel, widget: string }
+      - { name: category, label: Kategori, widget: string, default: 'Beboerinfo' }
+      - { name: date, label: Senest opdateret, widget: datetime, format: 'YYYY-MM-DD', date_format: 'YYYY-MM-DD', time_format: false }
+      - { name: order, label: Sortering (lavere først), widget: number, default: 0, value_type: int }
+      - { name: image, label: Billede, widget: image, required: false, media_folder: '/public/uploads/info', public_folder: '/uploads/info' }
+      - { name: imageAlt, label: 'Alt-tekst på billede', widget: string, required: false }
+      - { name: summary, label: Kort beskrivelse, widget: text, required: false }
+      - { name: body, label: Indhold, widget: markdown }
+
+  - name: documents
+    label: Dokumenter
+    label_singular: Dokument
+    folder: src/content/documents
+    create: true
+    slug: '{{year}}-{{slug}}'
+    extension: md
+    format: frontmatter
+    fields:
+      - { name: title, label: Titel, widget: string }
+      - name: category
+        label: Kategori
+        widget: select
+        options:
+          - { label: 'Generalforsamling – indkaldelse', value: 'generalforsamling-indkaldelse' }
+          - { label: 'Generalforsamling – referat', value: 'generalforsamling-referat' }
+          - { label: 'Regnskab', value: 'regnskab' }
+          - { label: 'Vedtægter', value: 'vedtaegter' }
+          - { label: 'Husorden', value: 'husorden' }
+        # NB: Bestyrelsesreferater er IKKE en gyldig kategori — de må ikke uploades.
+      - { name: date, label: Dato, widget: datetime, format: 'YYYY-MM-DD', date_format: 'YYYY-MM-DD', time_format: false }
+      - { name: file, label: PDF-fil, widget: file, media_folder: '/public/docs', public_folder: '/docs' }
+      - { name: summary, label: Resumé, widget: text, required: false }
+      - { name: body, label: Noter, widget: markdown, required: false }
+
+  - name: pages
+    label: Sider
+    label_singular: Side
+    folder: src/content/pages
+    create: false
+    delete: false
+    extension: md
+    format: frontmatter
+    identifier_field: title
+    fields:
+      - { name: title, label: Titel, widget: string }
+      - { name: description, label: SEO-beskrivelse, widget: string, required: false }
+      - { name: body, label: Indhold, widget: markdown }
+
+  - name: settings
+    label: Indstillinger
+    files:
+      - name: site
+        label: Foreningens info
+        file: src/data/site.json
+        format: json
+        fields:
+          - { name: name, label: Foreningens fulde navn, widget: string }
+          - { name: shortName, label: Kortnavn, widget: string }
+          - { name: tagline, label: Tagline, widget: string }
+          - { name: description, label: SEO-beskrivelse, widget: text }
+          - name: address
+            label: Adresse
+            widget: object
+            fields:
+              - { name: street, label: Adresselinje, widget: string }
+              - { name: postalCode, label: Postnummer, widget: string }
+              - { name: city, label: By, widget: string }
+          - { name: email, label: E-mail, widget: string, required: false }
+          - { name: phone, label: Telefon, widget: string, required: false }
+          - name: hero
+            label: Forsidens hero
+            widget: object
+            fields:
+              - { name: heading, label: Overskrift, widget: string }
+              - { name: body, label: Brødtekst, widget: text }
+              - { name: ctaText, label: Knap-tekst, widget: string }
+              - { name: ctaLink, label: Knap-link, widget: string }
+          - name: quickLinks
+            label: Hurtige links (footer)
+            widget: list
+            fields:
+              - { name: label, label: Label, widget: string }
+              - { name: href, label: Link, widget: string }
+          - name: popularLinks
+            label: Mest læste (footer)
+            widget: list
+            fields:
+              - { name: label, label: Label, widget: string }
+              - { name: href, label: Link, widget: string }

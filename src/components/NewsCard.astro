@@ -1,0 +1,64 @@
+---
+import { Image } from 'astro:assets';
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  entry: CollectionEntry<'news'>;
+}
+
+const { entry } = Astro.props;
+const { data, id } = entry;
+const href = `/nyheder/${id}`;
+const formatted = new Intl.DateTimeFormat('da-DK', {
+  day: 'numeric',
+  month: 'short',
+  year: 'numeric',
+}).format(data.date);
+---
+
+<a class="news-card card" href={href}>
+  <div class="card-image">
+    {data.image ? (
+      <Image src={data.image} alt={data.imageAlt ?? ''} width={800} height={500} />
+    ) : (
+      <div class="placeholder-image">{data.title.slice(0, 1)}</div>
+    )}
+  </div>
+  <div class="card-body">
+    <time datetime={data.date.toISOString()} class="meta">{formatted}</time>
+    <h3>{data.title}</h3>
+    {data.summary && <p>{data.summary}</p>}
+    <span class="read-more">Læs mere →</span>
+  </div>
+</a>
+
+<style>
+  .news-card {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .news-card:hover { text-decoration: none; }
+
+  .meta {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-2);
+  }
+
+  .news-card h3 {
+    margin: 0 0 var(--space-3);
+  }
+
+  .news-card p {
+    color: var(--color-text-muted);
+    flex: 1;
+  }
+
+  .read-more {
+    color: var(--color-accent);
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-top: var(--space-3);
+  }
+</style>

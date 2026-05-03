@@ -1,0 +1,39 @@
+---
+import Base from '../layouts/Base.astro';
+import { getEntry, render } from 'astro:content';
+import site from '../data/site.json';
+
+const entry = await getEntry('pages', 'kontakt');
+if (!entry) throw new Error('Missing src/content/pages/kontakt.md');
+const { Content } = await render(entry);
+---
+
+<Base title={entry.data.title} description={entry.data.description}>
+  <article class="section">
+    <div class="container-narrow">
+      <h1>{entry.data.title}</h1>
+      <div class="prose"><Content /></div>
+
+      <div class="contact-card">
+        <h2>Kontaktinfo</h2>
+        <p>
+          <strong>{site.name}</strong><br />
+          {site.address.street}<br />
+          {site.address.postalCode} {site.address.city}
+        </p>
+        {site.email && <p>E-mail: <a href={`mailto:${site.email}`}>{site.email}</a></p>}
+        {site.phone && <p>Telefon: <a href={`tel:${site.phone.replace(/\s/g, '')}`}>{site.phone}</a></p>}
+      </div>
+    </div>
+  </article>
+</Base>
+
+<style>
+  .contact-card {
+    margin-top: var(--space-7);
+    padding: var(--space-6);
+    background: var(--color-bg-soft);
+    border-radius: var(--radius-lg);
+  }
+  .contact-card h2 { margin-top: 0; }
+</style>

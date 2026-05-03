@@ -1,0 +1,36 @@
+---
+import Base from '../layouts/Base.astro';
+import EventList from '../components/EventList.astro';
+import { getCollection } from 'astro:content';
+
+const now = new Date();
+now.setHours(0, 0, 0, 0);
+
+const all = await getCollection('events');
+const upcoming = all
+  .filter((e) => (e.data.endDate ?? e.data.date) >= now)
+  .sort((a, b) => a.data.date.getTime() - b.data.date.getTime());
+const past = all
+  .filter((e) => (e.data.endDate ?? e.data.date) < now)
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+  .slice(0, 10);
+---
+
+<Base title="Det sker" description="Begivenheder og arrangementer i Ejerforeningen Fyrholm.">
+  <section class="section">
+    <div class="container">
+      <span class="eyebrow">Det sker</span>
+      <h1>Kalender</h1>
+
+      <h2 style="margin-top: var(--space-6);">Kommende</h2>
+      <EventList events={upcoming} />
+
+      {past.length > 0 && (
+        <>
+          <h2 style="margin-top: var(--space-7);">Tidligere</h2>
+          <EventList events={past} />
+        </>
+      )}
+    </div>
+  </section>
+</Base>

@@ -1,0 +1,29 @@
+{
+  "name": "Ejerforeningen Fyrholm",
+  "shortName": "Fyrholm",
+  "tagline": "Velkommen til Ejerforeningen Fyrholm",
+  "description": "Hjemmeside for Ejerforeningen Fyrholm — nyheder, beboerinfo, dokumenter og kontakt.",
+  "address": {
+    "street": "Fyrholm",
+    "postalCode": "2450",
+    "city": "København SV"
+  },
+  "email": "kontakt@fyrholm.dk",
+  "phone": "",
+  "hero": {
+    "heading": "Velkommen til E/F Fyrholm",
+    "body": "Vores ejerforening i hjertet af Sluseholmen. Mød naboerne, find praktisk beboerinfo, og hold dig opdateret med seneste nyheder fra bestyrelsen.",
+    "ctaText": "Læs mere",
+    "ctaLink": "/om-os"
+  },
+  "quickLinks": [
+    { "label": "Kontakt os", "href": "/kontakt" },
+    { "label": "Om os", "href": "/om-os" },
+    { "label": "Nyheder", "href": "/nyheder" }
+  ],
+  "popularLinks": [
+    { "label": "Husorden", "href": "/dokumenter#husorden" },
+    { "label": "Vedtægter", "href": "/dokumenter#vedtaegter" },
+    { "label": "Ny beboer", "href": "/ny-beboer" }
+  ]
+}

@@ -1,0 +1,29 @@
+---
+import Base from '../../layouts/Base.astro';
+import InfoCard from '../../components/InfoCard.astro';
+import { getCollection } from 'astro:content';
+
+const info = (await getCollection('info'))
+  .sort((a, b) => a.data.order - b.data.order || b.data.date.getTime() - a.data.date.getTime());
+---
+
+<Base title="Godt at vide" description="Beboerinfo og praktiske oplysninger for beboere i Ejerforeningen Fyrholm.">
+  <section class="section">
+    <div class="container">
+      <span class="eyebrow">Godt at vide</span>
+      <h1>Beboerinfo</h1>
+      <p class="lead">Praktiske oplysninger for beboere — affald, parkering, husorden og meget mere.</p>
+      {info.length === 0 ? (
+        <p>Beboerinfo er på vej.</p>
+      ) : (
+        <div class="grid grid-3" style="margin-top: var(--space-6);">
+          {info.map((entry) => <InfoCard entry={entry} />)}
+        </div>
+      )}
+    </div>
+  </section>
+</Base>
+
+<style>
+  .lead { color: var(--color-text-muted); max-width: 60ch; font-size: 1.1rem; }
+</style>
