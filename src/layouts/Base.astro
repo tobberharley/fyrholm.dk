@@ -9,9 +9,10 @@ interface Props {
   title?: string;
   description?: string;
   image?: string;
+  noindex?: boolean;
 }
 
-const { title, description, image } = Astro.props;
+const { title, description, image, noindex } = Astro.props;
 const fullTitle = title ? `${title} — ${site.shortName}` : site.name;
 const desc = description ?? site.description;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
@@ -30,6 +31,7 @@ const ogImage = image ? new URL(image, Astro.site).toString() : undefined;
 
     <title>{fullTitle}</title>
     <meta name="description" content={desc} />
+    {noindex && <meta name="robots" content="noindex,nofollow" />}
 
     <meta property="og:type" content="website" />
     <meta property="og:title" content={fullTitle} />

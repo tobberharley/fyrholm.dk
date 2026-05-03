@@ -1,0 +1,102 @@
+---
+import Base from '../../layouts/Base.astro';
+---
+
+<Base
+  title="Redaktør-guide"
+  description="Sådan logger bestyrelsen ind og redigerer hjemmesiden."
+  noindex
+>
+  <article class="section">
+    <div class="container-narrow">
+      <h1>Redaktør-guide</h1>
+      <p class="lead">
+        Denne side forklarer hvordan bestyrelsen logger ind og opdaterer
+        hjemmesiden. Det kræver en GitHub-konto og at du er inviteret som
+        samarbejdspartner på foreningens repository.
+      </p>
+
+      <h2>1. Få adgang</h2>
+      <ol>
+        <li>
+          Opret en gratis konto på <a href="https://github.com/signup" rel="external">github.com</a>
+          hvis du ikke allerede har én.
+        </li>
+        <li>
+          Send dit GitHub-brugernavn til formanden — du bliver inviteret som
+          samarbejdspartner med skrive-adgang. Du får en e-mail-invitation som
+          du skal acceptere (klik linket i mailen).
+        </li>
+      </ol>
+
+      <h2>2. Log ind på CMS</h2>
+      <ol>
+        <li>
+          Gå til <a href="/fyrholm.dk/admin/">tobberharley.github.io/fyrholm.dk/admin/</a>
+        </li>
+        <li>Klik <strong>“Sign in with Token”</strong>.</li>
+        <li>
+          Sveltia åbner en GitHub-side hvor de nødvendige rettigheder allerede
+          er valgt. Giv tokenet et navn (fx <em>Fyrholm CMS</em>) og en
+          udløbsdato (fx 90 dage). Klik <strong>“Generate token”</strong>.
+        </li>
+        <li>
+          Kopier tokenet (det vises kun én gang) og paste det tilbage i CMS.
+          Klik <strong>Login</strong>.
+        </li>
+      </ol>
+      <p>
+        Dit token bliver gemt sikkert i din egen browser. Hvis du logger ind
+        fra en anden computer, gentager du processen. Når tokenet udløber,
+        laver du bare et nyt.
+      </p>
+
+      <h2>3. Rediger indhold</h2>
+      <p>
+        Når du er inde, ser du venstre side med kategorier (Nyheder,
+        Begivenheder, Beboerinfo, Dokumenter, Faciliteter, Sider). Klik på en
+        kategori, vælg en eksisterende post, eller klik <strong>“+ New”</strong>
+        for at lave en ny.
+      </p>
+      <ul>
+        <li>
+          Skriv eller redigér i editoren — du kan formatere tekst, indsætte
+          billeder og links uden at skulle kunne kode.
+        </li>
+        <li>
+          Klik <strong>“Save”</strong>. Sveltia laver automatisk en commit til
+          GitHub, og hjemmesiden bygges automatisk om i baggrunden.
+        </li>
+        <li>
+          Efter ~1-2 minutter er ændringen synlig på den live hjemmeside.
+        </li>
+      </ul>
+
+      <h2>4. Tips</h2>
+      <ul>
+        <li>
+          <strong>Billeder:</strong> brug komprimerede JPG eller PNG. Sveltia
+          gemmer dem automatisk i <code>/uploads/</code>-mappen.
+        </li>
+        <li>
+          <strong>Kladder:</strong> Nyheder har et felt der hedder “Kladde” —
+          slå det til, så posten gemmes men ikke vises offentligt.
+        </li>
+        <li>
+          <strong>Mobil:</strong> Sveltia virker også på iPad og iPhone, så du
+          kan opdatere på farten.
+        </li>
+        <li>
+          <strong>Fortryd:</strong> Alt er gemt i Git, så intet går tabt. Hvis
+          du laver en fejl, kan webmaster altid ruller tilbage.
+        </li>
+      </ul>
+
+      <h2>Hjælp</h2>
+      <p>
+        Hvis noget driller, skriv til <a href="mailto:fyrbs@administrationdanmark.dk">fyrbs@administrationdanmark.dk</a>
+        eller kontakt webmaster.
+      </p>
+    </div>
+  </article>
+</Base>
