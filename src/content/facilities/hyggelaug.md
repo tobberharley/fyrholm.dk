@@ -5,6 +5,20 @@ summary: Beboere der arrangerer sociale sammenkomster — fester, fællesspisnin
 order: 1
 ---
 
-Hyggelauget er en gruppe beboere, der arrangerer sociale sammenkomster for alle på Fyrholm. Her er plads til at lære naboerne at kende — uanset om du har boet på Fyrholm i mange år eller lige er flyttet ind.
+Fyrholm Hyggelaug er en gruppe beboere, der arrangerer sociale sammenkomster for alle beboere på Fyrholm. Vores formål er at skabe hygge og sammenhold for alle i vores dejlige gård.
 
-Vil du være med? Skriv til [bestyrelsen](/fyrholm.dk/kontakt) eller spørg i [Facebookgruppen](https://www.facebook.com/groups/760829583961473/).
+## Faste arrangementer
+
+Vores faste årlige arrangementer er:
+
+- **Halloween**
+- **Julefest**
+- **Fastelavnsfest**
+
+Herudover plejer vi også at arrangere en **sommerfest** med grill og sjove aktiviteter for børn og voksne.
+
+## Vil du være med?
+
+Har du gode idéer — eller har du lyst til at være med i hyggelauget — så kan du kontakte os på [hyggelaug@fyrholmen.dk](mailto:hyggelaug@fyrholmen.dk).
+
+Du kan også følge med i [Facebookgruppen](https://www.facebook.com/groups/760829583961473/).
