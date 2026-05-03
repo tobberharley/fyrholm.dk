@@ -5,6 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="robots" content="noindex" />
     <title>Indhold — Fyrholm</title>
+    <style>
+      /*
+        Skjul GitHub OAuth-login-knappen på Sveltia's sign-in skærm.
+        Vi har ikke en OAuth-server, så kun "Sign in using GitHub Access Token"
+        (variant="secondary") skal være synlig. OAuth-knappen er variant="primary".
+        Targets: <button class="sui button primary ..."> inde i .buttons.
+      */
+      .entrance-page .buttons > button.primary,
+      .buttons > button.sui.button.primary {
+        display: none !important;
+      }
+    </style>
   </head>
   <body>
     <!-- Sveltia CMS — modern fork of Decap CMS. Reads same config.yml. -->

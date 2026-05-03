@@ -122,16 +122,19 @@ Når I er klar til at flytte til selve `fyrholm.dk`-domænet:
    base: '/',
    ```
 4. Søg-erstat `/fyrholm.dk/` → `/` i `src/content/**/*.md` (markdown internal links).
-5. I [pSveltia CMS — ingen OAuth-app nødvendig
+5. Push → GitHub Actions bygger igen, og sitet er live på `https://fyrholm.dk`.
+
+### 3. Sveltia CMS — ingen OAuth-app nødvendig
 
 CMS'et bruger Personal Access Tokens (PAT). Der skal **ikke** oprettes en OAuth App, og der er ingen `app_id` i `config.yml`. Hver redaktør laver sin egen PAT på github.com når de logger ind første gang.
+
+**PAT-rettigheder (classic token):** scopes `repo` og `user`. Sveltia's "Sign in using GitHub Access Token" link åbner GitHub med disse allerede valgt — redaktøren skal bare give tokenet et navn, vælge en udløbsdato og klikke *Generate*.
+
+> ℹ️ Login-skærmen i Sveltia viser normalt også en GitHub OAuth-knap. Den er skjult med CSS i `public/admin/index.html`, fordi den kræver en server vi ikke driver. Kun token-knappen er synlig.
 
 ### 4. Tilføj redaktører
 
 Repo Settings → Collaborators → tilføj GitHub-brugernavne på dem der skal kunne redigere via CMS'et med **Write**-adgang. Send dem så linket til guiden: `https://tobberharley.github.io/fyrholm.dk/bestyrelse/redaktoer-guide/`
-### 4. Tilføj redaktører
-
-Repo Settings → Collaborators → tilføj GitHub-brugernavne på dem der skal kunne redigere via CMS'et.
 
 ## Søgning
 

@@ -31,22 +31,26 @@ import Base from '../../layouts/Base.astro';
 
       <h2>2. Log ind på CMS</h2>
       <p style="background:var(--color-accent-soft);padding:1rem 1.25rem;border-left:4px solid var(--color-accent);border-radius:6px;">
-        ⚠️ <strong>Vigtigt:</strong> Login-skærmen viser flere knapper. Brug
-        <strong>kun</strong> knappen <strong>“Sign in with Token”</strong>.
-        De andre GitHub-knapper virker ikke for vores opsætning og giver
-        “not found”.
+        ℹ️ Login-skærmen viser kun én knap: <strong>“Sign in using GitHub
+        Access Token”</strong>. Vi bruger Personal Access Tokens (PAT) i stedet
+        for en OAuth-app, fordi det ikke kræver en server.
       </p>
       <ol>
         <li>
           Gå til <a href="/fyrholm.dk/admin/">tobberharley.github.io/fyrholm.dk/admin/</a>
         </li>
         <li>
-          Klik <strong>“Sign in with Token”</strong> (ikke en af GitHub-knapperne).
+          Klik <strong>“Sign in using GitHub Access Token”</strong>.
         </li>
         <li>
           Der åbnes en dialog med et link til GitHub. Klik linket — en
           GitHub-side åbner i et nyt vindue hvor de nødvendige rettigheder
-          (<code>repo</code>, <code>user</code>) allerede er valgt.
+          (scopes <code>repo</code> og <code>user</code>) allerede er valgt.
+          <br />
+          <small>
+            <code>repo</code> giver CMS'et lov til at læse og skrive indhold i
+            repoet. <code>user</code> bruges til at vise dit navn på commits.
+          </small>
         </li>
         <li>
           Skriv et navn (fx <em>Fyrholm CMS</em>), vælg en udløbsdato
