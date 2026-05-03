@@ -13,6 +13,8 @@ Kælderen er udstyret med **el-bil ladestandere**, så du kan oplade dit køret�
 
 ### Lej en plads
 
-Pladser udlejes via Administration Danmark. Skriv til [adm@admdk.dk](mailto:adm@admdk.dk) eller ring [7020 5957](tel:+4570205957).
+Pladser udlejes via Administration Danmark. **Skriv dig op på ventelisten** ved at sende en mail til [venteliste@admdk.dk](mailto:venteliste@admdk.dk).
+
+Generelle henvendelser til administrator: [adm@admdk.dk](mailto:adm@admdk.dk) eller [7020 5957](tel:+4570205957).
 
 Se også [Parkering](/fyrholm.dk/viden/parkering) for info om gadeparkering, beboerlicens og cykelparkering.

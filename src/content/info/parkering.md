@@ -10,7 +10,9 @@ Fyrholm ejer sin egen **underjordiske parkeringskælder**. Som beboer kan du lej
 
 ### Lej en plads i p-kælderen
 
-P-pladser udlejes via Administration Danmark — se [Kontakt](/fyrholm.dk/kontakt). Der kan være venteliste.
+P-pladser udlejes via Administration Danmark. Der kan være venteliste.
+
+**Skriv dig op på ventelisten** ved at sende en mail til [venteliste@admdk.dk](mailto:venteliste@admdk.dk).
 
 ### Parkering på vejene udenfor
 
