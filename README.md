@@ -1,6 +1,6 @@
 # Ejerforeningen Fyrholm — hjemmeside
 
-Statisk hjemmeside for E/F Fyrholm. Bygget med [Astro](https://astro.build), søgning via [Pagefind](https://pagefind.app), redigering via [Decap CMS](https://decapcms.org), hostet på GitHub Pages.
+Statisk hjemmeside for E/F Fyrholm. Bygget med [Astro](https://astro.build), søgning via [Pagefind](https://pagefind.app), redigering via [Sveltia CMS](https://sveltiacms.app/), hostet på GitHub Pages.
 
 **Aktuel URL**: <https://tobberharley.github.io/fyrholm.dk/>
 **Planlagt URL**: <https://fyrholm.dk> (når DNS er sat op)
@@ -22,7 +22,7 @@ npm run dev        # http://localhost:4321
 | `npm run dev` | Start lokal udviklings-server med live reload |
 | `npm run build` | Byg statisk site til `dist/` og generér Pagefind-søge-indeks |
 | `npm run preview` | Server `dist/` lokalt (test prod-build) |
-| `npm run cms` | Start lokal Decap proxy (med `local_backend: true` i `public/admin/config.yml`) |
+| `npm run cms` | (Valgfrit) Start lokal CMS-proxy til lokal redigering |
 
 ## Indholdsstruktur
 
@@ -39,18 +39,21 @@ src/
 public/
 ├── docs/             # PDF-filer (vedtægter, husorden, referater osv.)
 ├── uploads/          # Billeder uploadet via CMS
-└── admin/            # Decap CMS UI
+└── admin/            # Sveltia CMS UI
 ```
 
 ## Redigér indhold
 
-### Mulighed 1 — Decap CMS via fyrholm.dk/admin
+### Mulighed 1 — Sveltia CMS via /admin
 
-1. Åbn `https://fyrholm.dk/admin/`.
-2. Login med din GitHub-konto (Device Flow — du får en kode at indtaste på `github.com/login/device`).
-3. Vælg en collection, redigér, og publicer. Ændringen committes til `main` og er live efter ~1–2 min.
+1. Åbn `https://tobberharley.github.io/fyrholm.dk/admin/`.
+2. Klik **"Sign in with Token"** (ikke "Sign in with GitHub" — den kræver en OAuth-server vi ikke hoster).
+3. Følg dialogen: klik linket til GitHub, generér en Personal Access Token (PAT) med pre-udfyldte scopes, paste tilbage i CMS.
+4. Vælg en collection, redigér, og publicer. Ændringen committes til `main` af din GitHub-bruger og er live efter ~1–2 min.
 
-**Forudsætning**: Du skal være tilføjet som collaborator på GitHub-repoet.
+**Forudsætning**: Du skal være tilføjet som collaborator (Write-adgang) på GitHub-repoet. Tokenet gemmes kun i din egen browser.
+
+Se også brugervenlig guide til redaktører: [`src/pages/bestyrelse/redaktoer-guide.astro`](src/pages/bestyrelse/redaktoer-guide.astro).
 
 ### Mulighed 2 — Direkte i GitHub
 
@@ -119,18 +122,13 @@ Når I er klar til at flytte til selve `fyrholm.dk`-domænet:
    base: '/',
    ```
 4. Søg-erstat `/fyrholm.dk/` → `/` i `src/content/**/*.md` (markdown internal links).
-5. I [public/admin/config.yml](public/admin/config.yml), skift `site_url`, `display_url`, `logo_url` og `public_folder`-værdier tilbage til `/`-prefix.
-6. Commit, push, og aktivér "Enforce HTTPS" i repo Settings → Pages.
+5. I [pSveltia CMS — ingen OAuth-app nødvendig
 
-### 3. Decap CMS — GitHub OAuth App
+CMS'et bruger Personal Access Tokens (PAT). Der skal **ikke** oprettes en OAuth App, og der er ingen `app_id` i `config.yml`. Hver redaktør laver sin egen PAT på github.com når de logger ind første gang.
 
-1. På github.com → Settings → Developer settings → OAuth Apps → "New OAuth App".
-2. **Application name**: `Fyrholm CMS`
-3. **Homepage URL**: `https://tobberharley.github.io/fyrholm.dk/`
-4. **Authorization callback URL**: `https://tobberharley.github.io/fyrholm.dk/admin/` (ikke brugt af Device Flow, men feltet er påkrævet)
-5. Opret app, klik derefter **"Enable Device Flow"** (vigtigt!).
-6. Kopiér Client ID og indsæt det i [public/admin/config.yml](public/admin/config.yml) feltet `app_id`.
+### 4. Tilføj redaktører
 
+Repo Settings → Collaborators → tilføj GitHub-brugernavne på dem der skal kunne redigere via CMS'et med **Write**-adgang. Send dem så linket til guiden: `https://tobberharley.github.io/fyrholm.dk/bestyrelse/redaktoer-guide/`
 ### 4. Tilføj redaktører
 
 Repo Settings → Collaborators → tilføj GitHub-brugernavne på dem der skal kunne redigere via CMS'et.

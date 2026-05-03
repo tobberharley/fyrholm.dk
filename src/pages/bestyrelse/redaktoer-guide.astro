@@ -30,25 +30,46 @@ import Base from '../../layouts/Base.astro';
       </ol>
 
       <h2>2. Log ind på CMS</h2>
+      <p style="background:var(--color-accent-soft);padding:1rem 1.25rem;border-left:4px solid var(--color-accent);border-radius:6px;">
+        ⚠️ <strong>Vigtigt:</strong> Login-skærmen viser flere knapper. Brug
+        <strong>kun</strong> knappen <strong>“Sign in with Token”</strong>.
+        De andre GitHub-knapper virker ikke for vores opsætning og giver
+        “not found”.
+      </p>
       <ol>
         <li>
           Gå til <a href="/fyrholm.dk/admin/">tobberharley.github.io/fyrholm.dk/admin/</a>
         </li>
-        <li>Klik <strong>“Sign in with Token”</strong>.</li>
         <li>
-          Sveltia åbner en GitHub-side hvor de nødvendige rettigheder allerede
-          er valgt. Giv tokenet et navn (fx <em>Fyrholm CMS</em>) og en
-          udløbsdato (fx 90 dage). Klik <strong>“Generate token”</strong>.
+          Klik <strong>“Sign in with Token”</strong> (ikke en af GitHub-knapperne).
         </li>
         <li>
-          Kopier tokenet (det vises kun én gang) og paste det tilbage i CMS.
-          Klik <strong>Login</strong>.
+          Der åbnes en dialog med et link til GitHub. Klik linket — en
+          GitHub-side åbner i et nyt vindue hvor de nødvendige rettigheder
+          (<code>repo</code>, <code>user</code>) allerede er valgt.
+        </li>
+        <li>
+          Skriv et navn (fx <em>Fyrholm CMS</em>), vælg en udløbsdato
+          (fx 90 dage), og klik <strong>“Generate token”</strong> nederst på
+          GitHub-siden.
+        </li>
+        <li>
+          GitHub viser nu det grønne token (en lang streng der starter med
+          <code>ghp_…</code>). Kopier hele strengen — den vises kun én gang.
+        </li>
+        <li>
+          Gå tilbage til CMS-fanen, paste tokenet i feltet og klik
+          <strong>OK / Login</strong>.
         </li>
       </ol>
       <p>
         Dit token bliver gemt sikkert i din egen browser. Hvis du logger ind
         fra en anden computer, gentager du processen. Når tokenet udløber,
         laver du bare et nyt.
+      </p>
+      <p>
+        Du kan altid se og slette dine tokens på
+        <a href="https://github.com/settings/tokens" rel="external">github.com/settings/tokens</a>.
       </p>
 
       <h2>3. Rediger indhold</h2>
