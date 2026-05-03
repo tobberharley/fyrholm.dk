@@ -36,7 +36,8 @@
   },
   "calcom": {
     "username": "fyrholm",
-    "eventSlug": "orangeri"
+    "eventSlug": "orangeri",
+    "origin": "https://cal.eu"
   },
   "heroImage": "/images/ejendom.png",
   "heroImageAlt": "Luftfoto af Fyrholm-karréen på Sluseholmen i København SV",
