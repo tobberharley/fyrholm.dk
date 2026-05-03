@@ -1,6 +1,7 @@
 ---
 import { Image } from 'astro:assets';
 import type { CollectionEntry } from 'astro:content';
+import { link } from '../lib/url';
 
 interface Props {
   entry: CollectionEntry<'news'>;
@@ -8,7 +9,7 @@ interface Props {
 
 const { entry } = Astro.props;
 const { data, id } = entry;
-const href = `/nyheder/${id}`;
+const href = link(`/nyheder/${id}`);
 const formatted = new Intl.DateTimeFormat('da-DK', {
   day: 'numeric',
   month: 'short',

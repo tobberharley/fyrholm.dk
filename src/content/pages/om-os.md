@@ -11,12 +11,12 @@ Bestyrelsen vælges på den ordinære generalforsamling, som typisk afholdes om 
 
 ## Administration
 
-Den daglige administration varetages af en ekstern administrator. Kontaktinfo findes på [Kontakt](/kontakt).
+Den daglige administration varetages af en ekstern administrator. Kontaktinfo findes på [Kontakt](/fyrholm.dk/kontakt).
 
 ## Generalforsamling
 
-Den ordinære generalforsamling afholdes hvert år. Indkaldelser, dagsorden og referater findes under [Dokumenter](/dokumenter#generalforsamling).
+Den ordinære generalforsamling afholdes hvert år. Indkaldelser, dagsorden og referater findes under [Dokumenter](/fyrholm.dk/dokumenter#generalforsamling).
 
 ## Vedtægter og husorden
 
-Foreningens [vedtægter](/dokumenter#vedtaegter) og [husorden](/dokumenter#husorden) er tilgængelige i dokument-arkivet.
+Foreningens [vedtægter](/fyrholm.dk/dokumenter#vedtaegter) og [husorden](/fyrholm.dk/dokumenter#husorden) er tilgængelige i dokument-arkivet.

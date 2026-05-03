@@ -20,4 +20,4 @@ Velkommen til Fyrholm! Her er lidt praktisk info til dig der flytter ind eller u
 - Aflæs el- og vandmålere
 - Tøm dit kælderrum
 
-Se også [Husorden](/dokumenter#husorden) og [Vedtægter](/dokumenter#vedtaegter).
+Se også [Husorden](/fyrholm.dk/dokumenter#husorden) og [Vedtægter](/fyrholm.dk/dokumenter#vedtaegter).

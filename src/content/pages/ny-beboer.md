@@ -8,15 +8,15 @@ Velkommen til Ejerforeningen Fyrholm! Vi har samlet det vigtigste, du skal vide 
 ## Det praktiske
 
 1. **Registrér dig** hos administrator når du overtager lejligheden.
-2. **Læs husordenen** — find den under [Dokumenter](/dokumenter#husorden).
-3. **Affald** — vi sorterer i flere fraktioner. Se [Affaldssortering](/viden/affaldssortering).
-4. **Parkering** — kræver beboerlicens. Se [Parkering](/viden/parkering).
-5. **Internet og TV** — vi har en fælles fiberløsning. Se [TV, internet og telefoni](/viden/tv-internet-telefoni).
+2. **Læs husordenen** — find den under [Dokumenter](/fyrholm.dk/dokumenter#husorden).
+3. **Affald** — vi sorterer i flere fraktioner. Se [Affaldssortering](/fyrholm.dk/viden/affaldssortering).
+4. **Parkering** — kræver beboerlicens. Se [Parkering](/fyrholm.dk/viden/parkering).
+5. **Internet og TV** — vi har en fælles fiberløsning. Se [TV, internet og telefoni](/fyrholm.dk/viden/tv-internet-telefoni).
 
 ## Mød naboerne
 
-Vi afholder flere arrangementer i løbet af året — bl.a. forårsrengøring og sommerfest. Følg med under [Det sker](/kalender).
+Vi afholder flere arrangementer i løbet af året — bl.a. forårsrengøring og sommerfest. Følg med under [Det sker](/fyrholm.dk/kalender).
 
 ## Spørgsmål?
 
-Skriv til bestyrelsen via [Kontakt](/kontakt) — vi hjælper gerne.
+Skriv til bestyrelsen via [Kontakt](/fyrholm.dk/kontakt) — vi hjælper gerne.

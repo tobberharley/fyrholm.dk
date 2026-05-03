@@ -3,8 +3,8 @@ import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  site: 'https://fyrholm.dk',
-  base: '/',
+  site: 'https://tobberharley.github.io',
+  base: '/fyrholm.dk',
   trailingSlash: 'ignore',
   integrations: [sitemap()],
   build: {

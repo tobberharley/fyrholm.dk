@@ -16,11 +16,11 @@ backend:
 
 publish_mode: simple
 media_folder: public/uploads
-public_folder: /uploads
+public_folder: /fyrholm.dk/uploads
 locale: da
-site_url: https://fyrholm.dk
-display_url: https://fyrholm.dk
-logo_url: https://fyrholm.dk/favicon.svg
+site_url: https://tobberharley.github.io/fyrholm.dk/
+display_url: https://tobberharley.github.io/fyrholm.dk/
+logo_url: https://tobberharley.github.io/fyrholm.dk/favicon.svg
 
 collections:
   - name: news
@@ -35,7 +35,7 @@ collections:
       - { name: title, label: Titel, widget: string }
       - { name: date, label: Dato, widget: datetime, format: 'YYYY-MM-DDTHH:mm', date_format: 'YYYY-MM-DD', time_format: 'HH:mm' }
       - { name: summary, label: Resumé, widget: text, required: false }
-      - { name: image, label: Billede, widget: image, required: false, media_folder: '/public/uploads/news', public_folder: '/uploads/news' }
+      - { name: image, label: Billede, widget: image, required: false, media_folder: '/public/uploads/news', public_folder: '/fyrholm.dk/uploads/news' }
       - { name: imageAlt, label: 'Alt-tekst på billede', widget: string, required: false }
       - { name: draft, label: Kladde, widget: boolean, default: false }
       - { name: body, label: Indhold, widget: markdown }
@@ -69,7 +69,7 @@ collections:
       - { name: category, label: Kategori, widget: string, default: 'Beboerinfo' }
       - { name: date, label: Senest opdateret, widget: datetime, format: 'YYYY-MM-DD', date_format: 'YYYY-MM-DD', time_format: false }
       - { name: order, label: Sortering (lavere først), widget: number, default: 0, value_type: int }
-      - { name: image, label: Billede, widget: image, required: false, media_folder: '/public/uploads/info', public_folder: '/uploads/info' }
+      - { name: image, label: Billede, widget: image, required: false, media_folder: '/public/uploads/info', public_folder: '/fyrholm.dk/uploads/info' }
       - { name: imageAlt, label: 'Alt-tekst på billede', widget: string, required: false }
       - { name: summary, label: Kort beskrivelse, widget: text, required: false }
       - { name: body, label: Indhold, widget: markdown }
@@ -95,7 +95,7 @@ collections:
           - { label: 'Husorden', value: 'husorden' }
         # NB: Bestyrelsesreferater er IKKE en gyldig kategori — de må ikke uploades.
       - { name: date, label: Dato, widget: datetime, format: 'YYYY-MM-DD', date_format: 'YYYY-MM-DD', time_format: false }
-      - { name: file, label: PDF-fil, widget: file, media_folder: '/public/docs', public_folder: '/docs' }
+      - { name: file, label: PDF-fil, widget: file, media_folder: '/public/docs', public_folder: '/fyrholm.dk/docs' }
       - { name: summary, label: Resumé, widget: text, required: false }
       - { name: body, label: Noter, widget: markdown, required: false }
 

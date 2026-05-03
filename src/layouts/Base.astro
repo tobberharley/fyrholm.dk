@@ -3,6 +3,7 @@ import '../styles/global.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import site from '../data/site.json';
+import { link } from '../lib/url';
 
 interface Props {
   title?: string;
@@ -24,8 +25,8 @@ const ogImage = image ? new URL(image, Astro.site).toString() : undefined;
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
     <link rel="canonical" href={canonicalURL} />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="alternate" type="application/rss+xml" title={`${site.name} – Nyheder`} href="/rss.xml" />
+    <link rel="icon" type="image/svg+xml" href={link('/favicon.svg')} />
+    <link rel="alternate" type="application/rss+xml" title={`${site.name} – Nyheder`} href={link('/rss.xml')} />
 
     <title>{fullTitle}</title>
     <meta name="description" content={desc} />

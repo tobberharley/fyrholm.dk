@@ -12,4 +12,4 @@ Sitet er bygget som en simpel, hurtig og statisk side hostet på GitHub Pages. D
 - **Sikkert** — der er ingen database eller server der kan brydes ind i.
 - **Nemt at vedligeholde** — alle tekster, nyheder og dokumenter ligger som almindelige filer i et GitHub-repo og kan redigeres via Decap CMS på `/admin/`.
 
-Har du forslag eller rettelser? Skriv til bestyrelsen via [Kontakt](/kontakt).
+Har du forslag eller rettelser? Skriv til bestyrelsen via [Kontakt](/fyrholm.dk/kontakt).

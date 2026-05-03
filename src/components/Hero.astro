@@ -1,5 +1,6 @@
 ---
 import site from '../data/site.json';
+import { link } from '../lib/url';
 ---
 
 <section class="hero">
@@ -9,10 +10,10 @@ import site from '../data/site.json';
       <h1>{site.hero.heading}</h1>
       <p class="lead">{site.hero.body}</p>
       <div class="hero-actions">
-        <a href={site.hero.ctaLink} class="btn">{site.hero.ctaText}</a>
-        <a href="/nyheder" class="btn btn-secondary">Seneste nyheder</a>
+        <a href={link(site.hero.ctaLink)} class="btn">{site.hero.ctaText}</a>
+        <a href={link('/nyheder')} class="btn btn-secondary">Seneste nyheder</a>
       </div>
-      <form class="hero-search" role="search" action="/sog" method="get">
+      <form class="hero-search" role="search" action={link('/sog')} method="get">
         <label for="hero-q" class="sr-only">Søg</label>
         <input id="hero-q" type="search" name="q" placeholder="Søg på siden…" autocomplete="off" />
         <button type="submit" class="btn">Søg</button>

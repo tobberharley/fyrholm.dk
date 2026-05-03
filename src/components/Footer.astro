@@ -1,5 +1,6 @@
 ---
 import site from '../data/site.json';
+import { link } from '../lib/url';
 const year = new Date().getFullYear();
 ---
 
@@ -8,18 +9,18 @@ const year = new Date().getFullYear();
     <div>
       <h3 class="footer-heading">Mere om vores forening</h3>
       <p>{site.description}</p>
-      <a href="/om-os" class="btn btn-secondary">Læs mere om os</a>
+      <a href={link('/om-os')} class="btn btn-secondary">Læs mere om os</a>
     </div>
     <div>
       <h4>Hurtige links</h4>
       <ul>
-        {site.quickLinks.map((l) => <li><a href={l.href}>{l.label}</a></li>)}
+        {site.quickLinks.map((l) => <li><a href={link(l.href)}>{l.label}</a></li>)}
       </ul>
     </div>
     <div>
       <h4>Mest læste</h4>
       <ul>
-        {site.popularLinks.map((l) => <li><a href={l.href}>{l.label}</a></li>)}
+        {site.popularLinks.map((l) => <li><a href={link(l.href)}>{l.label}</a></li>)}
       </ul>
     </div>
     <div>

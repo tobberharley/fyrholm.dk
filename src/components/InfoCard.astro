@@ -1,13 +1,14 @@
 ---
 import type { CollectionEntry } from 'astro:content';
 import { Image } from 'astro:assets';
+import { link } from '../lib/url';
 
 interface Props {
   entry: CollectionEntry<'info'>;
 }
 
 const { entry } = Astro.props;
-const href = `/viden/${entry.id}`;
+const href = link(`/viden/${entry.id}`);
 const date = new Intl.DateTimeFormat('da-DK', {
   day: 'numeric', month: 'short', year: 'numeric',
 }).format(entry.data.date);

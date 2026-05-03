@@ -1,6 +1,9 @@
 # Ejerforeningen Fyrholm — hjemmeside
 
-Statisk hjemmeside for E/F Fyrholm. Bygget med [Astro](https://astro.build), søgning via [Pagefind](https://pagefind.app), redigering via [Decap CMS](https://decapcms.org), hostet på GitHub Pages på `https://fyrholm.dk`.
+Statisk hjemmeside for E/F Fyrholm. Bygget med [Astro](https://astro.build), søgning via [Pagefind](https://pagefind.app), redigering via [Decap CMS](https://decapcms.org), hostet på GitHub Pages.
+
+**Aktuel URL**: <https://tobberharley.github.io/fyrholm.dk/>
+**Planlagt URL**: <https://fyrholm.dk> (når DNS er sat op)
 
 Alt indhold (nyheder, beboerinfo, dokumenter, sider) ligger som markdown- og JSON-filer i `src/content/` og `src/data/` — ændringer committet til `main` deployes automatisk via GitHub Actions.
 
@@ -93,32 +96,40 @@ Samme princip for `events/`, `info/` og `documents/`.
 
 ### 1. GitHub-repo
 
-1. Push dette repo til GitHub som fx `<owner>/fyrholm`.
+1. Push dette repo til GitHub som `tobberharley/fyrholm.dk`.
 2. I repo Settings → Pages → Source: "GitHub Actions".
+3. Push til `main` → Actions kører → sitet er live på <https://tobberharley.github.io/fyrholm.dk/>.
 
-### 2. DNS for fyrholm.dk
+### 2. Senere: skift til fyrholm.dk (custom domain)
 
-Hos din DNS-udbyder, opret følgende records på `fyrholm.dk`:
+Når I er klar til at flytte til selve `fyrholm.dk`-domænet:
 
-```
-A     @     185.199.108.153
-A     @     185.199.109.153
-A     @     185.199.110.153
-A     @     185.199.111.153
-CNAME www   <owner>.github.io.
-```
-
-Når DNS er propageret: repo Settings → Pages → aktivér "Enforce HTTPS".
+1. Hos jeres DNS-udbyder, opret records på `fyrholm.dk`:
+   ```
+   A     @     185.199.108.153
+   A     @     185.199.109.153
+   A     @     185.199.110.153
+   A     @     185.199.111.153
+   CNAME www   tobberharley.github.io.
+   ```
+2. Opret filen `public/CNAME` med indholdet `fyrholm.dk`.
+3. I [astro.config.mjs](astro.config.mjs), skift til:
+   ```js
+   site: 'https://fyrholm.dk',
+   base: '/',
+   ```
+4. Søg-erstat `/fyrholm.dk/` → `/` i `src/content/**/*.md` (markdown internal links).
+5. I [public/admin/config.yml](public/admin/config.yml), skift `site_url`, `display_url`, `logo_url` og `public_folder`-værdier tilbage til `/`-prefix.
+6. Commit, push, og aktivér "Enforce HTTPS" i repo Settings → Pages.
 
 ### 3. Decap CMS — GitHub OAuth App
 
 1. På github.com → Settings → Developer settings → OAuth Apps → "New OAuth App".
 2. **Application name**: `Fyrholm CMS`
-3. **Homepage URL**: `https://fyrholm.dk`
-4. **Authorization callback URL**: `https://fyrholm.dk/admin/` (ikke brugt af Device Flow, men feltet er påkrævet)
+3. **Homepage URL**: `https://tobberharley.github.io/fyrholm.dk/`
+4. **Authorization callback URL**: `https://tobberharley.github.io/fyrholm.dk/admin/` (ikke brugt af Device Flow, men feltet er påkrævet)
 5. Opret app, klik derefter **"Enable Device Flow"** (vigtigt!).
-6. Kopiér Client ID.
-7. Erstat `REPLACE_ME_OWNER/fyrholm` og `REPLACE_ME_CLIENT_ID` i `public/admin/config.yml` med dine værdier.
+6. Kopiér Client ID og indsæt det i [public/admin/config.yml](public/admin/config.yml) feltet `app_id`.
 
 ### 4. Tilføj redaktører
 

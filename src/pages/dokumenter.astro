@@ -1,6 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import { getCollection } from 'astro:content';
+import { link } from '../lib/url';
 
 const docs = (await getCollection('documents'))
   .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
@@ -40,7 +41,7 @@ const fmt = new Intl.DateTimeFormat('da-DK', { day: 'numeric', month: 'short', y
             <ul class="doc-list">
               {items.map((d) => (
                 <li>
-                  <a href={d.data.file} class="doc-link" target="_blank" rel="noopener">
+                  <a href={link(d.data.file)} class="doc-link" target="_blank" rel="noopener">
                     <span class="doc-icon" aria-hidden="true">PDF</span>
                     <span class="doc-meta">
                       <span class="doc-title">{d.data.title}</span>

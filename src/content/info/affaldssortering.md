@@ -25,4 +25,4 @@ I Fyrholm sorterer vi affald i 10 fraktioner i overensstemmelse med Københavns 
 
 Storskrald hentes hver anden tirsdag. Sæt det ud aftenen før i det dertil indrettede område.
 
-Spørgsmål? Kontakt viceværten via [Kontakt](/kontakt).
+Spørgsmål? Kontakt viceværten via [Kontakt](/fyrholm.dk/kontakt).

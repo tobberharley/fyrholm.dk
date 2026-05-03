@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import { link } from '../lib/url';
 ---
 
 <Base title="Siden blev ikke fundet" description="Vi kunne ikke finde den side, du ledte efter.">
@@ -9,8 +10,8 @@ import Base from '../layouts/Base.astro';
       <h1>Siden findes ikke</h1>
       <p>Vi kunne ikke finde det, du ledte efter. Måske er linket forældet?</p>
       <p>
-        <a href="/" class="btn">Gå til forsiden</a>
-        <a href="/sog" class="btn btn-secondary">Søg</a>
+        <a href={link('/')} class="btn">Gå til forsiden</a>
+        <a href={link('/sog')} class="btn btn-secondary">Søg</a>
       </p>
     </div>
   </section>
