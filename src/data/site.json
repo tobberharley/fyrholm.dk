@@ -8,6 +8,13 @@
     "postalCode": "2450",
     "city": "København SV"
   },
+  "postalAddress": {
+    "line1": "E/F Fyrholm",
+    "line2": "c/o Administration Danmark",
+    "street": "Gammelsø 4",
+    "postalCode": "5000",
+    "city": "Odense C"
+  },
   "cvr": "30790057",
   "email": "fyrbs@administrationdanmark.dk",
   "phone": "",
@@ -18,12 +25,13 @@
     },
     "administrator": {
       "label": "Administration Danmark",
+      "contact": "Tina Jørgensen",
       "email": "adm@admdk.dk",
       "phone": "7020 5957",
       "website": "https://www.administrationdanmark.dk/"
     },
     "caretaker": {
-      "label": "Meincke's Total Service — Jan Meincke",
+      "label": "TipTop Ejendomsservice ApS",
       "phone": "4036 6335",
       "hours": "Telefontid hverdage kl. 07–11 — akutte skader døgnet rundt"
     },

@@ -10,7 +10,7 @@ I lejlighederne og installationsskakten er **ejeren ansvarlig for at begrænse s
 
 Ring **112** ved brand, eksplosion, alvorlig oversvømmelse eller andre situationer, der kræver brandvæsen, beredskab eller politi. Se [Beredskabsplan](/fyrholm.dk/viden/beredskabsplan).
 
-Til alle andre akutte forhold på ejendommen — også uden for kontortid — kontakt **viceværten Meincke's Total Service** på [4036 6335](tel:+4540366335).
+Til alle andre akutte forhold på ejendommen — også uden for kontortid — kontakt **viceværten TipTop Ejendomsservice** på [4036 6335](tel:+4540366335).
 
 ## Vand- og varmeskader
 
@@ -33,7 +33,7 @@ Akutte forhold der håndteres af viceværten ([4036 6335](tel:+4540366335)):
 - Fejl på dørlukkere, dørlåse eller dørtelefon
 - Blokeret affaldsskakt
 
-Se den fulde liste over hvad viceværten håndterer under [Kontakt → Vicevært](/fyrholm.dk/kontakt#vicevært-og-varmemester).
+Se den fulde liste over hvad viceværten håndterer under [Kontakt → Vicevært](/fyrholm.dk/kontakt#vicevært).
 
 ## Forsikring
 

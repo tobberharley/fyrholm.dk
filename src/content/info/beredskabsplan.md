@@ -40,6 +40,6 @@ Beredskabsplanen for beboerne ligger på fyrholm.dk. **Det er bestyrelsens ansva
 
 *Vedtaget den 11. marts 2025.*
 
-Akutte fejl på elevator, dørtelefon eller blokeret affaldsskakt — kontakt **vicevært Jan Meincke** på [4036 6335](tel:+4540366335). Akutte skader behandles uden for telefontiden.
+Akutte fejl på elevator, dørtelefon eller blokeret affaldsskakt — kontakt **vicevært TipTop Ejendomsservice** på [4036 6335](tel:+4540366335). Akutte skader behandles uden for telefontiden.
 
 Spørgsmål til beredskabsplanen? Skriv til [bestyrelsen](/fyrholm.dk/kontakt).

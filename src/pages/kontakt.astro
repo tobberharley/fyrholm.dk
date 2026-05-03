@@ -22,6 +22,15 @@ const { Content } = await render(entry);
           {site.address.street}<br />
           {site.address.postalCode} {site.address.city}
         </p>
+        {site.postalAddress && (
+          <p>
+            <strong>Postadresse</strong><br />
+            {site.postalAddress.line1}<br />
+            {site.postalAddress.line2}<br />
+            {site.postalAddress.street}<br />
+            {site.postalAddress.postalCode} {site.postalAddress.city}
+          </p>
+        )}
         {site.cvr && <p>CVR: {site.cvr}</p>}
         {site.email && <p>E-mail: <a href={`mailto:${site.email}`}>{site.email}</a></p>}
         {site.phone && <p>Telefon: <a href={`tel:${site.phone.replace(/\s/g, '')}`}>{site.phone}</a></p>}

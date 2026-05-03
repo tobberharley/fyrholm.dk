@@ -15,15 +15,22 @@ Forslag, der ikke kræver vedtægtsændringer eller generalforsamlingens godkend
 
 Administrator håndterer økonomi, fællesudgifter, juridiske forhold, ind- og udflytning samt forsikringssager.
 
-**Administration Danmark**
+**Administration Danmark** — kontaktperson **Tina Jørgensen**
 
 - E-mail: [adm@admdk.dk](mailto:adm@admdk.dk)
 - Telefon: [7020 5957](tel:+4570205957)
 - Web (intranet for beboere): [administrationdanmark.dk](https://www.administrationdanmark.dk/)
 
-## Vicevært og varmemester
+### Foreningens postadresse
 
-Vores vicevært og varmemester er **Meincke's Total Service** ved **Jan Meincke** — telefon [4036 6335](tel:+4540366335). Telefontid hverdage kl. 07–11.
+E/F Fyrholm  
+c/o Administration Danmark  
+Gammelsø 4  
+5000 Odense C
+
+## Vicevært
+
+Vores vicevært er **TipTop Ejendomsservice ApS** — telefon [4036 6335](tel:+4540366335). Telefontid hverdage kl. 07–11.
 
 Ved behov for **akut hjælp uden for kontortid** kan samme telefon bruges.
 

@@ -16,7 +16,7 @@ Velkommen til Ejerforeningen Fyrholm! Vi har samlet det vigtigste, du skal vide 
 
 ## Akut hjælp
 
-Ved akutte skader, fejl på elevator/dørtelefon eller blokeret affaldsskakt: kontakt vicevært **Jan Meincke** på [4036 6335](tel:+4540366335) (telefontid hverdage kl. 07–11; akutte skader døgnet rundt).
+Ved akutte skader, fejl på elevator/dørtelefon eller blokeret affaldsskakt: kontakt vicevært **TipTop Ejendomsservice** på [4036 6335](tel:+4540366335) (telefontid hverdage kl. 07–11; akutte skader døgnet rundt).
 
 ## Mød naboerne
 
