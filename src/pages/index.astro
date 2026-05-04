@@ -31,29 +31,6 @@ const facilities = (await getCollection('facilities'))
 <Base>
   <Hero />
 
-  <section class="showcase" aria-label="Fyrholm set fra havneløbet">
-    <img
-      src={link('/images/fyrholm-cfmoller.jpg')}
-      alt="Fyrholm-karréen set fra havneløbet på Sluseholmen"
-      loading="lazy"
-      width="1800"
-      height="1351"
-    />
-    <div class="showcase-overlay">
-      <div class="container">
-        <span class="eyebrow">Om bygningen</span>
-        <h2>En hollandsk-inspireret karré ved kanalerne</h2>
-        <p>
-          Fyrholm stod færdig i 2006 efter en helhedsplan af den hollandske arkitekt Sjoerd Soeters
-          — en moderne fortolkning af Amsterdams gårdkvarterer, tegnet af Gröning Arkitekter,
-          C.F. Møller og flere danske tegnestuer.
-        </p>
-        <a href={link('/historie')} class="btn">Læs historien</a>
-      </div>
-    </div>
-    <p class="showcase-credit">Foto: C.F. Møller Architects</p>
-  </section>
-
   <section class="section">
     <div class="container">
       <div class="section-header">
@@ -157,66 +134,4 @@ const facilities = (await getCollection('facilities'))
   .cta-row > div { max-width: 60ch; }
   .cta-row h2 { margin: var(--space-2) 0 var(--space-3); }
   .cta-row p { color: var(--color-text-muted); margin: 0; }
-
-  .showcase {
-    position: relative;
-    overflow: hidden;
-    isolation: isolate;
-  }
-  .showcase img {
-    display: block;
-    width: 100%;
-    height: clamp(360px, 60vh, 640px);
-    object-fit: cover;
-    object-position: center 55%;
-  }
-  .showcase-overlay {
-    position: absolute;
-    inset: 0;
-    display: flex;
-    align-items: flex-end;
-    padding-bottom: var(--space-8);
-    background: linear-gradient(
-      to top,
-      rgba(15, 30, 40, 0.82) 0%,
-      rgba(15, 30, 40, 0.55) 35%,
-      rgba(15, 30, 40, 0.15) 65%,
-      rgba(15, 30, 40, 0) 100%
-    );
-    color: #fff;
-  }
-  .showcase-overlay .eyebrow {
-    color: rgba(255, 255, 255, 0.85);
-  }
-  .showcase-overlay h2 {
-    color: #fff;
-    margin: var(--space-2) 0 var(--space-3);
-    max-width: 22ch;
-    font-size: clamp(2rem, 4vw, 3.4rem);
-    line-height: 1.1;
-    letter-spacing: -0.02em;
-    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
-  }
-  .showcase-overlay p {
-    color: rgba(255, 255, 255, 0.92);
-    max-width: 60ch;
-    margin: 0 0 var(--space-5);
-    text-shadow: 0 1px 8px rgba(0, 0, 0, 0.35);
-  }
-  .showcase-credit {
-    position: absolute;
-    right: var(--space-4);
-    top: var(--space-3);
-    margin: 0;
-    font-size: 0.75rem;
-    color: rgba(255, 255, 255, 0.75);
-    background: rgba(0, 0, 0, 0.35);
-    padding: 4px 10px;
-    border-radius: 999px;
-    letter-spacing: 0.02em;
-  }
-  @media (max-width: 640px) {
-    .showcase img { height: 420px; }
-    .showcase-overlay { padding-bottom: var(--space-6); }
-  }
 </style>

@@ -50,8 +50,9 @@
     "username": "fyrholm",
     "eventSlug": "orangeri"
   },
-  "heroImage": "/images/ejendom.png",
-  "heroImageAlt": "Luftfoto af Fyrholm-karréen på Sluseholmen i København SV",
+  "heroImage": "/images/fyrholm-cfmoller.jpg",
+  "heroImageAlt": "Fyrholm-karréen set fra havneløbet på Sluseholmen i København SV",
+  "heroCredit": "Foto: C.F. Møller Architects",
   "coordinates": {
     "lat": 55.6486,
     "lng": 12.5483,
