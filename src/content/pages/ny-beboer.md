@@ -24,6 +24,10 @@ Fyrholm har et aktivt beboerliv organiseret i flere laug — **Hyggelaug**, **Ha
 
 Deltag også i vores [Facebookgruppe](https://www.facebook.com/groups/760829583961473/), og hold øje med [Det sker](/fyrholm.dk/kalender) for arrangementer som forårsrengøring og sommerfest.
 
+## I området
+
+Mange beboere er medlem af **[Badekompagniet Sluseholmen](https://www.badekompagniet.com/)** — en lokal forening med sauna og badebro lige ved kanalen.
+
 ## Spørgsmål?
 
 Skriv til bestyrelsen på [fyrbs@administrationdanmark.dk](mailto:fyrbs@administrationdanmark.dk) — eller se alle kontakter under [Kontakt](/fyrholm.dk/kontakt).
