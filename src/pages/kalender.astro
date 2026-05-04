@@ -2,6 +2,7 @@
 import Base from '../layouts/Base.astro';
 import EventList from '../components/EventList.astro';
 import { getCollection } from 'astro:content';
+import { link } from '../lib/url';
 
 const now = new Date();
 now.setHours(0, 0, 0, 0);
@@ -14,6 +15,12 @@ const past = all
   .filter((e) => (e.data.endDate ?? e.data.date) < now)
   .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
   .slice(0, 10);
+
+// Webcal-URL til abonnement (tlf. åbner Apple Kalender / Google Kalender)
+const icsPath = link('/kalender.ics');
+const webcalUrl = `webcal://tobberharley.github.io${icsPath}`;
+const httpsUrl = `https://tobberharley.github.io${icsPath}`;
+const googleAdd = `https://calendar.google.com/calendar/r?cid=${encodeURIComponent(httpsUrl)}`;
 ---
 
 <Base title="Det sker" description="Begivenheder og arrangementer i Ejerforeningen Fyrholm.">
@@ -21,6 +28,18 @@ const past = all
     <div class="container">
       <span class="eyebrow">Det sker</span>
       <h1>Kalender</h1>
+
+      <div class="cal-subscribe">
+        <div class="cal-subscribe-text">
+          <strong>Tilføj kalenderen til din telefon</strong>
+          <p>Få automatisk besked om kommende arrangementer i din egen kalender. Når der kommer nye begivenheder, opdateres kalenderen automatisk.</p>
+        </div>
+        <div class="cal-subscribe-actions">
+          <a class="btn" href={webcalUrl}>📅 Tilføj til kalender</a>
+          <a class="btn btn-secondary" href={googleAdd} target="_blank" rel="noopener">Google Kalender</a>
+          <a class="cal-link" href={icsPath} download>Hent .ics-fil</a>
+        </div>
+      </div>
 
       <h2 style="margin-top: var(--space-6);">Kommende</h2>
       <EventList events={upcoming} />
@@ -34,3 +53,39 @@ const past = all
     </div>
   </section>
 </Base>
+
+<style>
+  .cal-subscribe {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-5);
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--space-5);
+    margin-top: var(--space-5);
+    background: var(--color-accent-soft);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+  }
+  .cal-subscribe-text { flex: 1 1 320px; min-width: 0; }
+  .cal-subscribe-text strong {
+    display: block;
+    font-size: 1.05rem;
+    margin-bottom: 0.25rem;
+  }
+  .cal-subscribe-text p {
+    margin: 0;
+    color: var(--color-text-muted);
+    font-size: 0.95rem;
+  }
+  .cal-subscribe-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    align-items: center;
+  }
+  .cal-link {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+  }
+</style>

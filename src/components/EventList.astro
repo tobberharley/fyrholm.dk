@@ -1,5 +1,6 @@
 ---
 import type { CollectionEntry } from 'astro:content';
+import { link } from '../lib/url';
 
 interface Props {
   events: CollectionEntry<'events'>[];
@@ -28,6 +29,9 @@ const fmt = new Intl.DateTimeFormat('da-DK', {
             {e.data.location && <> · {e.data.location}</>}
           </p>
           {e.data.summary && <p>{e.data.summary}</p>}
+          <a class="event-add" href={link(`/kalender/${e.id.replace(/\.md$/, '')}.ics`)} download>
+            <span aria-hidden="true">📅</span> Tilføj til kalender
+          </a>
         </div>
       </li>
     ))}
@@ -93,5 +97,20 @@ const fmt = new Intl.DateTimeFormat('da-DK', {
   .empty {
     color: var(--color-text-muted);
     font-style: italic;
+  }
+
+  .event-add {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    margin-top: var(--space-2);
+    font-size: 0.85rem;
+    color: var(--color-accent);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+  }
+  .event-add:hover,
+  .event-add:focus-visible {
+    border-bottom-color: var(--color-accent);
   }
 </style>
