@@ -4,7 +4,11 @@
   "tagline": "Velkommen til Ejerforeningen Fyrholm",
   "description": "Hjemmeside for Ejerforeningen Fyrholm — 196 ejerlejligheder på Sluseholmen i København SV. Nyheder, beboerinfo, dokumenter og kontakt.",
   "address": {
-    "street": "Ben Websters Vej 102–146, Ernie Wilkins Vej 19–29, Oscar Pettifords Vej 11–31",
+    "street": [
+      "Ben Websters Vej 102–146",
+      "Ernie Wilkins Vej 19–29",
+      "Oscar Pettifords Vej 11–31"
+    ],
     "postalCode": "2450",
     "city": "København SV"
   },

@@ -27,7 +27,9 @@ const year = new Date().getFullYear();
       <h4>Kontakt</h4>
       <address>
         <strong>{site.name}</strong><br />
-        {site.address.street}<br />
+        {(Array.isArray(site.address.street) ? site.address.street : [site.address.street]).map((line) => (
+          <>{line}<br /></>
+        ))}
         {site.address.postalCode} {site.address.city}<br />
         {site.cvr && <>CVR: {site.cvr}<br /></>}
         {site.email && <a href={`mailto:${site.email}`}>{site.email}</a>}

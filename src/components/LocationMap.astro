@@ -12,11 +12,12 @@ const coords = (site as any).coordinates as { lat: number; lng: number; label?: 
 const label = coords?.label ?? site.name;
 
 // Google Maps embed without API key (uses public maps URL)
-const q = coords ? `${coords.lat},${coords.lng}` : encodeURIComponent(`${site.address.street}, ${site.address.postalCode} ${site.address.city}`);
+const streetText = Array.isArray(site.address.street) ? site.address.street.join(', ') : site.address.street;
+const q = coords ? `${coords.lat},${coords.lng}` : encodeURIComponent(`${streetText}, ${site.address.postalCode} ${site.address.city}`);
 const src = `https://www.google.com/maps?q=${q}&z=${zoom}&output=embed`;
 const linkHref = coords
   ? `https://www.google.com/maps/search/?api=1&query=${coords.lat},${coords.lng}`
-  : `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${site.address.street}, ${site.address.postalCode} ${site.address.city}`)}`;
+  : `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${streetText}, ${site.address.postalCode} ${site.address.city}`)}`;
 ---
 
 <figure class="map-figure">

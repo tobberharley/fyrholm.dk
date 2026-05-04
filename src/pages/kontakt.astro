@@ -19,7 +19,9 @@ const { Content } = await render(entry);
         <h2>Kontaktinfo</h2>
         <p>
           <strong>{site.name}</strong><br />
-          {site.address.street}<br />
+          {(Array.isArray(site.address.street) ? site.address.street : [site.address.street]).map((line) => (
+            <>{line}<br /></>
+          ))}
           {site.address.postalCode} {site.address.city}
         </p>
         {site.postalAddress && (
