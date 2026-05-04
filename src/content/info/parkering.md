@@ -16,7 +16,7 @@ Du kan leje **1–2 almindelige p-pladser pr. husstand**. P-pladser udlejes via 
 
 ### Lån en plads via p-gruppen
 
-Har du brug for en plads til dig selv eller en gæst, kan du låne en ledig plads via vores **p-gruppe**. Husk at:
+Har du brug for en plads til dig selv eller en gæst, kan du låne en ledig plads via vores **[p-kælder-gruppe på Facebook](https://www.facebook.com/groups/600797924139257)**. Husk at:
 
 - **Registrere lånet korrekt**, inden pladsen tages i brug.
 - Kun benytte den plads, du har fået lov at låne.
