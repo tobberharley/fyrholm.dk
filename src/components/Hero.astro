@@ -20,7 +20,7 @@ const heroCredit = (site as any).heroCredit as string | undefined;
   <div class="hero-overlay" aria-hidden="true"></div>
   <div class="container hero-inner">
     <div class="hero-text">
-      <span class="eyebrow">EJERFORENING</span>
+      <span class="eyebrow">EJERFORENINGEN FYRHOLM</span>
       <h1><span>{site.hero.heading}</span></h1>
       <p class="lead"><span>{site.hero.body}</span></p>
       <div class="hero-actions">
@@ -36,9 +36,8 @@ const heroCredit = (site as any).heroCredit as string | undefined;
   .hero {
     position: relative;
     isolation: isolate;
-    aspect-ratio: 1800 / 1100;
-    min-height: 420px;
-    max-height: 78vh;
+    width: 100%;
+    height: clamp(520px, 60vw, 760px);
     display: flex;
     align-items: flex-end;
     overflow: hidden;
@@ -145,7 +144,7 @@ const heroCredit = (site as any).heroCredit as string | undefined;
   }
 
   @media (max-width: 640px) {
-    .hero { aspect-ratio: 4 / 5; max-height: none; }
+    .hero { height: clamp(480px, 110vw, 680px); }
     .hero-bg { object-position: center 40%; }
     .hero-credit { right: var(--space-3); font-size: 0.68rem; }
     .lead { font-size: 1rem; }
