@@ -12,7 +12,9 @@ Fyrholm har en fælles fiberforbindelse, der giver beboerne adgang til billigt i
 
 Forbindelsen leveres af vores leverandør og kan opgraderes individuelt.
 
-Alle fiberkabler er trukket op via teknikskabet, som er bag toilettet. Krydsfeltet står i kajakrummet i det nordøstlige hjørne.
+Alle fiberkabler er trukket op via **teknikskabet bag toilettet**. Krydsfeltet står i **kajakrummet i det nordøstlige hjørne**, og TDC tilgår det via nøgleboks.
+
+Der er strøm i skakten, så du skal blot have lavet en dåse til din router m.m.
 
 ### TV
 
