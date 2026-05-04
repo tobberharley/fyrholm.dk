@@ -8,45 +8,54 @@ const heroCredit = (site as any).heroCredit as string | undefined;
 ---
 
 <section class="hero" aria-label="Fyrholm set fra havneløbet">
-  {heroImage && (
-    <img
-      class="hero-bg"
-      src={link(heroImage)}
-      alt={heroImageAlt ?? ''}
-      loading="eager"
-      fetchpriority="high"
-    />
-  )}
-  <div class="hero-overlay" aria-hidden="true"></div>
+  <div class="hero-stage">
+    {heroImage && (
+      <img
+        class="hero-bg"
+        src={link(heroImage)}
+        alt={heroImageAlt ?? ''}
+        loading="eager"
+        fetchpriority="high"
+      />
+    )}
+    <div class="hero-fade" aria-hidden="true"></div>
 
-  <div class="container hero-inner">
-    <div class="hero-text">
-      <span class="eyebrow">Velkommen</span>
-      <h1>{site.hero.heading}</h1>
-      <p class="lead">{site.hero.body}</p>
-      <div class="hero-actions">
-        <a href={link(site.hero.ctaLink)} class="btn">{site.hero.ctaText}</a>
-        <a href={link('/nyheder')} class="btn btn-light">Seneste nyheder</a>
+    <div class="container hero-inner">
+      <div class="hero-card">
+        <span class="eyebrow">Velkommen</span>
+        <h1>{site.hero.heading}</h1>
+        <span class="hero-rule" aria-hidden="true"></span>
+        <p class="lead">{site.hero.body}</p>
+        <div class="hero-actions">
+          <a href={link(site.hero.ctaLink)} class="btn">{site.hero.ctaText}</a>
+          <a href={link('/nyheder')} class="hero-link">Seneste nyheder →</a>
+        </div>
       </div>
     </div>
-  </div>
 
-  {heroCredit && <p class="hero-credit">{heroCredit}</p>}
+    {heroCredit && <p class="hero-credit">{heroCredit}</p>}
+  </div>
 </section>
 
 <style>
   .hero {
     position: relative;
     isolation: isolate;
-    min-height: clamp(560px, 80vh, 800px);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    overflow: hidden;
-    background: var(--color-accent);
-    color: #fff;
+    background: var(--color-bg-soft, #f6f1ea);
+    padding: clamp(var(--space-3), 2vw, var(--space-5));
     border-bottom: 1px solid var(--color-border);
+  }
+
+  /* Selve "scenen" — billedet er ramme og scene for kortet */
+  .hero-stage {
+    position: relative;
+    width: 100%;
+    min-height: clamp(520px, 78vh, 760px);
+    overflow: hidden;
+    border-radius: clamp(8px, 1vw, 18px);
+    display: flex;
+    align-items: flex-end;
+    background: var(--color-accent);
   }
 
   .hero-bg {
@@ -55,99 +64,120 @@ const heroCredit = (site as any).heroCredit as string | undefined;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center 42%;
-    z-index: -2;
+    object-position: center 40%;
+    z-index: 0;
   }
 
-  /* Jævn, blød fade så bygningen anes hele vejen, men teksten har ro bagved */
-  .hero-overlay {
+  /* Blød fade kun nederst, så kortet får et godt fundament uden at bygningen forsvinder */
+  .hero-fade {
     position: absolute;
     inset: 0;
-    z-index: -1;
-    background:
-      radial-gradient(
-        ellipse at center,
-        rgba(15, 28, 38, 0.55) 0%,
-        rgba(15, 28, 38, 0.40) 40%,
-        rgba(15, 28, 38, 0.30) 70%,
-        rgba(15, 28, 38, 0.40) 100%
-      );
+    z-index: 1;
+    background: linear-gradient(
+      to top,
+      rgba(15, 28, 38, 0.55) 0%,
+      rgba(15, 28, 38, 0.18) 30%,
+      rgba(15, 28, 38, 0) 55%
+    );
   }
 
   .hero-inner {
+    position: relative;
+    z-index: 2;
     width: 100%;
-    padding: var(--space-7) var(--space-4);
+    padding: var(--space-5);
   }
 
-  .hero-text {
-    max-width: 56ch;
-    margin: 0 auto;
-    /* Kontrast-skygge: blød, bred mørk halo bag teksten — diskret men effektiv */
-    filter: drop-shadow(0 2px 18px rgba(0, 0, 0, 0.45));
+  /* Kortet — let frostet glas, så bygningen anes igennem */
+  .hero-card {
+    max-width: 36rem;
+    padding: clamp(var(--space-5), 2.5vw, var(--space-6));
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(8px) saturate(110%);
+    -webkit-backdrop-filter: blur(8px) saturate(110%);
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    border-radius: clamp(6px, 0.6vw, 10px);
+    box-shadow:
+      0 1px 2px rgba(15, 28, 38, 0.08),
+      0 24px 48px -20px rgba(15, 28, 38, 0.35);
   }
 
-  .hero .eyebrow {
-    color: rgba(255, 255, 255, 0.92);
+  .hero-card .eyebrow {
+    color: var(--color-accent);
     font-size: 0.78rem;
-    letter-spacing: 0.18em;
+    letter-spacing: 0.14em;
     font-weight: 600;
-    text-transform: uppercase;
   }
 
-  .hero h1 {
-    color: #fff;
-    margin: var(--space-3) 0 var(--space-3);
-    font-size: clamp(2.1rem, 3vw + 1rem, 3.4rem);
+  .hero-card h1 {
+    margin: var(--space-2) 0 var(--space-3);
+    font-size: clamp(1.85rem, 2.2vw + 1rem, 2.75rem);
     letter-spacing: -0.02em;
     line-height: 1.08;
+    color: var(--color-text, #0f1c26);
   }
 
-  .lead {
-    color: rgba(255, 255, 255, 0.96);
-    font-size: clamp(1.05rem, 0.4vw + 1rem, 1.2rem);
+  /* Tynd linje i accentfarve — diskret, "magasin"-detalje */
+  .hero-rule {
+    display: block;
+    width: 56px;
+    height: 2px;
+    background: var(--color-accent);
+    margin: 0 0 var(--space-4);
+  }
+
+  .hero-card .lead {
+    color: var(--color-text-muted, #4a5662);
+    font-size: 1.05rem;
     line-height: 1.55;
-    max-width: 52ch;
-    margin: 0 auto;
+    max-width: 48ch;
+    margin: 0;
   }
 
   .hero-actions {
     display: flex;
     flex-wrap: wrap;
-    gap: var(--space-3);
+    gap: var(--space-4);
+    align-items: center;
     margin-top: var(--space-5);
-    justify-content: center;
   }
 
-  .btn-light {
-    background: rgba(255, 255, 255, 0.95);
+  .hero-link {
     color: var(--color-accent);
-    border-color: rgba(255, 255, 255, 0.95);
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.18s ease;
   }
-  .btn-light:hover,
-  .btn-light:focus-visible {
-    background: #fff;
-    border-color: #fff;
-    color: var(--color-accent-hover);
+  .hero-link:hover,
+  .hero-link:focus-visible {
+    border-bottom-color: currentColor;
   }
 
   .hero-credit {
     position: absolute;
     bottom: var(--space-3);
-    right: var(--space-5);
+    right: var(--space-4);
     margin: 0;
+    z-index: 2;
     font-size: 0.7rem;
-    color: rgba(255, 255, 255, 0.75);
+    color: rgba(255, 255, 255, 0.85);
     letter-spacing: 0.04em;
     text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
   }
 
   @media (max-width: 640px) {
-    .hero { min-height: 540px; }
-    .hero-inner { padding: var(--space-6) var(--space-4); }
+    .hero { padding: 0; }
+    .hero-stage {
+      min-height: 540px;
+      border-radius: 0;
+      align-items: flex-end;
+    }
+    .hero-inner { padding: var(--space-4); }
+    .hero-card { padding: var(--space-5); }
+    .hero-card .lead { font-size: 1rem; }
     .hero-credit { right: var(--space-3); font-size: 0.66rem; }
-    .lead { font-size: 1rem; }
   }
 </style>
-
 
 
