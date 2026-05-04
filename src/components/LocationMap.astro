@@ -11,30 +11,109 @@ const { height = '420px', zoom = 16, title = 'Kort over Fyrholm' } = Astro.props
 const coords = (site as any).coordinates as { lat: number; lng: number; label?: string } | undefined;
 const label = coords?.label ?? site.name;
 
-// Google Maps embed without API key (uses public maps URL)
 const streetText = Array.isArray(site.address.street) ? site.address.street.join(', ') : site.address.street;
-const q = coords ? `${coords.lat},${coords.lng}` : encodeURIComponent(`${streetText}, ${site.address.postalCode} ${site.address.city}`);
-const src = `https://www.google.com/maps?q=${q}&z=${zoom}&t=k&output=embed`;
-const linkHref = coords
-  ? `https://www.google.com/maps/search/?api=1&query=${coords.lat},${coords.lng}`
-  : `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${streetText}, ${site.address.postalCode} ${site.address.city}`)}`;
+const fallbackLat = 55.645648599274054;
+const fallbackLng = 12.552881212906835;
+const lat = coords?.lat ?? fallbackLat;
+const lng = coords?.lng ?? fallbackLng;
+
+// Direct link opens OpenStreetMap with marker
+const osmLink = `https://www.openstreetmap.org/?mlat=${lat}&mlon=${lng}#map=${zoom}/${lat}/${lng}`;
+
+// Optional Mapbox token (set MAPBOX_TOKEN as build env var); falls back to plain OSM if absent.
+const mapboxToken = (import.meta.env.PUBLIC_MAPBOX_TOKEN as string | undefined) || '';
 ---
 
 <figure class="map-figure">
-  <div class="map-frame" style={`height:${height}`}>
-    <iframe
-      src={src}
-      title={title}
-      loading="lazy"
-      referrerpolicy="no-referrer-when-downgrade"
-      allowfullscreen
-    ></iframe>
+  <div
+    class="map-frame"
+    style={`height:${height}`}
+    data-lat={lat}
+    data-lng={lng}
+    data-zoom={zoom}
+    data-label={label}
+    data-mapbox-token={mapboxToken}
+    aria-label={title}
+  >
+    <div class="map-canvas" id={`map-${lat}-${lng}`}></div>
+    <noscript>
+      <a class="map-fallback" href={osmLink} target="_blank" rel="noopener">
+        Vis kort på OpenStreetMap →
+      </a>
+    </noscript>
   </div>
   <figcaption>
     <span>{label}</span>
-    <a href={linkHref} target="_blank" rel="noopener">Åbn i Google Maps →</a>
+    <a href={osmLink} target="_blank" rel="noopener">Åbn i OpenStreetMap →</a>
   </figcaption>
 </figure>
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+
+<script is:inline>
+  (function () {
+    function init() {
+      document.querySelectorAll('.map-frame').forEach(function (frame) {
+        if (frame.dataset.mapInit === '1') return;
+        const lat = parseFloat(frame.dataset.lat);
+        const lng = parseFloat(frame.dataset.lng);
+        const zoom = parseInt(frame.dataset.zoom || '16', 10);
+        const label = frame.dataset.label || 'Fyrholm';
+        const token = frame.dataset.mapboxToken;
+        const canvas = frame.querySelector('.map-canvas');
+        if (!canvas || !window.L) return;
+
+        const map = window.L.map(canvas, {
+          center: [lat, lng],
+          zoom,
+          scrollWheelZoom: false,
+          attributionControl: true,
+        });
+
+        let tileUrl, attribution;
+        if (token) {
+          // Mapbox Streets v12 raster tiles
+          tileUrl = `https://api.mapbox.com/styles/v1/mapbox/streets-v12/tiles/{z}/{x}/{y}?access_token=${token}`;
+          attribution = '© <a href="https://www.mapbox.com/about/maps/" target="_blank" rel="noopener">Mapbox</a> © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a>';
+        } else {
+          // Plain OSM raster tiles — no token needed
+          tileUrl = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+          attribution = '© <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> contributors';
+        }
+
+        window.L.tileLayer(tileUrl, {
+          maxZoom: 19,
+          attribution,
+        }).addTo(map);
+
+        const marker = window.L.marker([lat, lng]).addTo(map);
+        marker.bindPopup('<strong>' + label + '</strong>');
+
+        // Re-enable scroll-wheel zoom on click for usability
+        map.on('click', function () { map.scrollWheelZoom.enable(); });
+        map.on('mouseout', function () { map.scrollWheelZoom.disable(); });
+
+        frame.dataset.mapInit = '1';
+      });
+    }
+
+    function load() {
+      if (window.L) { init(); return; }
+      const s = document.createElement('script');
+      s.src = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js';
+      s.integrity = 'sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=';
+      s.crossOrigin = '';
+      s.onload = init;
+      document.head.appendChild(s);
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', load);
+    } else {
+      load();
+    }
+  })();
+</script>
 
 <style>
   .map-figure {
@@ -45,14 +124,25 @@ const linkHref = coords
     background: var(--color-bg);
     border: 1px solid var(--color-border);
   }
-  .map-frame { position: relative; width: 100%; }
-  .map-frame iframe {
+  .map-frame {
+    position: relative;
+    width: 100%;
+    background: var(--color-bg-soft);
+  }
+  .map-canvas {
     position: absolute;
     inset: 0;
     width: 100%;
     height: 100%;
-    border: 0;
-    display: block;
+  }
+  .map-fallback {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-text);
+    font-weight: 500;
   }
   figcaption {
     display: flex;
@@ -66,4 +156,14 @@ const linkHref = coords
     background: var(--color-bg-soft);
   }
   figcaption a { white-space: nowrap; }
+
+  /* Make Leaflet attribution match site tone */
+  :global(.leaflet-control-attribution) {
+    background: rgba(255, 255, 255, 0.9) !important;
+    font-size: 0.78rem !important;
+    color: var(--color-text-muted) !important;
+  }
+  :global(.leaflet-control-attribution a) {
+    color: var(--color-accent) !important;
+  }
 </style>
