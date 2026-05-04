@@ -1,6 +1,7 @@
 ---
 import site from '../data/site.json';
 import { link, base } from '../lib/url';
+import LanguageToggle from './LanguageToggle.astro';
 
 const navItems = [
   { label: 'Nyheder', href: '/nyheder' },
@@ -38,6 +39,9 @@ const pathname = base && rawPath.startsWith(base) ? rawPath.slice(base.length) |
         })}
       </ul>
     </nav>
+    <div class="header-actions">
+      <LanguageToggle />
+    </div>
   </div>
 </header>
 
@@ -59,6 +63,13 @@ const pathname = base && rawPath.startsWith(base) ? rawPath.slice(base.length) |
     gap: var(--space-5);
     padding-top: var(--space-3);
     padding-bottom: var(--space-3);
+  }
+
+  .header-actions {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    margin-left: var(--space-3);
   }
 
   .logo {

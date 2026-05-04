@@ -1,0 +1,147 @@
+---
+// Lightweight on-demand Google Translate toggle (DA ⇄ EN).
+// Loads the widget only when the user clicks "EN" the first time,
+// so there's no third-party script on first paint.
+---
+
+<button
+  id="lang-toggle"
+  type="button"
+  class="lang-toggle"
+  aria-label="Translate to English"
+  data-state="da"
+>
+  <span aria-hidden="true">EN</span>
+</button>
+
+<!-- Hidden host for the Google Translate widget -->
+<div id="google_translate_element" aria-hidden="true" hidden></div>
+
+<style>
+  .lang-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 38px;
+    height: 32px;
+    padding: 0 10px;
+    border: 1px solid var(--color-border-strong, var(--color-border));
+    border-radius: var(--radius-sm);
+    background: transparent;
+    color: var(--color-text);
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    cursor: pointer;
+    transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+  }
+  .lang-toggle:hover {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+  }
+  .lang-toggle[data-state='en'] {
+    background: var(--color-accent);
+    color: var(--color-on-accent, #fff);
+    border-color: var(--color-accent);
+  }
+  /* Hide the Google Translate UI chrome — we drive it programmatically */
+  #google_translate_element { display: none !important; }
+  :global(.goog-te-banner-frame),
+  :global(.skiptranslate) {
+    display: none !important;
+  }
+  :global(body) { top: 0 !important; }
+  :global(.goog-tooltip),
+  :global(.goog-tooltip:hover),
+  :global(.goog-text-highlight) {
+    background: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
+  }
+</style>
+
+<script is:inline>
+  (function () {
+    const COOKIE = 'googtrans';
+
+    function setCookie(value, days) {
+      const d = new Date();
+      d.setTime(d.getTime() + days * 24 * 60 * 60 * 1000);
+      const host = location.hostname;
+      const expires = 'expires=' + d.toUTCString();
+      // Set on path and host plus parent host for GitHub Pages subpath
+      document.cookie = COOKIE + '=' + value + ';' + expires + ';path=/';
+      if (host) {
+        document.cookie = COOKIE + '=' + value + ';' + expires + ';path=/;domain=' + host;
+        const parent = host.split('.').slice(-2).join('.');
+        if (parent !== host) {
+          document.cookie = COOKIE + '=' + value + ';' + expires + ';path=/;domain=.' + parent;
+        }
+      }
+    }
+
+    function clearCookie() {
+      const past = 'Thu, 01 Jan 1970 00:00:00 GMT';
+      document.cookie = COOKIE + '=; expires=' + past + '; path=/';
+      const host = location.hostname;
+      if (host) {
+        document.cookie = COOKIE + '=; expires=' + past + '; path=/; domain=' + host;
+        const parent = host.split('.').slice(-2).join('.');
+        if (parent !== host) {
+          document.cookie = COOKIE + '=; expires=' + past + '; path=/; domain=.' + parent;
+        }
+      }
+    }
+
+    function ensureWidget() {
+      if (window.__gtInit) return;
+      window.__gtInit = true;
+      window.googleTranslateElementInit = function () {
+        // eslint-disable-next-line no-new
+        new google.translate.TranslateElement(
+          {
+            pageLanguage: 'da',
+            includedLanguages: 'en,da',
+            autoDisplay: false,
+            layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+          },
+          'google_translate_element',
+        );
+      };
+      const s = document.createElement('script');
+      s.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+      s.async = true;
+      document.head.appendChild(s);
+    }
+
+    const btn = document.getElementById('lang-toggle');
+    if (!btn) return;
+
+    // Reflect existing cookie state on load (e.g. after page navigation)
+    if (/googtrans=\/da\/en/.test(document.cookie)) {
+      btn.setAttribute('data-state', 'en');
+      btn.firstElementChild.textContent = 'DA';
+      btn.setAttribute('aria-label', 'Vis siden på dansk');
+      ensureWidget();
+    }
+
+    btn.addEventListener('click', function () {
+      const state = btn.getAttribute('data-state');
+      if (state === 'da') {
+        setCookie('/da/en', 1);
+        btn.setAttribute('data-state', 'en');
+        btn.firstElementChild.textContent = 'DA';
+        btn.setAttribute('aria-label', 'Vis siden på dansk');
+        ensureWidget();
+        // Reload so Google Translate picks up the cookie cleanly
+        setTimeout(function () { location.reload(); }, 50);
+      } else {
+        clearCookie();
+        btn.setAttribute('data-state', 'da');
+        btn.firstElementChild.textContent = 'EN';
+        btn.setAttribute('aria-label', 'Translate to English');
+        setTimeout(function () { location.reload(); }, 50);
+      }
+    });
+  })();
+</script>
