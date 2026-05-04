@@ -39,6 +39,19 @@ const MAX_LEN = 500; // MyMemory per-request limit
 
 const SKIP_TAGS = new Set(['script', 'style', 'noscript', 'code', 'pre', 'textarea']);
 
+// Manual overrides — used INSTEAD of MyMemory. Lookup is case-sensitive on the
+// trimmed Danish source. Add idiomatic phrases here when MT gets them wrong.
+const MANUAL_TRANSLATIONS = {
+  'Det sker': 'Events',
+  'Tilføj til kalender': 'Add to calendar',
+  'Tilføj kalenderen til din telefon': 'Add the calendar to your phone',
+  'Hent .ics-fil': 'Download .ics file',
+  'Google Kalender': 'Google Calendar',
+  'Kommende': 'Upcoming',
+  'Tidligere': 'Past events',
+  'Kalender': 'Calendar',
+};
+
 function sha1(s) {
   return crypto.createHash('sha1').update(s).digest('hex');
 }
@@ -122,6 +135,10 @@ function collectTexts($) {
 }
 
 async function translateOne(text) {
+  // Manual override beats MT every time
+  const manual = MANUAL_TRANSLATIONS[text.trim()];
+  if (manual) return manual;
+
   // MyMemory: GET https://api.mymemory.translated.net/get?q=...&langpair=da|en-GB&de=email
   const url = new URL('https://api.mymemory.translated.net/get');
   url.searchParams.set('q', text);
@@ -178,6 +195,11 @@ async function translateChunked(text) {
 }
 
 async function translateAll(strings, cache) {
+  // Apply manual overrides first — overwrites any stale cached translation
+  for (const s of strings) {
+    const manual = MANUAL_TRANSLATIONS[s.trim()];
+    if (manual) cache[sha1(s)] = manual;
+  }
   const missing = strings.filter((s) => !(sha1(s) in cache));
   if (!missing.length) return;
   console.log(`  · translating ${missing.length} new strings via MyMemory${EMAIL ? ` (as ${EMAIL})` : ' (anonymous)'}`);
