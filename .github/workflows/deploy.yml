@@ -38,8 +38,6 @@ jobs:
 
       - name: Build site (Astro + MyMemory + Pagefind)
         run: npm run build
-        env:
-          TRANSLATE_EMAIL: ${{ secrets.TRANSLATE_EMAIL }}
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3

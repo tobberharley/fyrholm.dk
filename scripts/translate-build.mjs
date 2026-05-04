@@ -33,7 +33,7 @@ const DIST = path.join(ROOT, 'dist');
 const EN_DIR = path.join(DIST, 'en');
 const CACHE_FILE = path.join(ROOT, 'scripts', '.translation-cache.json');
 const SITE_BASE = '/fyrholm.dk';
-const EMAIL = process.env.TRANSLATE_EMAIL || '';
+const EMAIL = process.env.TRANSLATE_EMAIL || 'fyrbs@administrationdanmark.dk';
 const DISABLED = process.env.TRANSLATE_DISABLE === '1';
 const MAX_LEN = 500; // MyMemory per-request limit
 
