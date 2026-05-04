@@ -3,26 +3,26 @@ title: Husdyr
 category: Beboerinfo
 date: 2026-05-04
 order: 12
-summary: Regler for husdyr i Fyrholm — det er tilladt med mindre dyr, men der er hensyn at tage til naboer og fællesarealer.
+summary: Husdyr er velkomne på Fyrholm — her er det, vi tager hensyn til, så de og naboerne også trives.
 ---
 
-Det er **tilladt at holde et mindre husdyr** i Fyrholm, så længe det kan ske uden væsentlig gene for de øvrige beboere.
+Husdyr er velkomne på Fyrholm. Du må gerne holde **et mindre husdyr**, så længe det kan ske uden at være til væsentlig gene for naboerne.
 
 ## På fællesarealerne
 
-- **Hunde og katte skal holdes i snor** på ejerforeningens område.
-- **Husdyr må ikke luftes eller leges med** på græsset eller i gården.
-- **Efterladenskaber** er ejerens ansvar at fjerne.
-
-## Hvis der opstår gener
-
-Bestyrelsen kan forlange et husdyr fjernet fra lejligheden og foreningens område, hvis ejeren gentagne gange ikke efterlever berettigede klager fremsat af [administrator](/fyrholm.dk/kontakt) eller [bestyrelsen](/fyrholm.dk/kontakt).
-
-Tal først med din nabo, hvis du oplever gener — de fleste konflikter kan løses i god ro og orden.
+- **Hunde og katte holdes i snor** på foreningens område.
+- **Græsplænen og gården** er ikke til hundeluftning eller leg med dyret — vi holder dem fri til ophold og leg for både børn og voksne.
+- **Efterladenskaber** samler vi naturligvis altid op efter os selv.
 
 ## Fugle og andre dyr i gården
 
-For at **undgå rotter** må der **ikke fodres fugle, tilløbende katte eller andre dyr** på udendørsarealerne.
+For at undgå rotter er det vigtigt, at vi **ikke fodrer fugle, tilløbende katte eller andre dyr** på udendørsarealerne. Det gælder hele fællesarealet.
+
+## Hvis der opstår gener
+
+Hvis du oplever gener, er det næsten altid bedst at starte med at tale med din nabo — de fleste situationer kan ordnes i god ro og orden.
+
+Hjælper det ikke, kan du kontakte [bestyrelsen](/fyrholm.dk/kontakt). I sjældne tilfælde, hvor en ejer gentagne gange ikke følger op på berettigede henvendelser, kan bestyrelsen — som sidste udvej — bede om, at husdyret fjernes fra ejendommen.
 
 ---
 

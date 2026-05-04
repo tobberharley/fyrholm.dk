@@ -18,7 +18,7 @@ Vi har rigtig mange cykler i foreningen, og derfor har bestyrelsen lavet denne p
 
 4. **Små børnecykler (op til en meter)** må ikke optage en hel cykelplads i stativerne i kælderen. De skal i stedet hænges op på krogene på væggene ved siden af cykelstativerne i kælderen.
 
-5. **Cykler udenfor stativerne og de markerede cykelparkerings-zoner i gården flyttes løbende uden videre** af viceværten til cykelparkeringszonerne på Ben Websters Vej.
+5. **Cykler udenfor stativerne og de markerede zoner i gården** vil viceværten løbende flytte over til cykelparkeringszonerne på Ben Websters Vej — for at sikre fri adgang og friholde brandveje.
 
 ## Ladcykelplads i kælderen
 

@@ -28,9 +28,9 @@ Har du brug for en plads til dig selv eller en gæst, kan du låne en ledig plad
 
 Det er altid **låners ansvar**, at lånet foregår korrekt.
 
-### Parkering uden lån eller leje accepteres ikke
+### Parkering uden lån eller leje
 
-Det er **ikke i orden** at benytte ledige p-pladser i kælderen, som du hverken låner eller lejer. Sker det, kan du blive **pålagt en p-afgift for uretmæssig parkering**. Bestyrelsen kan ikke acceptere den slags adfærd.
+Ledige p-pladser i kælderen er reserveret til dem, der lejer eller har fået lov at låne pladsen. Bruges en plads uden aftale, kan det desværre udløse en p-afgift for uretmæssig parkering — så skriv hellere i [p-kælder-gruppen](https://www.facebook.com/groups/600797924139257), hvis du har brug for en plads kortvarigt.
 
 ### Vis hensyn i kælderen
 

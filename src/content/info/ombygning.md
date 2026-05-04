@@ -3,42 +3,40 @@ title: Ombygning og ændringer i lejligheden
 category: Beboerinfo
 date: 2026-05-04
 order: 13
-summary: Hvad du skal gøre før du går i gang med en ombygning — orientering af bestyrelsen, regler for varme/ventilation og hensyn til naboerne.
+summary: Skal du i gang med en ombygning? Her er hvad du skal huske — så det går glat for dig, naboerne og bygningen.
 ---
 
-Står du foran at skulle ombygge eller ændre indretningen i din lejlighed? Her er, hvad du skal være opmærksom på.
+Skal du ombygge eller indrette om i din lejlighed? Det er der mange, der gør på Fyrholm — her er nogle få ting at huske, så det går så gnidningsfrit som muligt for dig, naboerne og bygningen.
 
-## Orientér bestyrelsen før du går i gang
+## Sig til bestyrelsen før du går i gang
 
-Inden arbejdet igangsættes, skal **bestyrelsen orienteres** med en kort beskrivelse af omfanget. Skriv til [bestyrelsen](/fyrholm.dk/kontakt).
+Giv [bestyrelsen](/fyrholm.dk/kontakt) en kort besked om, hvad du har planer om, inden arbejdet går i gang. Det giver os mulighed for at hjælpe, hvis der er noget at være opmærksom på i forhold til bygningen.
 
 For større ombygninger kan der være krav om **byggetilladelse fra Københavns Kommune** — det er ejerens ansvar at indhente.
 
 ## Varme og ventilation
 
-Indgreb i varme- eller ventilationsanlægget må **kun udføres**, hvis indgrebet **ikke påvirker indreguleringen** af tryk i centralvarmen og ventilationssystemet i de øvrige lejligheder.
+Varme- og ventilationsanlægget er fælles for hele bygningen, så indgreb må kun udføres, hvis det **ikke påvirker indreguleringen** af tryk i centralvarmen og ventilationssystemet i de andre lejligheder.
 
-Tag altid en autoriseret installatør med på råd inden ændringer i de tekniske installationer.
+Vi anbefaler, at du tager en autoriseret installatør med på råd, før du laver ændringer i de tekniske installationer.
 
-## Orientér naboerne
+## Sig det til naboerne
 
-De øvrige beboere i samme opgang skal orienteres om den planlagte ombygning — herunder forventet **start- og slutdato**.
-
-Læg gerne en seddel på opslagstavlen eller skriv på [Facebook-gruppen](https://www.facebook.com/groups/760829583961473/).
+Dine naboer i samme opgang vil sætte pris på en lille forvarsel — gerne med forventet **start- og slutdato**. En seddel på opslagstavlen eller et opslag i [Facebook-gruppen](https://www.facebook.com/groups/760829583961473/) er en god løsning.
 
 ## Byggematerialer og af-/pålæsning
 
-- **Af- og pålæsning** skal ske til mindst mulig gene for trafik, beboerparkering og adgangen til P-kælderen.
-- **Nedtaget inventar og byggematerialer må ikke** opbevares på fællesarealerne eller hindre adgang til trapper og elevatorer.
+- Af- og pålæsning sker bedst med så lidt gene som muligt for trafik, parkering og adgangen til P-kælderen.
+- Nedtaget inventar og byggematerialer hører ikke hjemme på fællesarealerne — og må ikke spærre for trapper eller elevatorer.
 
 ## Rengøring og udbedring
 
-Bliver fællesarealer (trapper, opgange, elevatorer mv.) snavsede eller beskadigede i forbindelse med arbejdet, har ejeren ansvar for **løbende rengøring og udbedring**. Bestyrelsen kan opkræve et beløb hos ejeren til dækning af supplerende rengøring eller skader på vægge og døre.
+Hvis fællesarealer (trapper, opgange, elevatorer m.m.) bliver snavsede eller får skrammer i forbindelse med arbejdet, har vi alle gavn af, at det rettes op løbende. Bestyrelsen kan opkræve et beløb hos ejeren, hvis der skal supplerende rengøring eller udbedring til.
 
-## Husk
+## Lige til at huske
 
-- **Støjende værktøj** må kun anvendes i de tilladte tidsrum — se [Ro og støj](/fyrholm.dk/info/ro-og-stoej).
-- **Ændringer af facaden** (vinduer, altanlofter, ydre flader) er **ikke tilladt** uden bestyrelsens samtykke. Ændringer foretaget uden tilladelse vil blive tilbageført for ejers regning.
+- **Støjende værktøj** holder vi os til de aftalte tidsrum — se [Ro og støj](/fyrholm.dk/info/ro-og-stoej).
+- **Ændringer af facaden** (vinduer, altanlofter, ydre flader) kræver bestyrelsens godkendelse, så bygningen fortsat fremstår ensartet. Ændringer uden tilladelse vil desværre skulle tilbageføres for ejers regning.
 
 ---
 

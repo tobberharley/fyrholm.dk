@@ -20,4 +20,4 @@ Der findes **kabel-tv-stik i alle lejligheder**. Anlægget leveres af **YouSee**
 
 ### Parabolantenner
 
-Det er **ikke tilladt** at opsætte parabolantenner eller lignende — hverken på altan eller tag. Bygningens facade og tag skal holdes ensartet. Ulovligt monteret udstyr vil blive nedtaget for ejers regning, og bygningen udbedres på samme måde.
+For at facaden og taget kan fremstå ensartet, sætter vi ikke parabolantenner eller lignende op — hverken på altan eller tag. Hvis udstyr alligevel monteres uden tilladelse, vil det desværre skulle nedtages igen, og bygningen udbedres for ejers regning.
