@@ -76,6 +76,9 @@ const facilities = defineCollection({
     link: z.string().optional(), // optional external link (e.g. Facebook group)
     membersOnly: z.boolean().default(false),
     badge: z.string().optional(),
+    image: z.string().optional(), // path under public/, e.g. /images/facilities/havelaug.jpg
+    imageAlt: z.string().optional(),
+    imageCredit: z.string().optional(),
   }),
 });
 

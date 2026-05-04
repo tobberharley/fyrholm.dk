@@ -23,6 +23,12 @@ const { Content } = await render(entry);
         <h1>{entry.data.title}</h1>
       </div>
       <p class="lead">{entry.data.summary}</p>
+      {entry.data.image && (
+        <figure class="facility-image">
+          <img src={link(entry.data.image)} alt={entry.data.imageAlt ?? entry.data.title} loading="lazy" />
+          {entry.data.imageCredit && <figcaption>Foto: {entry.data.imageCredit}</figcaption>}
+        </figure>
+      )}
       {entry.id === 'orangeriet' && (
         <p style="margin: var(--space-5) 0;">
           <a href={link('/faciliteter/orangeriet/book')} class="btn">Book Orangeriet →</a>
@@ -57,4 +63,19 @@ const { Content } = await render(entry);
     background: var(--color-bg-soft);
   }
   .lead { color: var(--color-text-muted); font-size: 1.15rem; }
+  .facility-image {
+    margin: var(--space-5) 0 var(--space-6);
+  }
+  .facility-image img {
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius-lg, 12px);
+    display: block;
+  }
+  .facility-image figcaption {
+    margin-top: var(--space-2);
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    text-align: right;
+  }
 </style>
