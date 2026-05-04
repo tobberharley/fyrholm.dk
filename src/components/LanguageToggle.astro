@@ -117,6 +117,59 @@
     const btn = document.getElementById('lang-toggle');
     if (!btn) return;
 
+    // Mark "Fyrholm" (and a few other proper nouns) so Google Translate leaves them untouched.
+    function protectProperNouns() {
+      const SKIP_TAGS = new Set(['SCRIPT', 'STYLE', 'NOSCRIPT', 'CODE', 'PRE', 'TEXTAREA', 'INPUT']);
+      const TERMS = [
+        'Fyrholm',
+        'Fyrholmen',
+        'Sluseholmen',
+        'Ben Websters Vej',
+        'Ernie Wilkins Vej',
+        'Oscar Pettifords Vej',
+        'TipTop Ejendomsservice',
+      ];
+      const re = new RegExp('(' + TERMS.map(function (t) { return t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }).join('|') + ')', 'g');
+
+      const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
+        acceptNode: function (n) {
+          if (!n.nodeValue || !re.test(n.nodeValue)) return NodeFilter.FILTER_REJECT;
+          re.lastIndex = 0;
+          var p = n.parentNode;
+          while (p && p !== document.body) {
+            if (SKIP_TAGS.has(p.nodeName)) return NodeFilter.FILTER_REJECT;
+            if (p.classList && p.classList.contains('notranslate')) return NodeFilter.FILTER_REJECT;
+            p = p.parentNode;
+          }
+          return NodeFilter.FILTER_ACCEPT;
+        },
+      });
+
+      var node;
+      var nodes = [];
+      while ((node = walker.nextNode())) nodes.push(node);
+
+      nodes.forEach(function (n) {
+        re.lastIndex = 0;
+        var frag = document.createDocumentFragment();
+        var last = 0;
+        var m;
+        var text = n.nodeValue;
+        while ((m = re.exec(text)) !== null) {
+          if (m.index > last) frag.appendChild(document.createTextNode(text.slice(last, m.index)));
+          var span = document.createElement('span');
+          span.className = 'notranslate';
+          span.setAttribute('translate', 'no');
+          span.textContent = m[0];
+          frag.appendChild(span);
+          last = m.index + m[0].length;
+        }
+        if (last < text.length) frag.appendChild(document.createTextNode(text.slice(last)));
+        n.parentNode.replaceChild(frag, n);
+      });
+    }
+    protectProperNouns();
+
     // Reflect existing cookie state on load (e.g. after page navigation)
     if (/googtrans=\/da\/en/.test(document.cookie)) {
       btn.setAttribute('data-state', 'en');
