@@ -21,7 +21,7 @@ const pathname = base && rawPath.startsWith(base) ? rawPath.slice(base.length) |
 <header class="site-header">
   <div class="container header-inner">
     <a href={link('/')} class="logo" aria-label={`${site.name} forside`}>
-      <span class="logo-mark" aria-hidden="true">E/F</span>
+      <span class="logo-mark" aria-hidden="true">F</span>
       <span class="logo-text">{site.shortName}</span>
     </a>
     <button class="nav-toggle" aria-label="Åbn menu" aria-expanded="false" aria-controls="primary-nav">
@@ -88,15 +88,14 @@ const pathname = base && rawPath.startsWith(base) ? rawPath.slice(base.length) |
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    min-width: 40px;
+    width: 32px;
     height: 32px;
-    padding: 0 8px;
     border-radius: var(--radius-sm);
     background: var(--color-accent);
     color: var(--color-on-accent);
     font-weight: 600;
-    font-size: 0.95rem;
-    letter-spacing: 0;
+    font-size: 1rem;
+    letter-spacing: -0.02em;
     line-height: 1;
   }
 

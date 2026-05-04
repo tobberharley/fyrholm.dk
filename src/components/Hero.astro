@@ -17,6 +17,7 @@ const heroCredit = (site as any).heroCredit as string | undefined;
       fetchpriority="high"
     />
   )}
+  <div class="hero-overlay" aria-hidden="true"></div>
 
   <div class="container hero-inner">
     <div class="hero-text">
@@ -37,9 +38,11 @@ const heroCredit = (site as any).heroCredit as string | undefined;
   .hero {
     position: relative;
     isolation: isolate;
-    min-height: clamp(560px, 78vh, 780px);
+    min-height: clamp(560px, 80vh, 800px);
     display: flex;
     align-items: center;
+    justify-content: center;
+    text-align: center;
     overflow: hidden;
     background: var(--color-accent);
     color: #fff;
@@ -53,7 +56,22 @@ const heroCredit = (site as any).heroCredit as string | undefined;
     height: 100%;
     object-fit: cover;
     object-position: center 42%;
+    z-index: -2;
+  }
+
+  /* Jævn, blød fade så bygningen anes hele vejen, men teksten har ro bagved */
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
     z-index: -1;
+    background:
+      radial-gradient(
+        ellipse at center,
+        rgba(15, 28, 38, 0.55) 0%,
+        rgba(15, 28, 38, 0.40) 40%,
+        rgba(15, 28, 38, 0.30) 70%,
+        rgba(15, 28, 38, 0.40) 100%
+      );
   }
 
   .hero-inner {
@@ -63,16 +81,17 @@ const heroCredit = (site as any).heroCredit as string | undefined;
 
   .hero-text {
     max-width: 56ch;
+    margin: 0 auto;
+    /* Kontrast-skygge: blød, bred mørk halo bag teksten — diskret men effektiv */
+    filter: drop-shadow(0 2px 18px rgba(0, 0, 0, 0.45));
   }
 
   .hero .eyebrow {
-    color: rgba(255, 255, 255, 0.95);
+    color: rgba(255, 255, 255, 0.92);
     font-size: 0.78rem;
     letter-spacing: 0.18em;
     font-weight: 600;
     text-transform: uppercase;
-    /* Skarp tekstskygge — lille men høj-kontrast */
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.55), 0 0 14px rgba(0, 0, 0, 0.35);
   }
 
   .hero h1 {
@@ -81,16 +100,14 @@ const heroCredit = (site as any).heroCredit as string | undefined;
     font-size: clamp(2.1rem, 3vw + 1rem, 3.4rem);
     letter-spacing: -0.02em;
     line-height: 1.08;
-    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.55), 0 0 24px rgba(0, 0, 0, 0.35);
   }
 
   .lead {
-    color: rgba(255, 255, 255, 0.98);
+    color: rgba(255, 255, 255, 0.96);
     font-size: clamp(1.05rem, 0.4vw + 1rem, 1.2rem);
     line-height: 1.55;
     max-width: 52ch;
-    margin: 0;
-    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.55), 0 0 18px rgba(0, 0, 0, 0.3);
+    margin: 0 auto;
   }
 
   .hero-actions {
@@ -98,6 +115,7 @@ const heroCredit = (site as any).heroCredit as string | undefined;
     flex-wrap: wrap;
     gap: var(--space-3);
     margin-top: var(--space-5);
+    justify-content: center;
   }
 
   .btn-light {
@@ -118,9 +136,9 @@ const heroCredit = (site as any).heroCredit as string | undefined;
     right: var(--space-5);
     margin: 0;
     font-size: 0.7rem;
-    color: rgba(255, 255, 255, 0.85);
+    color: rgba(255, 255, 255, 0.75);
     letter-spacing: 0.04em;
-    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
   }
 
   @media (max-width: 640px) {
