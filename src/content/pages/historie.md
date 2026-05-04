@@ -36,6 +36,13 @@ Idéen kom på et besøg i **Begijnhof i Amsterdam**, et anlæg fra 1400-tallet 
 
 Fyrholms gårdanlæg er udformet, så det på mange måder ligner Begijnhof: en stor, plan græsflade omkranset af vinduer ind til husene, samt lange, lave hække og stisystemer. Intentionen er, at man med det samme skal kunne overskue det hele og få fornemmelsen af en fredfyldt park.
 
+## Byggeriet
+
+<figure>
+  <img src="/fyrholm.dk/images/historie/fyrholm-byggeri.jpg" alt="Fyrholm under opførelse — karréen rejser sig på Sluseholmen" loading="lazy" />
+  <figcaption>Fyrholm under opførelse på Sluseholmen, ca. 2005–2006. <span style="opacity:.7">Foto: Gröning Arkitekter</span></figcaption>
+</figure>
+
 ## C.F. Møllers to facader
 
 C.F. Møller har udarbejdet facader på **to bygninger** i boligkarréen Fyrholm — én af i alt otte boligøer i den sydlige del af Københavns Havn. Det koordinerende arkitektfirma **Gröning ApS** udarbejdede boligplaner og råhus for hele karréen, mens fem andre arkitektfirmaer tegnede facader til hver et eller flere huse.
