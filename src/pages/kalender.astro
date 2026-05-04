@@ -21,6 +21,8 @@ const past = all
 const icsPath = link('/kalender.ics');
 const httpsUrl = `https://tobberharley.github.io${icsPath}`;
 const webcalUrl = `webcal://tobberharley.github.io${icsPath}`;
+// Google Kalender "render"-link åbner direkte add-by-URL-flowet (web/Android-app).
+const googleAddUrl = `https://calendar.google.com/calendar/u/0/r?cid=${encodeURIComponent(httpsUrl)}`;
 ---
 
 <Base title="Det sker" description="Begivenheder og arrangementer i Ejerforeningen Fyrholm.">
@@ -29,18 +31,20 @@ const webcalUrl = `webcal://tobberharley.github.io${icsPath}`;
       <span class="eyebrow">Det sker</span>
       <h1>Kalender</h1>
 
-      <div class="cal-subscribe">
+      <div class="cal-subscribe" data-https-url={httpsUrl} data-webcal-url={webcalUrl} data-google-url={googleAddUrl}>
         <div class="cal-subscribe-text">
           <strong>Tilføj kalenderen til din telefon</strong>
           <p>Abonnér én gang og få nye begivenheder automatisk i din egen kalender.</p>
         </div>
         <div class="cal-subscribe-actions">
-          <a class="btn" href={webcalUrl}>📅 Tilføj til kalender</a>
+          <a class="btn cal-primary" href={webcalUrl} data-platform="auto">📅 Tilføj til kalender</a>
           <a class="cal-link" href={icsPath} download>Hent .ics-fil</a>
         </div>
 
+        <p class="cal-platform-hint" hidden></p>
+
         <div class="cal-url">
-          <label for="cal-url-input">Kalender-URL</label>
+          <label for="cal-url-input">Eller kopiér kalender-URL'en</label>
           <div class="cal-url-row">
             <input id="cal-url-input" type="text" readonly value={httpsUrl} />
             <button type="button" class="btn btn-secondary cal-copy" data-url={httpsUrl}>Kopiér</button>
@@ -48,24 +52,19 @@ const webcalUrl = `webcal://tobberharley.github.io${icsPath}`;
         </div>
 
         <details class="cal-help">
-          <summary>Sådan tilføjer du kalenderen — pr. platform</summary>
+          <summary>Hjælp til andre kalendere</summary>
           <div class="cal-help-grid">
             <div>
               <strong>iPhone / iPad / Mac</strong>
-              <p>Tryk på <em>📅 Tilføj til kalender</em> ovenfor — Apple Kalender åbner og foreslår abonnement.</p>
+              <p>Tryk på <em>📅 Tilføj til kalender</em> — Apple Kalender åbner og foreslår abonnement.</p>
             </div>
             <div>
               <strong>Google Kalender (Android / web)</strong>
-              <ol>
-                <li>Kopiér kalender-URL'en ovenfor.</li>
-                <li>Åbn <a href="https://calendar.google.com/" target="_blank" rel="noopener">calendar.google.com</a> på en computer.</li>
-                <li>Klik <em>+</em> ud for "Andre kalendere" → <em>Fra URL</em> og indsæt linket.</li>
-              </ol>
-              <p>Bagefter synkroniseres den automatisk til din Android-telefon.</p>
+              <p>Tryk på <em>📅 Tilføj til kalender</em> for at åbne Google Kalender direkte. Eller kopiér URL'en og indsæt under <em>Andre kalendere → Fra URL</em>.</p>
             </div>
             <div>
               <strong>Outlook</strong>
-              <p>Tryk på <em>📅 Tilføj til kalender</em>, eller indsæt URL'en under <em>Tilføj kalender → Abonnér fra web</em>.</p>
+              <p>Indsæt URL'en under <em>Tilføj kalender → Abonnér fra web</em>.</p>
             </div>
           </div>
         </details>
@@ -85,6 +84,49 @@ const webcalUrl = `webcal://tobberharley.github.io${icsPath}`;
 </Base>
 
 <script>
+  // Tilpas "Tilføj til kalender"-knappen til klientens platform.
+  // Standard er webcal:// (virker for Apple Kalender og Outlook).
+  // På Android peger vi i stedet på Google Kalender's add-by-URL-flow,
+  // og på Windows/Linux uden tydelig handler beholder vi webcal som best-effort
+  // og viser et hint om at man kan kopiere URL'en hvis intet sker.
+  (function () {
+    const wrap = document.querySelector<HTMLElement>('.cal-subscribe');
+    if (!wrap) return;
+    const primary = wrap.querySelector<HTMLAnchorElement>('.cal-primary');
+    const hint = wrap.querySelector<HTMLParagraphElement>('.cal-platform-hint');
+    if (!primary || !hint) return;
+
+    const ua = navigator.userAgent;
+    const platform = (navigator as any).userAgentData?.platform || navigator.platform || '';
+    const isAndroid = /Android/i.test(ua);
+    const isApple = /Mac|iPhone|iPad|iPod/i.test(platform) || /iPhone|iPad|iPod/i.test(ua);
+    const isWindows = /Win/i.test(platform);
+
+    const googleUrl = wrap.dataset.googleUrl!;
+    const webcalUrl = wrap.dataset.webcalUrl!;
+
+    if (isAndroid) {
+      primary.href = googleUrl;
+      primary.target = '_blank';
+      primary.rel = 'noopener';
+      primary.textContent = '📅 Føj til Google Kalender';
+      hint.textContent = 'Åbner Google Kalender. Bekræft abonnementet og kalenderen synkroniseres til din telefon.';
+      hint.hidden = false;
+    } else if (isApple) {
+      primary.href = webcalUrl;
+      hint.textContent = 'Åbner Apple Kalender og foreslår abonnement.';
+      hint.hidden = false;
+    } else if (isWindows) {
+      primary.href = webcalUrl;
+      hint.textContent = "Åbner din standardkalender (fx Outlook). Hvis intet sker, kan du kopiere URL'en nedenfor.";
+      hint.hidden = false;
+    } else {
+      primary.href = webcalUrl;
+      hint.textContent = "Hvis ingen kalender åbner, så kopiér URL'en nedenfor og indsæt den i din kalender-app.";
+      hint.hidden = false;
+    }
+  })();
+
   // Klik-til-kopier af kalender-URL.
   document.querySelectorAll<HTMLButtonElement>('.cal-copy').forEach((btn) => {
     btn.addEventListener('click', async () => {
@@ -137,6 +179,14 @@ const webcalUrl = `webcal://tobberharley.github.io${icsPath}`;
   .cal-link {
     font-size: 0.9rem;
     color: var(--color-text-muted);
+  }
+
+  .cal-platform-hint {
+    flex: 1 1 100%;
+    margin: 0;
+    font-size: 0.88rem;
+    color: var(--color-text-muted);
+    font-style: italic;
   }
 
   .cal-url {
