@@ -1,9 +1,9 @@
 ---
 title: Om Ejerforeningen Fyrholm
-description: Om Ejerforeningen Fyrholm — 196 ejerlejligheder på Sluseholmen i København SV.
+description: Om Ejerforeningen Fyrholm — 195 ejerlejligheder på Sluseholmen i København SV.
 ---
 
-Ejerforeningen Fyrholm består af **196 ejerlejligheder** mellem 60 og 145 m² på en anlagt ø på Sluseholmen i København SV — omgivet af kanaler og havneløb. Vi er en forening med fokus på godt naboskab, ordnede økonomiske forhold og vedligeholdelse af vores fælles ejendom.
+Ejerforeningen Fyrholm består af **195 ejerlejligheder** mellem 60 og 145 m² på en anlagt ø på Sluseholmen i København SV — omgivet af kanaler og havneløb. Vi er en forening med fokus på godt naboskab, ordnede økonomiske forhold og vedligeholdelse af vores fælles ejendom.
 
 Læs mere om bygningen og baggrunden under [Historie](/fyrholm.dk/historie), eller se hvad du kan være med i under [Faciliteter og laug](/fyrholm.dk/faciliteter).
 
