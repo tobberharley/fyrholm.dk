@@ -23,6 +23,14 @@ Ejendommen omfatter følgende adresser — alle i postnummer 2450 København SV:
 
 Se ejendommens stamdata på [BBR-kortet](https://kort.bbr.dk/?bfe=9686758&p=723537.8475,6172357.481,14).
 
+### Hvor kommer vejnavnene fra?
+
+Vejnavnene på Sluseholmen følger en overordnet systematik fra Københavns Vejnavnenævn, der tager udgangspunkt i **amerikanske jazzmusikere med nær tilknytning til København**. Tre af dem har givet navn til Fyrholms egne adresser:
+
+- **Ben Webster (1909–1973)** — betydende jazzmusiker og solist i bl.a. Duke Ellingtons orkester. Boede i Danmark i 9 år og er begravet på Assistens Kirkegård.
+- **Oscar Pettiford (1922–1960)** — blev som 21-årig engageret af trompetstjernerne Roy Eldridge og Dizzy Gillespie, og spillede senere i Duke Ellingtons orkester og Woody Hermans bigband. Bosatte sig i 1958 i København med sin familie. Er begravet på Frederiksberg Kirkegård.
+- **Ernie Wilkins (1919–1999)** — saxofonist og orkesterleder, der bl.a. spillede med Earl Hines, Oscar Peterson og Count Basie. Bosatte sig i København i 1979, hvor han dannede sit eget orkester *The Almost Big Band*, og var desuden gæstedirigent i Danmarks Radios Big Band og Radiojazzgruppen.
+
 ## Foreningens stamdata
 
 - **Navn**: Ejerforeningen Fyrholm
