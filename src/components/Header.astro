@@ -46,8 +46,9 @@ const pathname = base && rawPath.startsWith(base) ? rawPath.slice(base.length) |
     position: sticky;
     top: 0;
     z-index: 50;
-    background: rgba(255, 255, 255, 0.92);
-    backdrop-filter: blur(10px);
+    background: rgba(251, 250, 247, 0.85);
+    backdrop-filter: blur(14px) saturate(140%);
+    -webkit-backdrop-filter: blur(14px) saturate(140%);
     border-bottom: 1px solid var(--color-border);
   }
 
@@ -76,13 +77,14 @@ const pathname = base && rawPath.startsWith(base) ? rawPath.slice(base.length) |
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 36px;
-    height: 36px;
+    width: 38px;
+    height: 38px;
     border-radius: 50%;
-    background: var(--color-accent);
+    background: linear-gradient(135deg, var(--color-accent) 0%, #4a6e58 100%);
     color: var(--color-on-accent);
     font-family: var(--font-serif);
     font-weight: 700;
+    box-shadow: var(--shadow-sm);
   }
 
   .primary-nav ul {
@@ -95,10 +97,20 @@ const pathname = base && rawPath.startsWith(base) ? rawPath.slice(base.length) |
 
   .primary-nav a {
     color: var(--color-text);
-    font-size: 0.95rem;
+    font-size: 0.92rem;
     font-weight: 500;
     padding: var(--space-2) 0;
     position: relative;
+    transition: color 0.15s ease;
+  }
+
+  .primary-nav a:hover {
+    color: var(--color-accent);
+    text-decoration: none;
+  }
+
+  .primary-nav a[aria-current='page'] {
+    color: var(--color-accent);
   }
 
   .primary-nav a[aria-current='page']::after {
@@ -106,9 +118,9 @@ const pathname = base && rawPath.startsWith(base) ? rawPath.slice(base.length) |
     position: absolute;
     left: 0;
     right: 0;
-    bottom: -2px;
+    bottom: -4px;
     height: 2px;
-    background: var(--color-accent);
+    background: var(--color-highlight);
     border-radius: 2px;
   }
 

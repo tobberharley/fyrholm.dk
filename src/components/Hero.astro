@@ -39,10 +39,27 @@ const heroImageAlt = (site as any).heroImageAlt as string | undefined;
 <style>
   .hero {
     background:
-      radial-gradient(ellipse at top right, var(--color-accent-soft), transparent 60%),
+      radial-gradient(ellipse at top right, var(--color-accent-soft), transparent 55%),
+      radial-gradient(ellipse at bottom left, var(--color-highlight-soft), transparent 50%),
       var(--color-bg-soft);
     padding: var(--space-9) 0 var(--space-8);
+    position: relative;
+    overflow: hidden;
   }
+
+  .hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(47, 74, 58, 0.06) 1px, transparent 0);
+    background-size: 28px 28px;
+    mask-image: linear-gradient(180deg, transparent, #000 30%, transparent);
+    -webkit-mask-image: linear-gradient(180deg, transparent, #000 30%, transparent);
+    pointer-events: none;
+  }
+
+  .hero-inner { position: relative; }
 
   .hero-inner {
     display: grid;
@@ -103,6 +120,16 @@ const heroImageAlt = (site as any).heroImageAlt as string | undefined;
       linear-gradient(135deg, var(--color-accent) 0%, #5a6e60 100%);
     box-shadow: var(--shadow-lg);
     position: relative;
+    transform: rotate(-1deg);
+  }
+
+  .hero-art::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.18);
+    pointer-events: none;
   }
 
   .hero-art-image { background: var(--color-bg-soft); }
