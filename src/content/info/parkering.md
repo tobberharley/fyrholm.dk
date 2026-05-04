@@ -10,9 +10,28 @@ Fyrholm ejer sin egen **underjordiske parkeringskælder**. Som beboer kan du lej
 
 ### Lej en plads i p-kælderen
 
-P-pladser udlejes via Administration Danmark. Der kan være venteliste.
+Du kan leje **1–2 almindelige p-pladser pr. husstand**. P-pladser udlejes via Administration Danmark, og der kan være venteliste.
 
 **Skriv dig op på ventelisten** ved at sende en mail til [venteliste@admdk.dk](mailto:venteliste@admdk.dk).
+
+### Lån en plads via p-gruppen
+
+Har du brug for en plads til dig selv eller en gæst, kan du låne en ledig plads via vores **p-gruppe**. Husk at:
+
+- **Registrere lånet korrekt**, inden pladsen tages i brug.
+- Kun benytte den plads, du har fået lov at låne.
+
+Det er altid **låners ansvar**, at lånet foregår korrekt.
+
+### Parkering uden lån eller leje accepteres ikke
+
+Det er **ikke i orden** at benytte ledige p-pladser i kælderen, som du hverken låner eller lejer. Sker det, kan du blive **pålagt en p-afgift for uretmæssig parkering**. Bestyrelsen kan ikke acceptere den slags adfærd.
+
+### Vis hensyn i kælderen
+
+- **Kør helt frem**, så hele pladsen udnyttes.
+- Sørg for, at **ladekabler m.m. ikke ligger til gene** for kørslen i kælderen.
+- Hold dig så vidt muligt **inden for p-stregerne** — så er der plads til alle.
 
 ### Parkering på vejene udenfor
 
