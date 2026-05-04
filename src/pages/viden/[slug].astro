@@ -3,6 +3,7 @@ import Base from '../../layouts/Base.astro';
 import { getCollection, render } from 'astro:content';
 import { Image } from 'astro:assets';
 import { link } from '../../lib/url';
+import InfoIcon from '../../components/InfoIcon.astro';
 
 export async function getStaticPaths() {
   const items = await getCollection('info');
@@ -17,6 +18,9 @@ const { Content } = await render(entry);
   <article class="section">
     <div class="container-narrow">
       <a href={link('/viden')} class="back">← Al beboerinfo</a>
+      <div class="topic-icon" aria-hidden="true">
+        <InfoIcon slug={entry.id} size={56} />
+      </div>
       <span class="eyebrow">{entry.data.category}</span>
       <h1>{entry.data.title}</h1>
       {entry.data.image && (
@@ -35,6 +39,16 @@ const { Content } = await render(entry);
     margin-bottom: var(--space-4);
     color: var(--color-text-muted);
     font-size: 0.95rem;
+  }
+  .topic-icon {
+    width: 88px;
+    height: 88px;
+    display: grid;
+    place-items: center;
+    background: linear-gradient(135deg, var(--color-bg-soft) 0%, var(--color-bg-muted) 100%);
+    color: var(--color-accent);
+    border-radius: var(--radius-md);
+    margin-bottom: var(--space-4);
   }
   .hero-image {
     width: 100%;
