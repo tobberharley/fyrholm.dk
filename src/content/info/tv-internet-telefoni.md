@@ -12,6 +12,8 @@ Fyrholm har en fælles fiberforbindelse, der giver beboerne adgang til billigt i
 
 Forbindelsen leveres af vores leverandør og kan opgraderes individuelt.
 
+Alle fiberkabler er trukket op via teknikskabet, som er bag toilettet. Krydsfeltet står i kajakrummet i det nordøstlige hjørne.
+
 ### TV
 
 Den fælles grundpakke er inkluderet i fællesudgifterne. Du kan tilkøbe yderligere pakker direkte hos leverandøren.
