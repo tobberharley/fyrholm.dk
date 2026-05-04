@@ -53,4 +53,4 @@ Cykler stilles i cykelstativerne i gården eller i cykelkælderen. Cykler, der s
 
 ### Både og kajakker
 
-Fyrholm har egne bådpladser og en bådrampe direkte ind til gården, så mindre både, joller og kajakker kan trækkes på land. Kajakker administreres af **Kajaklauget** — se [Om os](/fyrholm.dk/om-os#laug-og-fællesskab).
+Fyrholm har egne bådpladser og en bådrampe direkte ind til gården, så mindre både, joller og kajakker kan trækkes på land. Kajakker administreres af **Kajaklauget** — se [Faciliteter og laug](/fyrholm.dk/faciliteter).

@@ -20,7 +20,7 @@ Ved akutte skader, fejl på elevator/dørtelefon eller blokeret affaldsskakt: ko
 
 ## Mød naboerne
 
-Fyrholm har et aktivt beboerliv organiseret i flere laug — **Hyggelaug**, **Havelaug**, **Kajaklaug** og **Værkstedslaug**. Læs mere under [Om os](/fyrholm.dk/om-os#laug-og-fællesskab).
+Fyrholm har et aktivt beboerliv organiseret i flere laug — **Hyggelaug**, **Havelaug**, **Kajaklaug** og **Værkstedslaug**. Læs mere under [Faciliteter og laug](/fyrholm.dk/faciliteter).
 
 Deltag også i vores [Facebookgruppe](https://www.facebook.com/groups/760829583961473/), og hold øje med [Det sker](/fyrholm.dk/kalender) for arrangementer som forårsrengøring og sommerfest.
 
