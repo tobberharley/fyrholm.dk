@@ -77,164 +77,288 @@ import { base } from '../lib/url';
 <style is:global>
   .lead { color: var(--color-text-muted); font-size: 1.1rem; max-width: 60ch; }
 
-  /* Pagefind UI customisation — match site tokens */
+  /* ───────────────────────── Pagefind UI custom theme ───────────────────────── */
   :root {
     --pagefind-ui-scale: 1;
     --pagefind-ui-primary: var(--color-accent);
     --pagefind-ui-text: var(--color-text);
     --pagefind-ui-background: var(--color-bg);
     --pagefind-ui-border: var(--color-border);
-    --pagefind-ui-tag: var(--color-bg-soft, #f1ede4);
+    --pagefind-ui-tag: var(--color-bg-soft);
     --pagefind-ui-border-width: 1px;
-    --pagefind-ui-border-radius: 12px;
+    --pagefind-ui-border-radius: 14px;
     --pagefind-ui-image-border-radius: 8px;
     --pagefind-ui-image-box-ratio: 3 / 2;
     --pagefind-ui-font: var(--font-sans);
   }
 
-  .pagefind-ui {
-    margin-top: var(--space-4);
-  }
+  .pagefind-ui { margin-top: var(--space-4); }
 
+  /* Search input */
+  .pagefind-ui__form { margin-bottom: var(--space-4); }
   .pagefind-ui__form::before {
     background-color: var(--color-text-muted) !important;
-    opacity: 0.6;
+    opacity: 0.5;
+    width: 22px !important;
+    height: 22px !important;
+    top: 50% !important;
+    left: 1.05rem !important;
+    transform: translateY(-50%) !important;
   }
-
   .pagefind-ui__search-input {
     font-size: 1.05rem !important;
-    padding: 0.9em 1em 0.9em 2.6em !important;
-    border-radius: 12px !important;
+    padding: 1rem 1rem 1rem 3rem !important;
+    border-radius: 14px !important;
     border-color: var(--color-border) !important;
     background: #fff !important;
     box-shadow: 0 1px 2px rgba(0,0,0,0.04);
     transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    height: auto !important;
   }
   .pagefind-ui__search-input:focus {
     outline: none;
     border-color: var(--color-accent) !important;
-    box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-accent) 25%, transparent);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-accent) 22%, transparent);
   }
-
   .pagefind-ui__search-clear {
     color: var(--color-text-muted) !important;
     background: transparent !important;
     font-weight: 500;
+    right: 1rem !important;
   }
-  .pagefind-ui__search-clear:hover {
-    color: var(--color-accent) !important;
-  }
+  .pagefind-ui__search-clear:hover { color: var(--color-accent) !important; }
 
   .pagefind-ui__message {
     color: var(--color-text-muted);
     font-size: 0.95rem;
     border-top: none;
-    padding: var(--space-4) 0 var(--space-2);
+    padding: 0 0 var(--space-3);
     margin: 0;
     font-weight: 500;
+    letter-spacing: 0.01em;
   }
 
+  /* ─────────────────── Result list as compact rows ─────────────────── */
   .pagefind-ui__results {
     display: flex;
     flex-direction: column;
-    gap: var(--space-3);
+    gap: 0;
     margin-top: var(--space-2);
     padding: 0;
+    border-top: 1px solid var(--color-border);
   }
 
   .pagefind-ui__result {
-    border-top: none !important;
-    border: 1px solid var(--color-border);
-    border-radius: 12px;
-    padding: var(--space-4) var(--space-5) !important;
-    background: #fff;
-    transition: border-color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
+    border: none !important;
+    border-bottom: 1px solid var(--color-border) !important;
+    border-radius: 0 !important;
+    padding: 1.25rem 0 !important;
+    background: transparent;
+    transition: background 0.15s ease;
+    position: relative;
   }
   .pagefind-ui__result:hover {
-    border-color: var(--color-accent);
-    box-shadow: 0 4px 14px rgba(0,0,0,0.06);
-    transform: translateY(-1px);
+    background: color-mix(in srgb, var(--color-accent) 4%, transparent);
+  }
+  .pagefind-ui__result:hover .pagefind-ui__result-title a {
+    color: var(--color-accent) !important;
+  }
+  /* Make the whole row clickable feel — extend hover bg to gutter */
+  .pagefind-ui__result::before {
+    content: "";
+    position: absolute;
+    inset: 0 -1rem;
+    background: inherit;
+    z-index: -1;
+    border-radius: 8px;
   }
 
   .pagefind-ui__result-thumb { display: none !important; }
-  .pagefind-ui__result-inner { gap: 0.4rem; }
+
+  .pagefind-ui__result-inner {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0.4rem !important;
+  }
+
+  /* Pseudo "breadcrumb" derived from URL — handled via data we add post-mount */
+  .pf-breadcrumb {
+    font-size: 0.78rem;
+    color: var(--color-text-muted);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-bottom: 0.1rem;
+  }
+  .pf-breadcrumb-icon {
+    display: inline-flex;
+    width: 18px;
+    height: 18px;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-accent);
+  }
 
   .pagefind-ui__result-title {
-    font-size: 1.15rem !important;
+    font-size: 1.2rem !important;
     font-weight: 600 !important;
     line-height: 1.3 !important;
-    margin-bottom: 0.25rem !important;
+    margin: 0 !important;
+    letter-spacing: -0.01em;
   }
   .pagefind-ui__result-title a {
     color: var(--color-text) !important;
     text-decoration: none !important;
-  }
-  .pagefind-ui__result-title a:hover {
-    color: var(--color-accent) !important;
+    transition: color 0.15s ease;
   }
 
   .pagefind-ui__result-excerpt {
     color: var(--color-text-muted) !important;
     font-size: 0.97rem !important;
     line-height: 1.55 !important;
+    margin: 0 !important;
+    /* Clamp to 2 lines for tidiness */
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
   }
 
+  /* Highlighted query terms */
   .pagefind-ui__result mark,
   .pagefind-ui__result-excerpt mark {
-    background: color-mix(in srgb, var(--color-accent) 18%, transparent) !important;
+    background: color-mix(in srgb, var(--color-accent) 22%, transparent) !important;
     color: var(--color-text) !important;
     font-weight: 600;
     padding: 0 2px;
     border-radius: 3px;
   }
 
-  .pagefind-ui__result-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.35rem;
-    margin-top: 0.5rem;
+  /* Sub-results: show as small indented chips/list under the parent */
+  .pagefind-ui__result-nested {
+    margin-top: 0.65rem !important;
+    padding: 0 0 0 1rem !important;
+    border-left: 2px solid color-mix(in srgb, var(--color-accent) 30%, var(--color-border)) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0.4rem !important;
   }
-  .pagefind-ui__result-tag {
-    font-size: 0.78rem;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
+  .pagefind-ui__result-nested .pagefind-ui__result-title {
+    font-size: 0.95rem !important;
+    font-weight: 500 !important;
+    margin: 0 !important;
+  }
+  .pagefind-ui__result-nested .pagefind-ui__result-title::before {
+    content: "↳ ";
     color: var(--color-text-muted);
-    background: var(--color-bg-soft, #f1ede4);
-    padding: 0.2rem 0.55rem;
-    border-radius: 999px;
-    font-weight: 500;
+    font-weight: 400;
+  }
+  .pagefind-ui__result-nested .pagefind-ui__result-excerpt {
+    font-size: 0.88rem !important;
+    -webkit-line-clamp: 1;
   }
 
+  /* Load more button */
   .pagefind-ui__button {
     background: transparent !important;
     color: var(--color-accent) !important;
     border: 1px solid var(--color-border) !important;
     border-radius: 999px !important;
-    padding: 0.55em 1.4em !important;
+    padding: 0.6em 1.5em !important;
     font-weight: 500 !important;
+    margin-top: var(--space-4) !important;
     transition: background 0.15s ease, border-color 0.15s ease;
   }
   .pagefind-ui__button:hover {
-    background: var(--color-bg-soft, #f1ede4) !important;
+    background: var(--color-bg-soft) !important;
     border-color: var(--color-accent) !important;
   }
 
-  /* Sub-results (sections within a page) */
-  .pagefind-ui__result-nested {
-    margin-top: 0.6rem !important;
-    padding: 0.4rem 0 0.4rem 0.9rem !important;
-    border-left: 2px solid var(--color-border) !important;
-  }
-  .pagefind-ui__result-nested .pagefind-ui__result-title {
-    font-size: 0.95rem !important;
-    font-weight: 500 !important;
-    margin-bottom: 0.15rem !important;
-  }
-  .pagefind-ui__result-nested .pagefind-ui__result-excerpt {
-    font-size: 0.9rem !important;
-  }
-
-  /* Strip any leftover MyMemory placeholder tags that survived (defence-in-depth) */
+  /* Defence-in-depth: hide any leftover MyMemory placeholder tags in results */
   .pagefind-ui__result-title g,
   .pagefind-ui__result-excerpt g { display: contents; }
 </style>
+
+<script is:inline>
+  // Decorate each result with a breadcrumb derived from its URL slug.
+  // Pagefind doesn't expose a hook, so we observe the results container.
+  (function () {
+    const ICONS = {
+      nyheder: '📰',
+      kalender: '📅',
+      faciliteter: '✦',
+      viden: '💡',
+      ejerforeningen: '🏛️',
+      'om-os': 'ℹ️',
+      historie: '📜',
+      kontakt: '✉️',
+      'ny-beboer': '🔑',
+    };
+    const LABELS_DA = {
+      nyheder: 'Nyheder',
+      kalender: 'Kalender',
+      faciliteter: 'Faciliteter',
+      viden: 'Godt at vide',
+      ejerforeningen: 'Ejerforeningen',
+      'om-os': 'Om os',
+      historie: 'Historie',
+      kontakt: 'Kontakt',
+      'ny-beboer': 'Ny beboer',
+    };
+    const LABELS_EN = {
+      nyheder: 'News',
+      kalender: 'Calendar',
+      faciliteter: 'Facilities',
+      viden: 'Good to know',
+      ejerforeningen: "Owners' Association",
+      'om-os': 'About us',
+      historie: 'History',
+      kontakt: 'Contact',
+      'ny-beboer': 'New resident',
+    };
+
+    function isEnPath() {
+      const p = location.pathname;
+      return /\/en\/|\/en$/.test(p);
+    }
+
+    function decorate(result) {
+      if (result.dataset.pfDecorated === '1') return;
+      const link = result.querySelector('.pagefind-ui__result-title a');
+      if (!link) return;
+      const href = link.getAttribute('href') || '';
+      // Strip site base + /en/ + leading/trailing slash
+      const path = href.replace(/^https?:\/\/[^/]+/, '').replace(/^\/fyrholm\.dk/, '').replace(/^\/en\//, '/').replace(/^\/+|\/+$/g, '');
+      const seg = path.split('/')[0] || 'home';
+      const labels = isEnPath() ? LABELS_EN : LABELS_DA;
+      const label = labels[seg] || (isEnPath() ? 'Page' : 'Side');
+      const icon = ICONS[seg] || '·';
+      const inner = result.querySelector('.pagefind-ui__result-inner');
+      if (!inner) return;
+      const crumb = document.createElement('div');
+      crumb.className = 'pf-breadcrumb';
+      crumb.innerHTML = `<span class="pf-breadcrumb-icon" aria-hidden="true">${icon}</span><span>${label}</span>`;
+      inner.prepend(crumb);
+      result.dataset.pfDecorated = '1';
+    }
+
+    function decorateAll(root) {
+      root.querySelectorAll('.pagefind-ui__result').forEach(decorate);
+    }
+
+    const target = document.getElementById('search');
+    if (!target) return;
+    const obs = new MutationObserver((muts) => {
+      for (const m of muts) {
+        for (const n of m.addedNodes) {
+          if (n.nodeType === 1) decorateAll(n);
+        }
+      }
+      decorateAll(target);
+    });
+    obs.observe(target, { childList: true, subtree: true });
+  })();
+</script>
