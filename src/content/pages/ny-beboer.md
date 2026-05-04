@@ -8,7 +8,7 @@ Velkommen til Ejerforeningen Fyrholm! Vi har samlet det vigtigste, du skal vide 
 ## Det praktiske
 
 1. **Registrér dig** hos administrator (Administration Danmark, [adm@admdk.dk](mailto:adm@admdk.dk), [7020 5957](tel:+4570205957)) når du overtager lejligheden.
-2. **Læs husordenen** — find den under [Dokumenter](/fyrholm.dk/dokumenter#husorden).
+2. **Læs husordenen** — find den under [Ejerforeningen → Husorden](/fyrholm.dk/ejerforeningen/husorden).
 3. **Affald** — vi sorterer i flere fraktioner. Se [Affaldssortering](/fyrholm.dk/viden/affaldssortering).
 4. **Parkering** — vi har egen p-kælder med el-bil ladestandere; gadeparkering kræver beboerlicens. Se [Parkering](/fyrholm.dk/viden/parkering).
 5. **Internet og TV** — vi har en fælles fiberløsning. Se [TV, internet og telefoni](/fyrholm.dk/viden/tv-internet-telefoni).

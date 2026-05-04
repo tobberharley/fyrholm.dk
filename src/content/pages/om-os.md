@@ -41,11 +41,11 @@ Den daglige administration varetages af **Administration Danmark** — [adm@admd
 
 ## Generalforsamling
 
-Den ordinære generalforsamling afholdes hvert år. Indkaldelser, dagsorden og referater findes under [Dokumenter](/fyrholm.dk/dokumenter#generalforsamling).
+Den ordinære generalforsamling afholdes hvert år. Indkaldelser, dagsorden og referater findes under [Ejerforeningen → Generalforsamling](/fyrholm.dk/ejerforeningen/generalforsamling).
 
 ## Vedtægter og husorden
 
-Foreningens [vedtægter](/fyrholm.dk/dokumenter#vedtaegter) og [husorden](/fyrholm.dk/dokumenter#husorden) er tilgængelige i dokument-arkivet.
+Foreningens [vedtægter](/fyrholm.dk/ejerforeningen/vedtaegter) og [husorden](/fyrholm.dk/ejerforeningen/husorden) er tilgængelige under [Ejerforeningen](/fyrholm.dk/ejerforeningen).
 
 ## Grundejerforening
 

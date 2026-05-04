@@ -13,7 +13,7 @@ Velkommen til Fyrholm — eller på gensyn, hvis du flytter ud. Her er det prakt
 - Kontakt administrator (Administration Danmark, [adm@admdk.dk](mailto:adm@admdk.dk), [7020 5957](tel:+4570205957)) for at blive registreret som ejer.
 - Få udleveret nøgler til hoveddør, postkasse og kælderrum.
 - Aflæs el- og vandmålere ved overtagelsen.
-- Læs [Husorden](/fyrholm.dk/dokumenter#husorden) og [Ordensregler for cykler](/fyrholm.dk/viden/cykler).
+- Læs [Husorden](/fyrholm.dk/ejerforeningen/husorden) og [Ordensregler for cykler](/fyrholm.dk/viden/cykler).
 
 ## Har du solgt din lejlighed?
 
@@ -41,5 +41,5 @@ Ifølge vedtægterne skal udlejning meddeles til administrator. Brug blanketten 
 
 Skriv til Administration Danmark på [adm@admdk.dk](mailto:adm@admdk.dk) eller ring [7020 5957](tel:+4570205957). Du kan også kontakte [bestyrelsen](/fyrholm.dk/kontakt).
 
-Se også [Husorden](/fyrholm.dk/dokumenter#husorden) og [Vedtægter](/fyrholm.dk/dokumenter#vedtaegter).
+Se også [Husorden](/fyrholm.dk/ejerforeningen/husorden) og [Vedtægter](/fyrholm.dk/ejerforeningen/vedtaegter).
 

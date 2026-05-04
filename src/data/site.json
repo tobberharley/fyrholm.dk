@@ -66,8 +66,8 @@
     { "label": "Nyheder", "href": "/nyheder" }
   ],
   "popularLinks": [
-    { "label": "Husorden", "href": "/dokumenter#husorden" },
-    { "label": "Vedtægter", "href": "/dokumenter#vedtaegter" },
+    { "label": "Husorden", "href": "/ejerforeningen/husorden" },
+    { "label": "Vedtægter", "href": "/ejerforeningen/vedtaegter" },
     { "label": "Ny beboer", "href": "/ny-beboer" }
   ]
 }

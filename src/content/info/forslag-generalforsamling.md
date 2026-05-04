@@ -6,7 +6,7 @@ order: 5
 summary: Sådan formulerer og indsender du et forslag til foreningens generalforsamling — hvad det skal indeholde, og hvor det sendes hen.
 ---
 
-Vil du stille et forslag til en generalforsamling, skal du være opmærksom på, hvornår du — jf. [vedtægterne](/fyrholm.dk/dokumenter#vedtaegter) — senest kan fremsende det.
+Vil du stille et forslag til en generalforsamling, skal du være opmærksom på, hvornår du — jf. [vedtægterne](/fyrholm.dk/ejerforeningen/vedtaegter) — senest kan fremsende det.
 
 **Send altid forslaget til administrator** ([Administration Danmark](mailto:adm@admdk.dk)), som videreformidler det til bestyrelsen og sørger for, at det kommer med ud til de øvrige medlemmer.
 
