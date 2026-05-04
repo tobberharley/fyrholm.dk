@@ -36,6 +36,15 @@ Idéen kom på et besøg i **Begijnhof i Amsterdam**, et anlæg fra 1400-tallet 
 
 Fyrholms gårdanlæg er udformet, så det på mange måder ligner Begijnhof: en stor, plan græsflade omkranset af vinduer ind til husene, samt lange, lave hække og stisystemer. Intentionen er, at man med det samme skal kunne overskue det hele og få fornemmelsen af en fredfyldt park.
 
+## C.F. Møllers to facader
+
+C.F. Møller har udarbejdet facader på **to bygninger** i boligkarréen Fyrholm — én af i alt otte boligøer i den sydlige del af Københavns Havn. Det koordinerende arkitektfirma **Gröning ApS** udarbejdede boligplaner og råhus for hele karréen, mens fem andre arkitektfirmaer tegnede facader til hver et eller flere huse.
+
+De to facader fra C.F. Møller er:
+
+- Et **syvetagers hjørnehus** inspireret af pakhusets opadstræbende format.
+- Et **fireetagers kanalhus med karnapper**, hvis overflade reflekterer og fremhæver vandet.
+
 ## Parkering i byen får en ny dimension
 
 Som den eneste af de i alt **otte karréer på Sluseholmen** har Fyrholm fået sin egen rampe til mindre både. Gennem den ene af de to åbninger, der leder ind til det fælles gårdanlæg, kan beboerne trække joller og kajakker op på land, når de kommer sejlende hjem.
@@ -58,4 +67,4 @@ De traditionelle trafikanter parkerer under jorden. Opgangen er bevidst placeret
 
 ---
 
-*Kilder og uddybende læsning: [Gröning Arkitekter — Fyrholm på Sluseholmen](https://groning-arkitekter.dk/sluseholmen%20-%20fyrholm.html) · [Dansk Arkitektur Center — Fyrholm: En bebygget ø i Sluseholmen](https://dac.dk/magazine/steder/fyrholm-en-bebygget-o-i-sluseholmen-93).*
+*Kilder og uddybende læsning: [Gröning Arkitekter — Fyrholm på Sluseholmen](https://groning-arkitekter.dk/sluseholmen%20-%20fyrholm.html) · [C.F. Møller — Sluseholmen, boligøen Fyrholm](https://www.cfmoller.com/p/Sluseholmen-Boligoen-Fyrholm-i2719.html) · [Dansk Arkitektur Center — Fyrholm: En bebygget ø i Sluseholmen](https://dac.dk/magazine/steder/fyrholm-en-bebygget-o-i-sluseholmen-93).*
