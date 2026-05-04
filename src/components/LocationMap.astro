@@ -7,7 +7,7 @@ interface Props {
   title?: string;
 }
 
-const { height = '420px', zoom = 16, title = 'Kort over Fyrholm' } = Astro.props;
+const { height = '420px', zoom = 17, title = 'Kort over Fyrholm' } = Astro.props;
 const coords = (site as any).coordinates as { lat: number; lng: number; label?: string } | undefined;
 const label = coords?.label ?? site.name;
 
