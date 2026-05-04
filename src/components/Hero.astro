@@ -5,13 +5,6 @@ import { link } from '../lib/url';
 const heroImage = (site as any).heroImage as string | undefined;
 const heroImageAlt = (site as any).heroImageAlt as string | undefined;
 const heroCredit = (site as any).heroCredit as string | undefined;
-
-const quickLinks = [
-  { label: 'Husorden', href: '/ejerforeningen/husorden', icon: '📜' },
-  { label: 'Faciliteter', href: '/faciliteter', icon: '✦' },
-  { label: 'Ny beboer', href: '/ny-beboer', icon: '🔑' },
-  { label: 'Kontakt', href: '/kontakt', icon: '✉️' },
-];
 ---
 
 <section class="hero" aria-label="Fyrholm set fra havneløbet">
@@ -25,36 +18,17 @@ const quickLinks = [
     />
   )}
   <div class="hero-overlay" aria-hidden="true"></div>
-
   <div class="container hero-inner">
-    <div class="hero-card">
-      <span class="eyebrow">{site.tagline ?? 'Velkommen'}</span>
+    <div class="hero-text">
+      <span class="eyebrow">Velkommen</span>
       <h1>{site.hero.heading}</h1>
       <p class="lead">{site.hero.body}</p>
-
-      <form class="hero-search" role="search" action={link('/sog')} method="get">
-        <span class="hero-search-icon" aria-hidden="true">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="11" cy="11" r="7"></circle>
-            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-          </svg>
-        </span>
-        <label for="hero-q" class="sr-only">Søg</label>
-        <input id="hero-q" type="search" name="q" placeholder="Søg på siden — fx parkering, husorden, kælder…" autocomplete="off" />
-        <button type="submit" class="btn hero-search-btn">Søg</button>
-      </form>
-
-      <div class="hero-chips" aria-label="Hurtige genveje">
-        {quickLinks.map((q) => (
-          <a class="hero-chip" href={link(q.href)}>
-            <span class="hero-chip-icon" aria-hidden="true">{q.icon}</span>
-            <span>{q.label}</span>
-          </a>
-        ))}
+      <div class="hero-actions">
+        <a href={link(site.hero.ctaLink)} class="btn">{site.hero.ctaText}</a>
+        <a href={link('/nyheder')} class="btn btn-light">Seneste nyheder</a>
       </div>
     </div>
   </div>
-
   {heroCredit && <p class="hero-credit">{heroCredit}</p>}
 </section>
 
@@ -62,7 +36,7 @@ const quickLinks = [
   .hero {
     position: relative;
     isolation: isolate;
-    min-height: clamp(560px, 82vh, 820px);
+    min-height: clamp(620px, 88vh, 880px);
     display: flex;
     align-items: flex-end;
     overflow: hidden;
@@ -77,142 +51,73 @@ const quickLinks = [
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center 40%;
+    object-position: center 45%;
     z-index: -2;
   }
 
+  /* Subtil gradient kun nederst — bygningen skal bære */
   .hero-overlay {
     position: absolute;
     inset: 0;
     z-index: -1;
     background: linear-gradient(
       to top,
-      rgba(15, 28, 38, 0.55) 0%,
-      rgba(15, 28, 38, 0.20) 35%,
-      rgba(15, 28, 38, 0) 70%
+      rgba(15, 28, 38, 0.70) 0%,
+      rgba(15, 28, 38, 0.35) 25%,
+      rgba(15, 28, 38, 0.05) 50%,
+      rgba(15, 28, 38, 0) 65%
     );
   }
 
   .hero-inner {
     width: 100%;
-    padding-top: var(--space-7);
+    padding-top: var(--space-6);
     padding-bottom: var(--space-7);
-    display: flex;
-    align-items: flex-end;
   }
 
-  /* The frosted glass card */
-  .hero-card {
-    position: relative;
-    max-width: 640px;
-    padding: clamp(1.5rem, 2.5vw, 2.25rem);
-    border-radius: var(--radius-xl);
-    background: rgba(255, 255, 255, 0.85);
-    backdrop-filter: blur(14px) saturate(140%);
-    -webkit-backdrop-filter: blur(14px) saturate(140%);
-    border: 1px solid rgba(255, 255, 255, 0.6);
-    box-shadow:
-      0 1px 0 rgba(255, 255, 255, 0.4) inset,
-      0 24px 60px -20px rgba(0, 0, 0, 0.45),
-      0 8px 20px -8px rgba(0, 0, 0, 0.25);
-    color: var(--color-text);
+  .hero-text {
+    max-width: 60ch;
   }
 
-  .hero-card .eyebrow {
-    color: var(--color-accent);
+  .hero h1 {
+    color: #fff;
+    text-shadow: 0 2px 18px rgba(0, 0, 0, 0.4);
+    margin-bottom: var(--space-3);
+    font-size: clamp(2rem, 3vw + 1rem, 3.25rem);
+    letter-spacing: -0.02em;
+    line-height: 1.1;
   }
 
-  .hero-card h1 {
-    color: var(--color-text);
-    text-shadow: none;
-    margin: 0.25rem 0 var(--space-3);
-    font-size: clamp(1.85rem, 2.6vw + 1rem, 2.85rem);
-    letter-spacing: -0.025em;
-    line-height: 1.15;
+  .hero .eyebrow {
+    color: rgba(255, 255, 255, 0.9);
+    text-shadow: 0 1px 8px rgba(0, 0, 0, 0.35);
   }
 
   .lead {
-    color: var(--color-text-muted);
-    font-size: 1.05rem;
-    text-shadow: none;
-    margin: 0 0 var(--space-5);
-    max-width: 56ch;
-    line-height: 1.55;
+    color: rgba(255, 255, 255, 0.95);
+    font-size: 1.15rem;
+    max-width: 52ch;
+    text-shadow: 0 1px 12px rgba(0, 0, 0, 0.35);
+    margin-bottom: 0;
   }
 
-  /* Big prominent search */
-  .hero-search {
-    position: relative;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    background: #fff;
-    border: 1px solid var(--color-border);
-    border-radius: 999px;
-    padding: 0.4rem 0.4rem 0.4rem 1rem;
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
-    transition: border-color 0.15s ease, box-shadow 0.15s ease;
-  }
-  .hero-search:focus-within {
-    border-color: var(--color-accent);
-    box-shadow: 0 0 0 4px color-mix(in srgb, var(--color-accent) 18%, transparent), 0 4px 14px rgba(0, 0, 0, 0.08);
-  }
-  .hero-search-icon {
-    color: var(--color-text-muted);
-    display: inline-flex;
-    flex: none;
-  }
-  .hero-search input {
-    flex: 1;
-    border: 0;
-    background: transparent;
-    padding: 0.65rem 0.5rem;
-    font: inherit;
-    color: var(--color-text);
-    min-width: 0;
-  }
-  .hero-search input::placeholder {
-    color: var(--color-text-muted);
-  }
-  .hero-search input:focus { outline: none; }
-  .hero-search-btn {
-    border-radius: 999px !important;
-    padding: 0.6rem 1.4rem !important;
-    flex: none;
-  }
-
-  /* Quick-link chips */
-  .hero-chips {
+  .hero-actions {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-top: var(--space-4);
+    gap: var(--space-3);
+    margin-top: var(--space-5);
   }
-  .hero-chip {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.45rem;
-    padding: 0.45rem 0.9rem;
-    background: rgba(255, 255, 255, 0.7);
-    border: 1px solid var(--color-border);
-    border-radius: 999px;
-    color: var(--color-text);
-    text-decoration: none;
-    font-size: 0.92rem;
-    font-weight: 500;
-    transition: background 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
+
+  .btn-light {
+    background: rgba(255, 255, 255, 0.95);
+    color: var(--color-accent);
+    border-color: rgba(255, 255, 255, 0.95);
   }
-  .hero-chip:hover,
-  .hero-chip:focus-visible {
-    background: var(--color-accent);
-    color: #fff;
-    border-color: var(--color-accent);
-    text-decoration: none;
-    transform: translateY(-1px);
-  }
-  .hero-chip-icon {
-    font-size: 0.95rem;
-    line-height: 1;
+  .btn-light:hover,
+  .btn-light:focus-visible {
+    background: #fff;
+    border-color: #fff;
+    color: var(--color-accent-hover);
   }
 
   .hero-credit {
@@ -221,29 +126,14 @@ const quickLinks = [
     right: var(--space-5);
     margin: 0;
     font-size: 0.72rem;
-    color: rgba(255, 255, 255, 0.75);
+    color: rgba(255, 255, 255, 0.7);
     letter-spacing: 0.04em;
-    text-shadow: 0 1px 4px rgba(0,0,0,0.4);
-  }
-
-  .sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    overflow: hidden;
-    clip: rect(0 0 0 0);
-    white-space: nowrap;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
   }
 
   @media (max-width: 640px) {
     .hero { min-height: 560px; }
-    .hero-card {
-      padding: 1.25rem;
-      border-radius: var(--radius-lg);
-    }
     .hero-credit { right: var(--space-3); font-size: 0.68rem; }
-    .hero-search { padding-left: 0.85rem; }
-    .hero-search input { padding: 0.55rem 0.4rem; }
-    .hero-search-btn { padding: 0.5rem 1rem !important; }
+    .lead { font-size: 1rem; }
   }
 </style>
