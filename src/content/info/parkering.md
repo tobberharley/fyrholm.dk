@@ -38,6 +38,13 @@ Det er **ikke i orden** at benytte ledige p-pladser i kælderen, som du hverken 
 - Sørg for, at **ladekabler m.m. ikke ligger til gene** for kørslen i kælderen.
 - Hold dig så vidt muligt **inden for p-stregerne** — så er der plads til alle.
 
+### Timeparkering på plads 142 og 143
+
+Siden **9. april 2025** er **plads nr. 142 og 143** lavet om til timeparkering. Pladserne er forbeholdt beboere på Fyrholm og deres gæster — de er **ikke offentlige**.
+
+- **Pris**: 8 kr. pr. time
+- **Betaling**: via **Apcoas parkeringsapp**
+
 ### Parkering på vejene udenfor
 
 Vejene på Sluseholmen Nord er **private fællesveje** ejet af Grundejerforeningen Sluseholmen Nord (ikke Københavns Kommune). Vejen *Sluseholmen* selv ejes af Vejlauget.
