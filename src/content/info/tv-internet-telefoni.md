@@ -10,6 +10,6 @@ Der findes **ingen fælles** internet-, TV- eller telefoniløsning på Fyrholm. 
 
 ### Sådan er fiberen ført frem
 
-Alle fiberkabler er trukket op via **teknikskabet bag toilettet**. Krydsfeltet står i **kajakrummet i det nordøstlige hjørne**, og TDC tilgår det via nøgleboks.
+Alle fiberkabler er trukket op via **teknikskabet bag toilettet**. Krydsfeltet står i **kajakrummet i det nordøstlige hjørne**. TDC ejer anlægget, så det er altid TDC der tilgår krydsfeltet — uanset hvilken udbyder du har valgt. De gør det via nøgleboks.
 
 Der er strøm i skakten, så du skal blot have lavet en dåse til din router m.m.
