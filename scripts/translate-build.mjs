@@ -3,23 +3,26 @@
  * Post-build translator.
  *
  * Walks every .html file in dist/, extracts user-visible text nodes,
- * translates them via DeepL (batched + cached), and writes a parallel
- * /en/ mirror with translated content + internal links rewritten to /en/.
+ * translates them via MyMemory (free, no signup required) and writes
+ * a parallel /en/ mirror with translated content + internal links
+ * rewritten to /en/.
+ *
+ * MyMemory free quota:
+ *   - anonymous:  ~5,000 words/day
+ *   - with email: ~50,000 words/day (set TRANSLATE_EMAIL env var)
  *
  * Skip rules:
  *  - <script>, <style>, <code>, <pre>, <noscript>
  *  - any element with class="notranslate" or translate="no"
- *  - any element under [lang="..."] that is not Danish
  *
  * Cache: scripts/.translation-cache.json (committed) keyed by SHA-1
  * of the source string. Lets repeat builds run with zero API calls
  * if content is unchanged.
  *
- * If DEEPL_API_KEY is missing, the script no-ops silently — useful for
- * local dev and PR builds without the secret.
+ * Set TRANSLATE_DISABLE=1 to skip translation entirely.
  */
 
-import { readFile, writeFile, mkdir, readdir, stat, copyFile } from 'node:fs/promises';
+import { readFile, writeFile, mkdir, readdir, copyFile } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
@@ -30,10 +33,9 @@ const DIST = path.join(ROOT, 'dist');
 const EN_DIR = path.join(DIST, 'en');
 const CACHE_FILE = path.join(ROOT, 'scripts', '.translation-cache.json');
 const SITE_BASE = '/fyrholm.dk';
-const API_KEY = process.env.DEEPL_API_KEY;
-const API_HOST = process.env.DEEPL_API_HOST || (API_KEY && API_KEY.endsWith(':fx')
-  ? 'https://api-free.deepl.com'
-  : 'https://api.deepl.com');
+const EMAIL = process.env.TRANSLATE_EMAIL || '';
+const DISABLED = process.env.TRANSLATE_DISABLE === '1';
+const MAX_LEN = 500; // MyMemory per-request limit
 
 const SKIP_TAGS = new Set(['script', 'style', 'noscript', 'code', 'pre', 'textarea']);
 
@@ -59,7 +61,6 @@ async function* walk(dir) {
   for (const entry of await readdir(dir, { withFileTypes: true })) {
     const full = path.join(dir, entry.name);
     if (entry.isDirectory()) {
-      // Skip the /en/ output of a previous run + Pagefind index
       if (full === EN_DIR) continue;
       if (entry.name === 'pagefind') continue;
       yield* walk(full);
@@ -99,7 +100,6 @@ function collectTexts($) {
       texts.add(trimmed);
     });
 
-  // Translate-worthy attributes
   $('[alt], [title], [placeholder], [aria-label], meta[name="description"], meta[property="og:description"], meta[property="og:title"], meta[name="twitter:description"], meta[name="twitter:title"]').each(function () {
     const $el = $(this);
     if (shouldSkip($, this)) return;
@@ -113,49 +113,88 @@ function collectTexts($) {
     }
   });
 
-  // <title>
   const titleText = $('title').text();
   if (titleText && titleText.trim()) texts.add(titleText.trim());
 
   return [...texts];
 }
 
-async function translateBatch(strings, cache) {
+async function translateOne(text) {
+  // MyMemory: GET https://api.mymemory.translated.net/get?q=...&langpair=da|en-GB&de=email
+  const url = new URL('https://api.mymemory.translated.net/get');
+  url.searchParams.set('q', text);
+  url.searchParams.set('langpair', 'da|en-GB');
+  if (EMAIL) url.searchParams.set('de', EMAIL);
+
+  const res = await fetch(url, { headers: { 'User-Agent': 'fyrholm-build/1.0' } });
+  if (!res.ok) throw new Error(`MyMemory ${res.status}: ${await res.text()}`);
+  const json = await res.json();
+  const status = json?.responseStatus;
+  if (status && status !== 200 && String(status) !== '200') {
+    const msg = json?.responseDetails || JSON.stringify(json);
+    throw new Error(`MyMemory error ${status}: ${msg}`);
+  }
+  const out = json?.responseData?.translatedText;
+  if (typeof out !== 'string') throw new Error('MyMemory: missing translatedText');
+  return out;
+}
+
+async function translateChunked(text) {
+  if (text.length <= MAX_LEN) return translateOne(text);
+  // Split on sentence boundaries to stay within 500 chars
+  const parts = [];
+  const segments = text.split(/(?<=[.!?…])\s+|\n+/);
+  let buf = '';
+  for (const seg of segments) {
+    if ((buf + ' ' + seg).trim().length > MAX_LEN) {
+      if (buf) parts.push(buf.trim());
+      buf = seg;
+    } else {
+      buf = buf ? buf + ' ' + seg : seg;
+    }
+  }
+  if (buf) parts.push(buf.trim());
+
+  const out = [];
+  for (const p of parts) {
+    if (p.length <= MAX_LEN) {
+      out.push(await translateOne(p));
+    } else {
+      // hard split for very long single words/strings
+      for (let i = 0; i < p.length; i += MAX_LEN) {
+        out.push(await translateOne(p.slice(i, i + MAX_LEN)));
+      }
+    }
+  }
+  return out.join(' ');
+}
+
+async function translateAll(strings, cache) {
   const missing = strings.filter((s) => !(sha1(s) in cache));
   if (!missing.length) return;
-  if (!API_KEY) {
-    // No key — just copy source to "translated" (effectively skip).
-    for (const s of missing) cache[sha1(s)] = s;
-    return;
-  }
-  // DeepL accepts up to 50 text params per request and recommends batching.
-  const CHUNK = 50;
-  for (let i = 0; i < missing.length; i += CHUNK) {
-    const slice = missing.slice(i, i + CHUNK);
-    const params = new URLSearchParams();
-    params.append('source_lang', 'DA');
-    params.append('target_lang', 'EN-GB');
-    params.append('preserve_formatting', '1');
-    params.append('tag_handling', 'xml');
-    params.append('ignore_tags', 'span,code,kbd');
-    for (const s of slice) params.append('text', s);
-    const res = await fetch(`${API_HOST}/v2/translate`, {
-      method: 'POST',
-      headers: {
-        Authorization: `DeepL-Auth-Key ${API_KEY}`,
-        'Content-Type': 'application/x-www-form-urlencoded',
-      },
-      body: params,
-    });
-    if (!res.ok) {
-      const body = await res.text();
-      throw new Error(`DeepL ${res.status}: ${body}`);
+  console.log(`  · translating ${missing.length} new strings via MyMemory${EMAIL ? ` (as ${EMAIL})` : ' (anonymous)'}`);
+  let done = 0;
+  let quotaHit = false;
+  for (const s of missing) {
+    if (quotaHit) break;
+    try {
+      cache[sha1(s)] = await translateChunked(s);
+    } catch (err) {
+      console.warn(`    ! failed (${s.slice(0, 60)}…): ${err.message}`);
+      // On quota / rate-limit: stop calling, leave the rest for next build.
+      if (/429|quota|rate/i.test(err.message)) {
+        quotaHit = true;
+        console.warn('    ! rate limit reached — stopping. Remaining strings retry next build.');
+        break;
+      }
+      // Other errors: skip this one, try next. Don't poison cache.
     }
-    const json = await res.json();
-    json.translations.forEach((t, idx) => {
-      cache[sha1(slice[idx])] = t.text;
-    });
-    process.stdout.write(`  · translated ${Math.min(i + CHUNK, missing.length)}/${missing.length}\r`);
+    done += 1;
+    if (done % 20 === 0 || done === missing.length) {
+      process.stdout.write(`    · ${done}/${missing.length}\r`);
+      await saveCache(cache);
+    }
+    await new Promise((r) => setTimeout(r, 120));
   }
   process.stdout.write('\n');
 }
@@ -172,7 +211,6 @@ function applyTranslations($, cache) {
       if (shouldSkip($, this.parent)) return;
       const t = cache[sha1(trimmed)];
       if (t == null) return;
-      // Preserve leading/trailing whitespace
       const leading = raw.match(/^\s*/)[0];
       const trailing = raw.match(/\s*$/)[0];
       this.data = leading + t + trailing;
@@ -212,15 +250,13 @@ function applyTranslations($, cache) {
 }
 
 function rewriteLinks($) {
-  // Rewrite internal links to point at /fyrholm.dk/en/...
   const rewrite = (val) => {
     if (!val) return val;
     if (val.startsWith('http://') || val.startsWith('https://') || val.startsWith('mailto:') || val.startsWith('tel:') || val.startsWith('#')) return val;
     if (!val.startsWith(SITE_BASE)) return val;
     if (val.startsWith(`${SITE_BASE}/en/`) || val === `${SITE_BASE}/en`) return val;
-    // skip files (images, PDFs, RSS)
     if (/\.(pdf|jpg|jpeg|png|webp|gif|svg|ico|xml|json|txt|css|js|woff2?)(\?|$|#)/i.test(val)) return val;
-    const after = val.slice(SITE_BASE.length); // starts with /
+    const after = val.slice(SITE_BASE.length);
     return `${SITE_BASE}/en${after}`;
   };
 
@@ -235,32 +271,25 @@ async function ensureDir(dir) {
   await mkdir(dir, { recursive: true });
 }
 
-async function copyAssets() {
-  // We don't duplicate static assets — /en/ pages reference the originals at /fyrholm.dk/...
-  // Pagefind (run after) indexes both /…/index.html and /en/…/index.html
-}
-
 async function main() {
   if (!existsSync(DIST)) {
     console.error('No dist/ directory — run astro build first.');
     process.exit(1);
   }
-  if (!API_KEY) {
-    console.log('translate-build: DEEPL_API_KEY not set — skipping (DA-only build).');
+  if (DISABLED) {
+    console.log('translate-build: TRANSLATE_DISABLE=1 — skipping.');
     return;
   }
-  console.log('translate-build: generating /en/ mirror via DeepL …');
+  console.log('translate-build: generating /en/ mirror via MyMemory …');
 
   const cache = await loadCache();
 
-  // Collect all HTML files
   const htmlFiles = [];
   for await (const f of walk(DIST)) {
     if (f.endsWith('.html')) htmlFiles.push(f);
   }
-
-  // First pass: gather every unique source string
   console.log(`  · scanning ${htmlFiles.length} pages`);
+
   const allTexts = new Set();
   const docs = [];
   for (const file of htmlFiles) {
@@ -271,10 +300,9 @@ async function main() {
   }
 
   console.log(`  · ${allTexts.size} unique strings`);
-  await translateBatch([...allTexts], cache);
+  await translateAll([...allTexts], cache);
   await saveCache(cache);
 
-  // Second pass: emit translated copy under /en/
   for (const { file, $ } of docs) {
     applyTranslations($, cache);
     rewriteLinks($);
@@ -284,7 +312,6 @@ async function main() {
     await writeFile(out, $.html());
   }
 
-  // 404 fallback inside /en (lets GH Pages serve /en/ paths)
   const en404 = path.join(EN_DIR, '404.html');
   if (existsSync(path.join(DIST, '404.html')) && !existsSync(en404)) {
     await copyFile(path.join(DIST, '404.html'), en404);

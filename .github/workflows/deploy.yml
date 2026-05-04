@@ -28,10 +28,18 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Build site (Astro + DeepL + Pagefind)
+      - name: Restore translation cache
+        uses: actions/cache@v4
+        with:
+          path: scripts/.translation-cache.json
+          key: translation-cache-${{ github.run_id }}
+          restore-keys: |
+            translation-cache-
+
+      - name: Build site (Astro + MyMemory + Pagefind)
         run: npm run build
         env:
-          DEEPL_API_KEY: ${{ secrets.DEEPL_API_KEY }}
+          TRANSLATE_EMAIL: ${{ secrets.TRANSLATE_EMAIL }}
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
