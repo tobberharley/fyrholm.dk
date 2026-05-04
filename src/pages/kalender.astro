@@ -16,8 +16,10 @@ const past = all
   .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
   .slice(0, 10);
 
-// Webcal-URL til abonnement (tlf. åbner Apple Kalender / Google Kalender)
+// Webcal-URL til abonnement. Apple Kalender og Outlook åbner direkte.
+// Android / Google Kalender kræver at man indsætter https-URL'en manuelt.
 const icsPath = link('/kalender.ics');
+const httpsUrl = `https://tobberharley.github.io${icsPath}`;
 const webcalUrl = `webcal://tobberharley.github.io${icsPath}`;
 ---
 
@@ -30,12 +32,43 @@ const webcalUrl = `webcal://tobberharley.github.io${icsPath}`;
       <div class="cal-subscribe">
         <div class="cal-subscribe-text">
           <strong>Tilføj kalenderen til din telefon</strong>
-          <p>Få automatisk besked om kommende arrangementer i din egen kalender. Når der kommer nye begivenheder, opdateres kalenderen automatisk.</p>
+          <p>Abonnér én gang og få nye begivenheder automatisk i din egen kalender.</p>
         </div>
         <div class="cal-subscribe-actions">
           <a class="btn" href={webcalUrl}>📅 Tilføj til kalender</a>
           <a class="cal-link" href={icsPath} download>Hent .ics-fil</a>
         </div>
+
+        <div class="cal-url">
+          <label for="cal-url-input">Kalender-URL</label>
+          <div class="cal-url-row">
+            <input id="cal-url-input" type="text" readonly value={httpsUrl} />
+            <button type="button" class="btn btn-secondary cal-copy" data-url={httpsUrl}>Kopiér</button>
+          </div>
+        </div>
+
+        <details class="cal-help">
+          <summary>Sådan tilføjer du kalenderen — pr. platform</summary>
+          <div class="cal-help-grid">
+            <div>
+              <strong>iPhone / iPad / Mac</strong>
+              <p>Tryk på <em>📅 Tilføj til kalender</em> ovenfor — Apple Kalender åbner og foreslår abonnement.</p>
+            </div>
+            <div>
+              <strong>Google Kalender (Android / web)</strong>
+              <ol>
+                <li>Kopiér kalender-URL'en ovenfor.</li>
+                <li>Åbn <a href="https://calendar.google.com/" target="_blank" rel="noopener">calendar.google.com</a> på en computer.</li>
+                <li>Klik <em>+</em> ud for "Andre kalendere" → <em>Fra URL</em> og indsæt linket.</li>
+              </ol>
+              <p>Bagefter synkroniseres den automatisk til din Android-telefon.</p>
+            </div>
+            <div>
+              <strong>Outlook</strong>
+              <p>Tryk på <em>📅 Tilføj til kalender</em>, eller indsæt URL'en under <em>Tilføj kalender → Abonnér fra web</em>.</p>
+            </div>
+          </div>
+        </details>
       </div>
 
       <h2 style="margin-top: var(--space-6);">Kommende</h2>
@@ -51,13 +84,33 @@ const webcalUrl = `webcal://tobberharley.github.io${icsPath}`;
   </section>
 </Base>
 
+<script>
+  // Klik-til-kopier af kalender-URL.
+  document.querySelectorAll<HTMLButtonElement>('.cal-copy').forEach((btn) => {
+    btn.addEventListener('click', async () => {
+      const url = btn.dataset.url || '';
+      const original = btn.textContent;
+      try {
+        await navigator.clipboard.writeText(url);
+        btn.textContent = 'Kopieret ✓';
+      } catch {
+        // Fallback: vælg input-feltets indhold
+        const input = btn.parentElement?.querySelector<HTMLInputElement>('input');
+        input?.select();
+        document.execCommand?.('copy');
+        btn.textContent = 'Kopieret ✓';
+      }
+      window.setTimeout(() => { btn.textContent = original; }, 1800);
+    });
+  });
+</script>
+
 <style>
   .cal-subscribe {
     display: flex;
     flex-wrap: wrap;
-    gap: var(--space-5);
-    align-items: center;
-    justify-content: space-between;
+    gap: var(--space-4) var(--space-5);
+    align-items: flex-start;
     padding: var(--space-5);
     margin-top: var(--space-5);
     background: var(--color-accent-soft);
@@ -85,4 +138,66 @@ const webcalUrl = `webcal://tobberharley.github.io${icsPath}`;
     font-size: 0.9rem;
     color: var(--color-text-muted);
   }
+
+  .cal-url {
+    flex: 1 1 100%;
+    margin-top: var(--space-2);
+  }
+  .cal-url label {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    margin-bottom: 0.25rem;
+  }
+  .cal-url-row {
+    display: flex;
+    gap: var(--space-2);
+    flex-wrap: wrap;
+  }
+  .cal-url-row input {
+    flex: 1 1 280px;
+    min-width: 0;
+    padding: 0.5rem 0.75rem;
+    font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, monospace;
+    font-size: 0.85rem;
+    background: #fff;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    color: var(--color-text);
+  }
+  .cal-copy { white-space: nowrap; }
+
+  .cal-help {
+    flex: 1 1 100%;
+    margin-top: var(--space-2);
+    border-top: 1px solid var(--color-border);
+    padding-top: var(--space-4);
+  }
+  .cal-help summary {
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--color-accent);
+  }
+  .cal-help[open] summary { margin-bottom: var(--space-3); }
+  .cal-help-grid {
+    display: grid;
+    gap: var(--space-4);
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  }
+  .cal-help-grid strong {
+    display: block;
+    font-size: 0.95rem;
+    margin-bottom: 0.25rem;
+  }
+  .cal-help-grid p,
+  .cal-help-grid ol {
+    margin: 0;
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+  .cal-help-grid ol { padding-left: 1.2rem; }
 </style>
