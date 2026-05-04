@@ -14,6 +14,11 @@ Du kan leje **1–2 almindelige p-pladser pr. husstand**. P-pladser udlejes via 
 
 **Skriv dig op på ventelisten** ved at sende en mail til [venteliste@admdk.dk](mailto:venteliste@admdk.dk).
 
+Se også:
+
+- [Regler for venteliste til p-plads (PDF)](/fyrholm.dk/docs/venteliste-p-plads-regler.pdf)
+- [Oversigt over p-pladser (PDF)](/fyrholm.dk/docs/p-plads-oversigt.pdf)
+
 ### Lån en plads via p-gruppen
 
 Har du brug for en plads til dig selv eller en gæst, kan du låne en ledig plads via vores **[p-kælder-gruppe på Facebook](https://www.facebook.com/groups/600797924139257)**. Husk at:
