@@ -69,6 +69,19 @@ De traditionelle trafikanter parkerer under jorden. Opgangen er bevidst placeret
 | **Landskabsarkitekt** | Poul Børge Pedersen |
 | **Ingeniør** | Moe & Brødsgaard |
 
+## Anerkendelse fra Forskønnelsen
+
+I **2007** blev hele Sluseholmen — herunder Fyrholm — præmieret af [Foreningen til Hovedstadens Forskønnelse](https://da.wikipedia.org/wiki/Forsk%C3%B8nnelsen). Foreningen, der er stiftet i 1885 af blandt andre brygger Carl Jacobsen, diplomerer hvert år bygninger, byrum og initiativer, der virker til hovedstadens udvikling og forskønnelse.
+
+Bygherrerne for Sluseholmens otte holme blev præmieret i fællesskab: Finansgruppen A/S (Bøgholm og Hjortholm), Sjælsø Gruppen A/S (Birkholm og Kidholm), JM Danmark A/S (Egholm og Askholm) og **Nordicom A/S (Lindholm og Fyrholm)** — sammen med de to koordinerende arkitektfirmaer Arkitema og Gröning Arkitekter.
+
+Som tegn på prisen sidder Forskønnelsens diplom-plade på facaden af de præmierede bygninger:
+
+<figure>
+  <img src="/fyrholm.dk/images/forskonnelsen-diplom.jpg" alt="Diplom-plade fra Foreningen til Hovedstadens Forskønnelse" loading="lazy" />
+  <figcaption>Hovedstadens Forskønnelse — diplom-plade (eksempel fra 2000). <span style="opacity:.7">Foto: <a href="https://commons.wikimedia.org/wiki/File:Hovedstadens_Forsk%C3%B8nnelse_Diplom_2000_(15325731911).jpg">Wikimedia Commons</a>, CC BY 2.0</span></figcaption>
+</figure>
+
 ***
 
 _Kilder og uddybende læsning:_ [_Gröning Arkitekter — Fyrholm på Sluseholmen_](https://groning-arkitekter.dk/sluseholmen%20-%20fyrholm.html) _·_ [_C.F. Møller — Sluseholmen, boligøen Fyrholm_](https://www.cfmoller.com/p/Sluseholmen-Boligoen-Fyrholm-i2719.html) _·_ [_Dansk Arkitektur Center — Fyrholm: En bebygget ø i Sluseholmen_](https://dac.dk/magazine/steder/fyrholm-en-bebygget-o-i-sluseholmen-93)_._
