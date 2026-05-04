@@ -19,8 +19,6 @@ const past = all
 // Webcal-URL til abonnement (tlf. åbner Apple Kalender / Google Kalender)
 const icsPath = link('/kalender.ics');
 const webcalUrl = `webcal://tobberharley.github.io${icsPath}`;
-const httpsUrl = `https://tobberharley.github.io${icsPath}`;
-const googleAdd = `https://calendar.google.com/calendar/r?cid=${encodeURIComponent(httpsUrl)}`;
 ---
 
 <Base title="Det sker" description="Begivenheder og arrangementer i Ejerforeningen Fyrholm.">
@@ -36,7 +34,6 @@ const googleAdd = `https://calendar.google.com/calendar/r?cid=${encodeURICompone
         </div>
         <div class="cal-subscribe-actions">
           <a class="btn" href={webcalUrl}>📅 Tilføj til kalender</a>
-          <a class="btn btn-secondary" href={googleAdd} target="_blank" rel="noopener">Google Kalender</a>
           <a class="cal-link" href={icsPath} download>Hent .ics-fil</a>
         </div>
       </div>
