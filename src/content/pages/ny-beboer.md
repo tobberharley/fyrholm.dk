@@ -11,7 +11,7 @@ Velkommen til Ejerforeningen Fyrholm! Vi har samlet det vigtigste, du skal vide 
 2. **Læs husordenen** — find den under [Ejerforeningen → Husorden](/fyrholm.dk/ejerforeningen/husorden).
 3. **Affald** — vi sorterer i flere fraktioner. Se [Affaldssortering](/fyrholm.dk/viden/affaldssortering).
 4. **Parkering** — vi har egen p-kælder med el-bil ladestandere; gadeparkering kræver beboerlicens. Se [Parkering](/fyrholm.dk/viden/parkering).
-5. **Internet og TV** — vi har en fælles fiberløsning. Se [TV, internet og telefoni](/fyrholm.dk/viden/tv-internet-telefoni).
+5. **Internet og TV** — der er trukket fiber til alle lejligheder; du vælger selv leverandør. Se [TV, internet og telefoni](/fyrholm.dk/viden/tv-internet-telefoni).
 6. **Nøgler** — ekstra nøgler bestilles hos Låsebussen ApS på [3252 5000](tel:+4532525000) med lejlighedens sikkerhedskorts kode.
 
 ## Akut hjælp

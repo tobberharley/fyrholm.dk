@@ -3,19 +3,13 @@ title: TV, internet og telefoni
 category: Beboerinfo
 date: 2026-01-20
 order: 3
-summary: Vores fælles antenne- og fiberløsning.
+summary: Fiber til hver lejlighed — du vælger selv leverandør.
 ---
 
-Fyrholm har en fælles fiberforbindelse, der giver beboerne adgang til billigt internet og TV.
+Der findes **ingen fælles** internet-, TV- eller telefoniløsning på Fyrholm. Der er trukket fiberkabler frem til alle lejligheder, og du tegner selv abonnement hos den udbyder, du foretrækker.
 
-### Internet
-
-Forbindelsen leveres af vores leverandør og kan opgraderes individuelt.
+### Sådan er fiberen ført frem
 
 Alle fiberkabler er trukket op via **teknikskabet bag toilettet**. Krydsfeltet står i **kajakrummet i det nordøstlige hjørne**, og TDC tilgår det via nøgleboks.
 
 Der er strøm i skakten, så du skal blot have lavet en dåse til din router m.m.
-
-### TV
-
-Den fælles grundpakke er inkluderet i fællesudgifterne. Du kan tilkøbe yderligere pakker direkte hos leverandøren.
