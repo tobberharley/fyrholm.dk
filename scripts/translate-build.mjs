@@ -136,8 +136,14 @@ async function translateOne(text) {
     const msg = json?.responseDetails || JSON.stringify(json);
     throw new Error(`MyMemory error ${status}: ${msg}`);
   }
-  const out = json?.responseData?.translatedText;
+  let out = json?.responseData?.translatedText;
   if (typeof out !== 'string') throw new Error('MyMemory: missing translatedText');
+  // MyMemory sometimes wraps phrase chunks in <g id="N">...</g> placeholders.
+  // Strip those, decode the entities they leave behind.
+  out = out.replace(/<\/?g[^>]*>/gi, '');
+  out = out.replace(/&gt;/g, '>').replace(/&lt;/g, '<').replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&#39;/g, "'");
+  // Collapse the resulting double spaces from removed tags
+  out = out.replace(/\s+/g, ' ').trim();
   return out;
 }
 

@@ -16,17 +16,26 @@ import { base } from '../lib/url';
 
   <link href={`${base}/pagefind/pagefind-ui.css`} rel="stylesheet" />
   <script src={`${base}/pagefind/pagefind-ui.js`} is:inline></script>
-  <script is:inline define:vars={{ pagefindBase: `${base}/pagefind/` }}>
+  <script is:inline define:vars={{ pagefindBase: `${base}/pagefind/`, basePath: base }}>
     window.addEventListener('DOMContentLoaded', () => {
       const params = new URLSearchParams(window.location.search);
       const initial = params.get('q') ?? '';
-      if (typeof PagefindUI !== 'undefined') {
-        new PagefindUI({
-          element: '#search',
-          bundlePath: pagefindBase,
-          showSubResults: true,
-          showImages: false,
-          translations: {
+      const isEn = location.pathname === `${basePath}/en` || location.pathname.indexOf(`${basePath}/en/`) === 0;
+      const translations = isEn
+        ? {
+            placeholder: 'Search…',
+            clear_search: 'Clear',
+            load_more: 'Load more',
+            search_label: 'Search',
+            filters_label: 'Filters',
+            zero_results: 'No results for [SEARCH_TERM]',
+            many_results: '[COUNT] results for [SEARCH_TERM]',
+            one_result: '[COUNT] result for [SEARCH_TERM]',
+            alt_search: 'No results for [SEARCH_TERM]. Showing results for [DIFFERENT_TERM]',
+            search_suggestion: 'No results for [SEARCH_TERM]. Try one of these searches:',
+            searching: 'Searching for [SEARCH_TERM]…'
+          }
+        : {
             placeholder: 'Søg…',
             clear_search: 'Ryd',
             load_more: 'Vis flere',
@@ -38,7 +47,14 @@ import { base } from '../lib/url';
             alt_search: 'Ingen resultater for [SEARCH_TERM]. Viser resultater for [DIFFERENT_TERM]',
             search_suggestion: 'Ingen resultater for [SEARCH_TERM]. Prøv en af disse søgninger:',
             searching: 'Søger efter [SEARCH_TERM]…'
-          }
+          };
+      if (typeof PagefindUI !== 'undefined') {
+        new PagefindUI({
+          element: '#search',
+          bundlePath: pagefindBase,
+          showSubResults: true,
+          showImages: false,
+          translations
         });
         if (initial) {
           // Pagefind UI input gets created async; wait one tick.
