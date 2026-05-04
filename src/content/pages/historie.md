@@ -52,23 +52,6 @@ De to facader fra C.F. Møller er:
 - Et **syvetagers hjørnehus** inspireret af pakhusets opadstræbende format.
 - Et **fireetagers kanalhus med karnapper**, hvis overflade reflekterer og fremhæver vandet.
 
-## Parkering i byen får en ny dimension
-
-Som den eneste af de i alt **otte karréer på Sluseholmen** har Fyrholm fået sin egen rampe til mindre både. Gennem den ene af de to åbninger, der leder ind til det fælles gårdanlæg, kan beboerne trække joller og kajakker op på land, når de kommer sejlende hjem.
-
-De traditionelle trafikanter parkerer under jorden. Opgangen er bevidst placeret, så den fører direkte op i midten af gården — et valg, der blev truffet for at give beboerne en mulighed for at møde hinanden og falde til i det nye kvarter.
-
-## Overblik
-
-| **Opført** | 2006 |
-| **Type** | Bolig — 196 ejerlejligheder mellem 60 og 145 m² |
-| **Sted** | Sluseholmen, København SV (Sydhavn) |
-| **Bygherre** | Nordicom Bolig · Sluseholm Karré ApS |
-| **Arkitekter** | C.F. Møller Architects · Format Arkitekter · Vilhelm Lauritzen Arkitekter · KHR Architecture · Gröning Arkitekter |
-| **Helhedsplan Sluseholmen** | Sjoerd Soeters (NL) |
-| **Landskabsarkitekt** | Poul Børge Pedersen |
-| **Ingeniør** | Moe & Brødsgaard |
-
 ## Anerkendelse fra Forskønnelsen
 
 I **2007** blev hele Sluseholmen — herunder Fyrholm — præmieret af [Foreningen til Hovedstadens Forskønnelse](https://da.wikipedia.org/wiki/Forsk%C3%B8nnelsen). Foreningen, der er stiftet i 1885 af blandt andre brygger Carl Jacobsen, diplomerer hvert år bygninger, byrum og initiativer, der virker til hovedstadens udvikling og forskønnelse.
