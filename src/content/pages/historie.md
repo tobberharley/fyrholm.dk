@@ -53,8 +53,6 @@ De traditionelle trafikanter parkerer under jorden. Opgangen er bevidst placeret
 
 ## Overblik
 
-| | |
-|---|---|
 | **Opført** | 2006 |
 | **Type** | Bolig — 196 ejerlejligheder mellem 60 og 145 m² |
 | **Sted** | Sluseholmen, København SV (Sydhavn) |
@@ -63,8 +61,7 @@ De traditionelle trafikanter parkerer under jorden. Opgangen er bevidst placeret
 | **Helhedsplan Sluseholmen** | Sjoerd Soeters (NL) |
 | **Landskabsarkitekt** | Poul Børge Pedersen |
 | **Ingeniør** | Moe & Brødsgaard |
-| **Stilart** | Nutiden (ca. 2000 –) |
 
----
+***
 
-*Kilder og uddybende læsning: [Gröning Arkitekter — Fyrholm på Sluseholmen](https://groning-arkitekter.dk/sluseholmen%20-%20fyrholm.html) · [C.F. Møller — Sluseholmen, boligøen Fyrholm](https://www.cfmoller.com/p/Sluseholmen-Boligoen-Fyrholm-i2719.html) · [Dansk Arkitektur Center — Fyrholm: En bebygget ø i Sluseholmen](https://dac.dk/magazine/steder/fyrholm-en-bebygget-o-i-sluseholmen-93).*
+_Kilder og uddybende læsning:_ [_Gröning Arkitekter — Fyrholm på Sluseholmen_](https://groning-arkitekter.dk/sluseholmen%20-%20fyrholm.html) _·_ [_C.F. Møller — Sluseholmen, boligøen Fyrholm_](https://www.cfmoller.com/p/Sluseholmen-Boligoen-Fyrholm-i2719.html) _·_ [_Dansk Arkitektur Center — Fyrholm: En bebygget ø i Sluseholmen_](https://dac.dk/magazine/steder/fyrholm-en-bebygget-o-i-sluseholmen-93)_._
