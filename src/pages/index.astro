@@ -16,6 +16,7 @@ const news = (await getCollection('news', ({ data }) => !data.draft))
 const now = new Date();
 const events = (await getCollection('events'))
   .filter((e) => (e.data.endDate ?? e.data.date) >= now)
+  .filter((e) => e.data.showOnHome !== false)
   .sort((a, b) => a.data.date.getTime() - b.data.date.getTime())
   .slice(0, 4);
 

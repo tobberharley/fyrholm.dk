@@ -22,6 +22,8 @@ const events = defineCollection({
     endDate: z.coerce.date().optional(),
     location: z.string().optional(),
     summary: z.string().optional(),
+    // Hvis false vises begivenheden ikke på forsiden (kun på /kalender og i ICS-feedet).
+    showOnHome: z.boolean().default(true),
   }),
 });
 

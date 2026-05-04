@@ -79,6 +79,18 @@ Brødtekst i markdown her.
 
 Samme princip for `events/`, `info/` og `documents/`.
 
+### Skjul en begivenhed på forsiden
+
+Tilføj `showOnHome: false` i frontmatter — så vises begivenheden kun på `/kalender` og i ICS-feedet, ikke i forsidens "Det sker"-blok:
+
+```markdown
+---
+title: Bestyrelsesmøde
+date: 2026-08-15T19:00
+showOnHome: false
+---
+```
+
 ## Tilføj et dokument
 
 1. Læg PDF'en i `public/docs/` — fx `public/docs/2026-referat.pdf`.
