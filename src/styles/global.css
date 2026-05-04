@@ -228,16 +228,18 @@ p { margin: 0 0 var(--space-4); }
 
 .skip-link {
   position: absolute;
-  top: -40px;
+  top: 0;
   left: 0;
+  transform: translateY(-100%);
   background: var(--color-accent);
   color: var(--color-on-accent);
   padding: 0.5rem 1rem;
   z-index: 1000;
+  transition: transform 0.15s ease;
 }
 
 .skip-link:focus {
-  top: 0;
+  transform: translateY(0);
 }
 
 .prose {
