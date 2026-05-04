@@ -32,9 +32,9 @@ jobs:
         uses: actions/cache@v4
         with:
           path: scripts/.translation-cache.json
-          key: translation-cache-${{ github.run_id }}
+          key: translation-cache-v2-${{ github.run_id }}
           restore-keys: |
-            translation-cache-
+            translation-cache-v2-
 
       - name: Build site (Astro + MyMemory + Pagefind)
         run: npm run build

@@ -73,6 +73,8 @@ async function* walk(dir) {
 function shouldSkip($, el) {
   let cur = el;
   while (cur && cur.type !== 'root') {
+    // Cheerio uses type 'script' / 'style' for those elements, not 'tag'
+    if (cur.type === 'script' || cur.type === 'style') return true;
     if (cur.type === 'tag') {
       const name = cur.name?.toLowerCase();
       if (SKIP_TAGS.has(name)) return true;
