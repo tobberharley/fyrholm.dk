@@ -28,8 +28,10 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Build site (Astro + Pagefind)
+      - name: Build site (Astro + DeepL + Pagefind)
         run: npm run build
+        env:
+          DEEPL_API_KEY: ${{ secrets.DEEPL_API_KEY }}
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3

@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro build && pagefind --site dist",
+    "build": "astro build && node scripts/translate-build.mjs && pagefind --site dist",
     "preview": "astro preview",
     "astro": "astro",
     "cms": "decap-server"
@@ -17,6 +17,7 @@
     "astro": "^5.0.0"
   },
   "devDependencies": {
+    "cheerio": "^1.2.0",
     "decap-server": "^3.1.0",
     "pagefind": "^1.1.1"
   }
