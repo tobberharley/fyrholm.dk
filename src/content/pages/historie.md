@@ -43,15 +43,6 @@ Fyrholms gårdanlæg er udformet, så det på mange måder ligner Begijnhof: en 
   <figcaption>Fyrholm under opførelse på Sluseholmen, ca. 2005–2006. <span style="opacity:.7">Foto: Gröning Arkitekter</span></figcaption>
 </figure>
 
-## C.F. Møllers to facader
-
-C.F. Møller har udarbejdet facader på **to bygninger** i boligkarréen Fyrholm — én af i alt otte boligøer i den sydlige del af Københavns Havn. Det koordinerende arkitektfirma **Gröning ApS** udarbejdede boligplaner og råhus for hele karréen, mens fem andre arkitektfirmaer tegnede facader til hver et eller flere huse.
-
-De to facader fra C.F. Møller er:
-
-- Et **syvetagers hjørnehus** inspireret af pakhusets opadstræbende format.
-- Et **fireetagers kanalhus med karnapper**, hvis overflade reflekterer og fremhæver vandet.
-
 ## Anerkendelse fra Forskønnelsen
 
 I **2007** blev hele Sluseholmen — herunder Fyrholm — præmieret af [Foreningen til Hovedstadens Forskønnelse](https://da.wikipedia.org/wiki/Forsk%C3%B8nnelsen). Foreningen, der er stiftet i 1885 af blandt andre brygger Carl Jacobsen, diplomerer hvert år bygninger, byrum og initiativer, der virker til hovedstadens udvikling og forskønnelse.
