@@ -30,6 +30,12 @@ Telefon **112** viderestiller til den rigtige myndighed:
 
 Beredskabsplanen for beboerne ligger på fyrholm.dk. **Det er bestyrelsens ansvar, at denne information altid er opdateret.**
 
+## Brandveje skal holdes fri
+
+Brandvæsenet skal kunne komme frem til ejendommen i en nødsituation. Hold derfor altid **brandveje og redningsarealer fri** for biler, cykler, ladcykler, pap og storskrald.
+
+[Forskrifter for brandveje (PDF)](/fyrholm.dk/docs/forskrifter-brandveje.pdf)
+
 ## Efter en overstået krisebegivenhed
 
 1. **Oprydning og bortskaffelse af ødelagt materiale** — bestyrelsen koordinerer bortskaffelse af ødelagt materiale fra fællesarealer i samarbejde med viceværten. Beboerne er selv ansvarlige for at bortskaffe ødelagt materiale fra beboerrum og lejligheder. **Bortskaffelse og evt. reparationer må ikke ske, før forsikringen har givet tilladelse.**
