@@ -279,6 +279,155 @@ function applyTranslations($, cache) {
   $('html').attr('lang', 'en');
 }
 
+// ---------- Calendar (ICS) handling ----------
+
+const ICS_TRANSLATABLE_PROPS = new Set([
+  'SUMMARY',
+  'DESCRIPTION',
+  'LOCATION',
+  'X-WR-CALNAME',
+  'X-WR-CALDESC',
+]);
+
+// Unfold RFC 5545 line continuations: a line starting with space/tab joins the previous line.
+function icsUnfold(content) {
+  const lines = content.split(/\r?\n/);
+  const out = [];
+  for (const line of lines) {
+    if ((line.startsWith(' ') || line.startsWith('\t')) && out.length) {
+      out[out.length - 1] += line.slice(1);
+    } else {
+      out.push(line);
+    }
+  }
+  return out;
+}
+
+// Fold long lines back to RFC 5545's 75-octet limit (counting bytes, but chars≈bytes for our content).
+function icsFold(line) {
+  if (line.length <= 75) return line;
+  const out = [line.slice(0, 75)];
+  let rest = line.slice(75);
+  while (rest.length > 0) {
+    out.push(' ' + rest.slice(0, 74));
+    rest = rest.slice(74);
+  }
+  return out.join('\r\n');
+}
+
+function icsParseProp(line) {
+  // Find the colon that separates name(+params) from value, but not one inside quoted params.
+  let inQuotes = false;
+  for (let i = 0; i < line.length; i++) {
+    const c = line[i];
+    if (c === '"') inQuotes = !inQuotes;
+    else if (c === ':' && !inQuotes) {
+      const head = line.slice(0, i);
+      const value = line.slice(i + 1);
+      const semi = head.indexOf(';');
+      const name = (semi === -1 ? head : head.slice(0, semi)).toUpperCase();
+      return { name, head, value };
+    }
+  }
+  return null;
+}
+
+function unescapeIcsText(s) {
+  return s
+    .replace(/\\n/gi, '\n')
+    .replace(/\\,/g, ',')
+    .replace(/\\;/g, ';')
+    .replace(/\\\\/g, '\\');
+}
+
+function escapeIcsText(s) {
+  return s
+    .replace(/\\/g, '\\\\')
+    .replace(/\n/g, '\\n')
+    .replace(/,/g, '\\,')
+    .replace(/;/g, '\\;');
+}
+
+function collectIcsTexts(content) {
+  const texts = new Set();
+  for (const line of icsUnfold(content)) {
+    const prop = icsParseProp(line);
+    if (!prop) continue;
+    if (!ICS_TRANSLATABLE_PROPS.has(prop.name)) continue;
+    const v = unescapeIcsText(prop.value).trim();
+    if (v) texts.add(v);
+  }
+  return [...texts];
+}
+
+function applyIcsTranslations(content, cache) {
+  const lines = icsUnfold(content);
+  const out = [];
+  for (const line of lines) {
+    const prop = icsParseProp(line);
+    if (!prop || !ICS_TRANSLATABLE_PROPS.has(prop.name)) {
+      out.push(icsFold(line));
+      continue;
+    }
+    const original = unescapeIcsText(prop.value);
+    const trimmed = original.trim();
+    const t = cache[sha1(trimmed)];
+    if (t == null) {
+      out.push(icsFold(line));
+      continue;
+    }
+    // Preserve PRODID/lang hints by replacing only the value portion.
+    const newLine = `${prop.head}:${escapeIcsText(t)}`;
+    out.push(icsFold(newLine));
+  }
+  // ICS uses CRLF
+  return out.join('\r\n') + '\r\n';
+}
+
+// Rewrite calendar subscribe URLs on EN pages so they point to /en/kalender.ics.
+function rewriteCalendarUrls($) {
+  const swap = (u) => {
+    if (!u) return u;
+    return u.replace(/(https?:\/\/[^/]+)?(\/fyrholm\.dk)\/kalender\.ics/g, '$1$2/en/kalender.ics')
+      .replace(/(webcal:\/\/[^/]+)(\/fyrholm\.dk)\/kalender\.ics/g, '$1$2/en/kalender.ics');
+  };
+
+  $('.cal-subscribe').each(function () {
+    const $el = $(this);
+    for (const attr of ['data-https-url', 'data-webcal-url']) {
+      const v = $el.attr(attr);
+      if (v) $el.attr(attr, swap(v));
+    }
+    // Google URL has the https URL urlencoded inside cid=...
+    const g = $el.attr('data-google-url');
+    if (g) {
+      $el.attr(
+        'data-google-url',
+        g.replace(/cid=([^&]+)/, (_m, enc) => {
+          try {
+            return 'cid=' + encodeURIComponent(swap(decodeURIComponent(enc)));
+          } catch {
+            return _m;
+          }
+        }),
+      );
+    }
+  });
+
+  $('.cal-subscribe a.cal-primary[href]').each(function () {
+    const $el = $(this);
+    $el.attr('href', swap($el.attr('href')));
+  });
+  $('.cal-subscribe input[type="text"][value]').each(function () {
+    const $el = $(this);
+    $el.attr('value', swap($el.attr('value')));
+  });
+  $('.cal-subscribe button[data-url]').each(function () {
+    const $el = $(this);
+    $el.attr('data-url', swap($el.attr('data-url')));
+  });
+}
+
 function rewriteLinks($) {
   const rewrite = (val) => {
     if (!val) return val;
@@ -329,6 +478,18 @@ async function main() {
     for (const t of collectTexts($)) allTexts.add(t);
   }
 
+  // Also collect ICS texts so SUMMARY/DESCRIPTION/LOCATION/CALNAME/CALDESC get translated.
+  const icsFiles = [];
+  for await (const f of walk(DIST)) {
+    if (f.endsWith('.ics')) icsFiles.push(f);
+  }
+  const icsContents = new Map();
+  for (const file of icsFiles) {
+    const content = await readFile(file, 'utf8');
+    icsContents.set(file, content);
+    for (const t of collectIcsTexts(content)) allTexts.add(t);
+  }
+
   console.log(`  · ${allTexts.size} unique strings`);
   await translateAll([...allTexts], cache);
   await saveCache(cache);
@@ -336,11 +497,22 @@ async function main() {
   for (const { file, $ } of docs) {
     applyTranslations($, cache);
     rewriteLinks($);
+    rewriteCalendarUrls($);
     const rel = path.relative(DIST, file);
     const out = path.join(EN_DIR, rel);
     await ensureDir(path.dirname(out));
     await writeFile(out, $.html());
   }
+
+  // Write translated kalender.ics for the EN site
+  for (const [file, content] of icsContents) {
+    const enContent = applyIcsTranslations(content, cache);
+    const rel = path.relative(DIST, file);
+    const out = path.join(EN_DIR, rel);
+    await ensureDir(path.dirname(out));
+    await writeFile(out, enContent);
+  }
+  if (icsFiles.length) console.log(`  · wrote ${icsFiles.length} translated .ics file(s)`);
 
   const en404 = path.join(EN_DIR, '404.html');
   if (existsSync(path.join(DIST, '404.html')) && !existsSync(en404)) {
