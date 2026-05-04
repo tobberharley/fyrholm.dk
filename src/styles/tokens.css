@@ -1,38 +1,37 @@
 :root {
-  /* Color palette — warm, calm, water-side */
-  --color-bg: #fbfaf7;
-  --color-bg-soft: #f1ede4;
-  --color-bg-muted: #e7e1d3;
-  --color-text: #1a1f1c;
-  --color-text-muted: #5a5e57;
-  --color-border: #ddd6c6;
-  --color-border-strong: #c5bda9;
+  /* Palette inspired by Fyrholm: yellow-brown brick, harbour water, white window frames */
+  --color-bg: #f6f1e7;          /* warm limestone */
+  --color-bg-soft: #ece4d2;     /* sand */
+  --color-bg-muted: #ddd1b8;    /* deep sand */
+  --color-text: #1a2730;        /* near-black with a blue undertone */
+  --color-text-muted: #5d6873;
+  --color-border: #d6cab2;
+  --color-border-strong: #b8a987;
 
-  /* Primary: deep harbour green */
-  --color-accent: #2f4a3a;
-  --color-accent-hover: #233929;
-  --color-accent-soft: #dfe7e0;
+  /* Primary: deep harbour blue (kanal-vandet) */
+  --color-accent: #1f3d4d;
+  --color-accent-hover: #163040;
+  --color-accent-soft: #d3dee5;
   --color-on-accent: #ffffff;
 
-  /* Secondary: warm copper for highlights, badges, links-in-overlays */
-  --color-highlight: #b07a3a;
-  --color-highlight-soft: #f4ead9;
+  /* Secondary: brick ochre (facademurværket) */
+  --color-highlight: #b87a3c;
+  --color-highlight-soft: #ecdcc1;
 
-  /* Typography */
-  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
-  --font-serif: "Fraunces", "Georgia", "Cambria", "Times New Roman", serif;
-  --font-feature-default: "ss01", "cv11";
+  /* Typography — editorial serif for display, neutral sans for UI */
+  --font-sans: "Inter Tight", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  --font-serif: "Instrument Serif", "Georgia", "Cambria", "Times New Roman", serif;
 
   /* Sizing */
-  --radius-sm: 8px;
-  --radius-md: 14px;
-  --radius-lg: 22px;
-  --radius-xl: 36px;
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --radius-xl: 28px;
 
-  --shadow-xs: 0 1px 2px rgba(28, 35, 30, 0.04);
-  --shadow-sm: 0 2px 6px rgba(28, 35, 30, 0.05);
-  --shadow-md: 0 8px 22px rgba(28, 35, 30, 0.08);
-  --shadow-lg: 0 18px 40px rgba(28, 35, 30, 0.12);
+  --shadow-xs: 0 1px 2px rgba(26, 39, 48, 0.05);
+  --shadow-sm: 0 2px 6px rgba(26, 39, 48, 0.06);
+  --shadow-md: 0 8px 22px rgba(26, 39, 48, 0.10);
+  --shadow-lg: 0 18px 40px rgba(26, 39, 48, 0.14);
 
   --container-max: 1200px;
   --container-narrow: 760px;
