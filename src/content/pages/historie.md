@@ -5,7 +5,7 @@ updated: 2026-05-03
 ---
 
 <figure>
-  <img src="/fyrholm.dk/images/historie/fyrholm-gaardrum.jpg" alt="Fyrholms gårdrum med græsplæne, hollandsk-inspireret anlag" loading="lazy" />
+  <img src="/fyrholm.dk/images/historie/fyrholm-gaardrum.jpg" alt="Fyrholms gårdrum med græsplæne, hollandsk-inspireret anlag" loading="lazy" width="1500" height="1000" />
   <figcaption>Gårdrummet i Fyrholm — inspireret af Begijnhof i Amsterdam. <span style="opacity:.7">Foto: Gröning Arkitekter</span></figcaption>
 </figure>
 
@@ -28,7 +28,7 @@ Københavns Kommune og arkitekterne bag Fyrholm-karréen har arbejdet bevidst me
 I tråd med Sjoerd Soeters' dogme er **alle facaderne på Fyrholm forskellige**. Arkitekt **Claus Gröning** ønskede til gengæld en kontrast indvendigt — et sted, der kunne tilføre ro.
 
 <figure>
-  <img src="/fyrholm.dk/images/historie/fyrholm-facader.jpg" alt="Fyrholm set fra havneløbet med varierede facader" loading="lazy" />
+  <img src="/fyrholm.dk/images/historie/fyrholm-facader.jpg" alt="Fyrholm set fra havneløbet med varierede facader" loading="lazy" width="1500" height="1000" />
   <figcaption>Sjoerd Soeters' dogme: hver karré består af en række forskellige facader, så bydelen fremstår varieret som en klassisk havneby. <span style="opacity:.7">Foto: Gröning Arkitekter</span></figcaption>
 </figure>
 
@@ -39,7 +39,7 @@ Fyrholms gårdanlæg er udformet, så det på mange måder ligner Begijnhof: en 
 ## Byggeriet
 
 <figure>
-  <img src="/fyrholm.dk/images/historie/fyrholm-byggeri.jpg" alt="Fyrholm under opførelse — karréen rejser sig på Sluseholmen" loading="lazy" />
+  <img src="/fyrholm.dk/images/historie/fyrholm-byggeri.jpg" alt="Fyrholm under opførelse — karréen rejser sig på Sluseholmen" loading="lazy" width="1000" height="750" />
   <figcaption>Fyrholm under opførelse på Sluseholmen, ca. 2005–2006. <span style="opacity:.7">Foto: Gröning Arkitekter</span></figcaption>
 </figure>
 
@@ -52,7 +52,7 @@ Bygherrerne for Sluseholmens otte holme blev præmieret i fællesskab: Finansgru
 Som tegn på prisen sidder Forskønnelsens diplom-plade på facaden af de præmierede bygninger:
 
 <figure>
-  <img src="/fyrholm.dk/images/forskonnelsen-diplom.jpg" alt="Diplom-plade fra Foreningen til Hovedstadens Forskønnelse" loading="lazy" />
+  <img src="/fyrholm.dk/images/forskonnelsen-diplom.jpg" alt="Diplom-plade fra Foreningen til Hovedstadens Forskønnelse" loading="lazy" width="1400" height="885" />
   <figcaption>Hovedstadens Forskønnelse — diplom-plade (eksempel fra 2000). <span style="opacity:.7">Foto: <a href="https://commons.wikimedia.org/wiki/File:Hovedstadens_Forsk%C3%B8nnelse_Diplom_2000_(15325731911).jpg">Wikimedia Commons</a>, CC BY 2.0</span></figcaption>
 </figure>
 
