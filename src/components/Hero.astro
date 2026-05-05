@@ -51,13 +51,17 @@ const heroCredit = (site as any).heroCredit as string | undefined;
   /* hero-bg is the <img> from <Picture /> — make it fill the hero */
   .hero-bg {
     position: absolute;
-    inset: 0;
+    /* Elementet er 133 % højt og forskydes 33 % opad: de øverste 25 % af billedet
+       er altid skjult (klippes af hero's overflow:hidden), mens midterlinjen (50 %)
+       altid er synlig. */
+    top: -33.33%;
+    left: 0;
+    right: 0;
     width: 100%;
-    height: 100%;
+    height: 133.33%;
     z-index: -2;
     display: block;
     object-fit: cover;
-    /* Fasthold midterlinjen (50 %) synlig ved resize — 25 % af midten ses altid. */
     object-position: center center;
   }
 
