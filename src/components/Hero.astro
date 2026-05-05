@@ -57,8 +57,8 @@ const heroCredit = (site as any).heroCredit as string | undefined;
     z-index: -2;
     display: block;
     object-fit: cover;
-    /* Fasthold 25 % af midterlinjen synlig ved resize. */
-    object-position: center 25%;
+    /* Fasthold midterlinjen (50 %) synlig ved resize — 25 % af midten ses altid. */
+    object-position: center center;
   }
 
   /* Subtil gradient kun nederst — bygningen skal bære */
