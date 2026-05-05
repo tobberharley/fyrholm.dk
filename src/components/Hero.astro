@@ -57,8 +57,8 @@ const heroCredit = (site as any).heroCredit as string | undefined;
     z-index: -2;
     display: block;
     object-fit: cover;
-    /* Fasthold toppen af billedet (himmel over bygningen) ved resize. */
-    object-position: center top;
+    /* Fasthold 25 % af midterlinjen synlig ved resize. */
+    object-position: center 25%;
   }
 
   /* Subtil gradient kun nederst — bygningen skal bære */
