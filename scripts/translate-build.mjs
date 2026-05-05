@@ -439,15 +439,83 @@ function rewriteLinks($) {
     return `${SITE_BASE}/en${after}`;
   };
 
+  // Whitelisted assets to mirror under /en/ when present (xml/json content the EN site has its own copy of)
+  const mirrorAsset = (val) => {
+    if (!val) return val;
+    if (!val.startsWith(SITE_BASE)) return val;
+    if (val.startsWith(`${SITE_BASE}/en/`)) return val;
+    const after = val.slice(SITE_BASE.length);
+    if (after === '/rss.xml') return `${SITE_BASE}/en/rss.xml`;
+    return val;
+  };
+
   $('a[href]').each(function () {
     const $el = $(this);
-    $el.attr('href', rewrite($el.attr('href')));
+    let href = $el.attr('href');
+    href = mirrorAsset(href);
+    href = rewrite(href);
+    $el.attr('href', href);
+  });
+  $('form[action]').each(function () {
+    const $el = $(this);
+    $el.attr('action', rewrite($el.attr('action')));
+  });
+  $('link[rel="alternate"][href]').each(function () {
+    const $el = $(this);
+    $el.attr('href', mirrorAsset($el.attr('href')));
   });
   $('link[rel="canonical"]').remove();
 }
 
 async function ensureDir(dir) {
   await mkdir(dir, { recursive: true });
+}
+
+// ---------- RSS (XML) handling ----------
+
+const RSS_TRANSLATABLE_TAGS = ['title', 'description'];
+
+function collectRssTexts(content) {
+  const texts = new Set();
+  const re = new RegExp(`<(${RSS_TRANSLATABLE_TAGS.join('|')})>([\\s\\S]*?)</\\1>`, 'g');
+  let m;
+  while ((m = re.exec(content)) !== null) {
+    let v = m[2].trim();
+    if (!v) continue;
+    // Strip CDATA
+    const cdata = v.match(/^<!\[CDATA\[([\s\S]*)\]\]>$/);
+    if (cdata) v = cdata[1].trim();
+    if (v) texts.add(v);
+  }
+  return [...texts];
+}
+
+function applyRssTranslations(content, cache) {
+  const re = new RegExp(`<(${RSS_TRANSLATABLE_TAGS.join('|')})>([\\s\\S]*?)</\\1>`, 'g');
+  let out = content.replace(re, (full, tag, body) => {
+    let inner = body.trim();
+    let wrapper = (s) => `<${tag}>${s}</${tag}>`;
+    const cdata = inner.match(/^<!\[CDATA\[([\s\S]*)\]\]>$/);
+    if (cdata) {
+      inner = cdata[1].trim();
+      wrapper = (s) => `<${tag}><![CDATA[${s}]]></${tag}>`;
+    }
+    if (!inner) return full;
+    const t = cache[sha1(inner)];
+    if (t == null) return full;
+    return wrapper(t);
+  });
+  // Rewrite item <link> URLs to /en/
+  out = out.replace(/<link>([^<]+)<\/link>/g, (full, url) => {
+    if (url.includes(`${SITE_BASE}/en/`)) return full;
+    if (url.includes(SITE_BASE) && !/\.(pdf|jpg|jpeg|png|webp|gif|svg|ico|xml)(\?|$|#)/i.test(url)) {
+      return `<link>${url.replace(SITE_BASE, `${SITE_BASE}/en`)}</link>`;
+    }
+    return full;
+  });
+  // Update channel <language>
+  out = out.replace(/<language>[^<]*<\/language>/, '<language>en-gb</language>');
+  return out;
 }
 
 async function main() {
@@ -490,6 +558,18 @@ async function main() {
     for (const t of collectIcsTexts(content)) allTexts.add(t);
   }
 
+  // Collect RSS/XML feed texts
+  const xmlFiles = [];
+  for await (const f of walk(DIST)) {
+    if (f.endsWith('.xml') && /rss|atom|feed/i.test(path.basename(f))) xmlFiles.push(f);
+  }
+  const xmlContents = new Map();
+  for (const file of xmlFiles) {
+    const content = await readFile(file, 'utf8');
+    xmlContents.set(file, content);
+    for (const t of collectRssTexts(content)) allTexts.add(t);
+  }
+
   console.log(`  · ${allTexts.size} unique strings`);
   await translateAll([...allTexts], cache);
   await saveCache(cache);
@@ -513,6 +593,16 @@ async function main() {
     await writeFile(out, enContent);
   }
   if (icsFiles.length) console.log(`  · wrote ${icsFiles.length} translated .ics file(s)`);
+
+  // Write translated RSS/XML feeds
+  for (const [file, content] of xmlContents) {
+    const enContent = applyRssTranslations(content, cache);
+    const rel = path.relative(DIST, file);
+    const out = path.join(EN_DIR, rel);
+    await ensureDir(path.dirname(out));
+    await writeFile(out, enContent);
+  }
+  if (xmlFiles.length) console.log(`  · wrote ${xmlFiles.length} translated feed file(s)`);
 
   const en404 = path.join(EN_DIR, '404.html');
   if (existsSync(path.join(DIST, '404.html')) && !existsSync(en404)) {
