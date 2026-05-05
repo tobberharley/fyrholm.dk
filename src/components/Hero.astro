@@ -1,22 +1,24 @@
 ---
+import { Picture } from 'astro:assets';
+import heroImgSrc from '../assets/images/fyrholm-cfmoller.jpg';
 import site from '../data/site.json';
 import { link } from '../lib/url';
 
-const heroImage = (site as any).heroImage as string | undefined;
 const heroImageAlt = (site as any).heroImageAlt as string | undefined;
 const heroCredit = (site as any).heroCredit as string | undefined;
 ---
 
 <section class="hero" aria-label="Fyrholm set fra havneløbet">
-  {heroImage && (
-    <img
-      class="hero-bg"
-      src={link(heroImage)}
-      alt={heroImageAlt ?? ''}
-      loading="eager"
-      fetchpriority="high"
-    />
-  )}
+  <Picture
+    class="hero-bg"
+    src={heroImgSrc}
+    alt={heroImageAlt ?? ''}
+    widths={[640, 1024, 1440, 1800]}
+    formats={['avif', 'webp']}
+    sizes="100vw"
+    loading="eager"
+    fetchpriority="high"
+  />
   <div class="hero-overlay" aria-hidden="true"></div>
   <div class="container hero-inner">
     <div class="hero-text">
@@ -46,15 +48,23 @@ const heroCredit = (site as any).heroCredit as string | undefined;
     border-bottom: 1px solid var(--color-border);
   }
 
+  /* hero-bg is the <picture> wrapper from <Picture /> — make it fill the hero */
   .hero-bg {
     position: absolute;
     inset: 0;
     width: 100%;
     height: 100%;
+    z-index: -2;
+    display: block;
+  }
+
+  .hero-bg img {
+    width: 100%;
+    height: 100%;
     object-fit: cover;
     /* Billedets midterlinje på midten af hero. */
     object-position: center center;
-    z-index: -2;
+    display: block;
   }
 
   /* Subtil gradient kun nederst — bygningen skal bære */
