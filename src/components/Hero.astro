@@ -52,8 +52,8 @@ const heroCredit = (site as any).heroCredit as string | undefined;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    /* Forankret til bunden, så toppen af kildebilledet beskaeres først. */
-    object-position: center bottom;
+    /* Forankret til toppen, så bunden af kildebilledet (vandet) beskæres først. */
+    object-position: center top;
     z-index: -2;
   }
 
