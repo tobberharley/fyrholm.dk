@@ -9,15 +9,13 @@ const heroCredit = (site as any).heroCredit as string | undefined;
 
 <section class="hero" aria-label="Fyrholm set fra havneløbet">
   {heroImage && (
-    <div class="hero-bg-wrap" aria-hidden="true">
-      <img
-        class="hero-bg"
-        src={link(heroImage)}
-        alt={heroImageAlt ?? ''}
-        loading="eager"
-        fetchpriority="high"
-      />
-    </div>
+    <img
+      class="hero-bg"
+      src={link(heroImage)}
+      alt={heroImageAlt ?? ''}
+      loading="eager"
+      fetchpriority="high"
+    />
   )}
   <div class="hero-overlay" aria-hidden="true"></div>
   <div class="container hero-inner">
@@ -41,30 +39,22 @@ const heroCredit = (site as any).heroCredit as string | undefined;
     width: 100%;
     height: clamp(520px, 60vw, 760px);
     display: flex;
-    align-items: flex-end;
+    align-items: center;
     overflow: hidden;
     background: var(--color-accent);
     color: #fff;
     border-bottom: 1px solid var(--color-border);
   }
 
-  .hero-bg-wrap {
-    position: absolute;
-    inset: 0;
-    overflow: hidden;
-    z-index: -2;
-  }
-
   .hero-bg {
     position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    inset: 0;
     width: 100%;
-    /* Højden er 100% / 0.9 ≈ 111.11%, forankret til bunden, så toppen af kildebilledet (10%) klippes væk. */
-    height: calc(100% / 0.9);
+    height: 100%;
     object-fit: cover;
+    /* Forankret til bunden, så toppen af kildebilledet beskaeres først. */
     object-position: center bottom;
+    z-index: -2;
   }
 
   /* Subtil gradient kun nederst — bygningen skal bære */
@@ -85,12 +75,10 @@ const heroCredit = (site as any).heroCredit as string | undefined;
     width: 100%;
     padding-top: var(--space-6);
     padding-bottom: var(--space-7);
-    text-align: center;
   }
 
   .hero-text {
     max-width: 60ch;
-    margin: 0 auto;
   }
 
   .hero h1 {
@@ -121,7 +109,7 @@ const heroCredit = (site as any).heroCredit as string | undefined;
     color: #fff;
     font-size: 1.15rem;
     max-width: 52ch;
-    margin: 0 auto;
+    margin-bottom: 0;
     line-height: 1.6;
     text-wrap: pretty;
   }
@@ -131,7 +119,6 @@ const heroCredit = (site as any).heroCredit as string | undefined;
     flex-wrap: wrap;
     gap: var(--space-3);
     margin-top: var(--space-5);
-    justify-content: center;
   }
 
   .btn-light {
