@@ -39,6 +39,14 @@ const pathname = base && rawPath.startsWith(base) ? rawPath.slice(base.length) |
       </ul>
     </nav>
     <div class="header-actions">
+      <form class="header-search" role="search" action={link('/sog')} method="get">
+        <label class="visually-hidden" for="header-search-input">Søg</label>
+        <svg class="header-search-icon" aria-hidden="true" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input id="header-search-input" type="search" name="q" placeholder="Søg…" autocomplete="off" />
+      </form>
+      <a href={link('/sog')} class="header-search-link" aria-label="Søg">
+        <svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      </a>
       <LanguageToggle />
     </div>
   </div>
@@ -69,6 +77,56 @@ const pathname = base && rawPath.startsWith(base) ? rawPath.slice(base.length) |
     align-items: center;
     gap: var(--space-3);
     margin-left: var(--space-3);
+  }
+
+  .header-search {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  .header-search-icon {
+    position: absolute;
+    left: 10px;
+    color: var(--color-text-muted);
+    pointer-events: none;
+  }
+  .header-search input[type='search'] {
+    appearance: none;
+    -webkit-appearance: none;
+    border: 1px solid var(--color-border);
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 999px;
+    font: inherit;
+    font-size: 0.9rem;
+    padding: 0.4rem 0.8rem 0.4rem 2rem;
+    width: 14rem;
+    color: var(--color-text);
+    transition: border-color 0.15s ease, background 0.15s ease, width 0.2s ease;
+  }
+  .header-search input[type='search']:focus {
+    outline: none;
+    border-color: var(--color-accent);
+    background: #fff;
+  }
+  .header-search input[type='search']::-webkit-search-cancel-button { cursor: pointer; }
+
+  .header-search-link {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    color: var(--color-text);
+    border-radius: 999px;
+  }
+  .header-search-link:hover { background: rgba(0,0,0,0.05); text-decoration: none; }
+
+  .visually-hidden {
+    position: absolute !important;
+    width: 1px; height: 1px;
+    padding: 0; margin: -1px;
+    overflow: hidden; clip: rect(0,0,0,0);
+    white-space: nowrap; border: 0;
   }
 
   .logo {
@@ -157,6 +215,8 @@ const pathname = base && rawPath.startsWith(base) ? rawPath.slice(base.length) |
 
   @media (max-width: 820px) {
     .nav-toggle { display: flex; }
+    .header-search { display: none; }
+    .header-search-link { display: inline-flex; }
 
     .primary-nav {
       position: absolute;
