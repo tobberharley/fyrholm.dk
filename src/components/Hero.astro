@@ -1,6 +1,6 @@
 ---
 import { Picture } from 'astro:assets';
-import heroImgSrc from '../assets/images/fyrholm-cfmoller.jpg';
+import heroImgSrc from '../assets/images/fyrholm-harbor.jpg';
 import site from '../data/site.json';
 import { link } from '../lib/url';
 
@@ -51,18 +51,15 @@ const heroCredit = (site as any).heroCredit as string | undefined;
   /* hero-bg is the <img> from <Picture /> — make it fill the hero */
   .hero-bg {
     position: absolute;
-    /* Elementet er 133 % højt og forskydes 33 % opad: de øverste 25 % af billedet
-       er altid skjult (klippes af hero's overflow:hidden), mens midterlinjen (50 %)
-       altid er synlig. */
-    top: -33.33%;
+    top: 0;
     left: 0;
     right: 0;
     width: 100%;
-    height: 133.33%;
+    height: 100%;
     z-index: -2;
     display: block;
     object-fit: cover;
-    object-position: center center;
+    object-position: center top;
   }
 
   /* Subtil gradient kun nederst — bygningen skal bære */
