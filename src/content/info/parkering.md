@@ -3,6 +3,7 @@ title: Parkering
 category: Beboerinfo
 date: 2026-02-15
 order: 2
+imageAlt: ''
 summary: Information om parkering for beboere og gæster, herunder vores egen parkeringskælder med el-bil ladestandere.
 ---
 
@@ -21,7 +22,7 @@ Se også:
 
 ### Lån en plads via p-gruppen
 
-Har du brug for en plads til dig selv eller en gæst, kan du låne en ledig plads via vores **[p-kælder-gruppe på Facebook](https://www.facebook.com/groups/600797924139257)**. Husk at:
+Har du brug for en plads til dig selv eller en gæst, kan du låne en ledig plads via vores [**p-kælder-gruppe på Facebook**](https://www.facebook.com/groups/600797924139257). Husk at:
 
 - **Registrere lånet korrekt**, inden pladsen tages i brug.
 - Kun benytte den plads, du har fået lov at låne.
@@ -47,7 +48,7 @@ Siden **9. april 2025** er **plads nr. 142 og 143** lavet om til timeparkering. 
 
 ### Parkering på vejene udenfor
 
-Vejene på Sluseholmen Nord er **private fællesveje** ejet af Grundejerforeningen Sluseholmen Nord (ikke Københavns Kommune). Vejen *Sluseholmen* selv ejes af Vejlauget.
+Vejene på Sluseholmen Nord er **private fællesveje** ejet af Grundejerforeningen Sluseholmen Nord (ikke Københavns Kommune). Vejen _Sluseholmen_ selv ejes af Vejlauget.
 
 #### På Dexter Gordons Vej, Ben Websters Vej og Richard Boones Vej
 
@@ -67,7 +68,7 @@ Kontakt de enkelte boligforeninger direkte.
 
 Hvis du bor i Grundejerforeningen Sluseholmen Nord (Sluseholmen 18–44, Thad Jones Vej, Richard Boones Vej, Dexter Gordons Vej, Ben Websters Vej, Ernie Wilkins Vej, Kenny Drews Vej, Oscar Pettifords Vej), kan du købe beboerlicens via Apcoa:
 
-👉 **[Køb beboerlicens på parkering.apcoa.dk](https://parkering.apcoa.dk/products?productId=cdd9c6a542a0486caf4230b0fba6e763)**
+👉 [**Køb beboerlicens på parkering.apcoa.dk**](https://parkering.apcoa.dk/products?productId=cdd9c6a542a0486caf4230b0fba6e763)
 
 1. Det rigtige produkt er forudvalgt — opret dig som bruger.
 2. Validér din bopæl med **MitID**.
@@ -84,4 +85,4 @@ Cykler stilles i cykelstativerne i gården eller i cykelkælderen. Cykler, der s
 
 ### Både og kajakker
 
-Fyrholm har egne bådpladser og en bådrampe direkte ind til gården, så mindre både, joller og kajakker kan trækkes på land. Kajakker administreres af **Kajaklauget** — se [Faciliteter og laug](/fyrholm.dk/faciliteter).
+Fyrholm har adgang til vandet direkte ind til gården, så SUP'er, kanoer og kajakker kan trækkes på land. Kajakker administreres af **Kajaklauget** — se [Faciliteter og laug](/fyrholm.dk/faciliteter).
